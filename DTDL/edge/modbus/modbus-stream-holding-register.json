@@ -1,0 +1,65 @@
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:io:tributech:stream:modbus:holdingregister;1",
+  "@type": "Interface",
+  "displayName": "Modbus Holding Register Stream",
+  "extends": "dtmi:io:tributech:stream:modbus:base;1",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "DataType",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "Boolean",
+            "enumValue": "Boolean",
+            "displayName": "Boolean"
+          },
+          {
+            "name": "Int32",
+            "enumValue": "Int32",
+            "displayName": "Int32"
+          },
+          {
+            "name": "Int64",
+            "enumValue": "Int64",
+            "displayName": "Int64"
+          },
+          {
+            "name": "Float",
+            "enumValue": "Float",
+            "displayName": "Float"
+          },
+          {
+            "name": "Double",
+            "enumValue": "Double",
+            "displayName": "Double"
+          },
+          {
+            "name": "ByteArray",
+            "enumValue": "ByteArray",
+            "displayName": "Byte Array"
+          },
+          {
+            "name": "ASCIIString",
+            "enumValue": "ASCIIString",
+            "displayName": "ASCII String"
+          }
+        ]
+      },
+      "writable": true,
+      "displayName": "Modbus device data type.",
+      "description": "Modbus device data type."
+    },
+    {
+      "@type": "Property",
+      "name": "Length",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Modbus device data length.",
+      "description": "Modbus device data length. Provide only for ByteArray and ASCIIString data types"
+    }
+  ]
+}

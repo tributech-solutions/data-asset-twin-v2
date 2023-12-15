@@ -1,0 +1,9 @@
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:io:tributech:stream:modbus:coil;1",
+  "@type": "Interface",
+  "displayName": "Modbus Coil Stream",
+  "extends": "dtmi:io:tributech:stream:modbus:base;1",
+  "contents": [
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:io:tributech:stream:modbus:base;1",
+  "@type": "Interface",
+  "displayName": "Modbus Base Stream",
+  "extends": "dtmi:io:tributech:stream:base;1",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Address",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Modbus device register address.",
+      "description": "Modbus device register address."
+    }
+  ]
+}

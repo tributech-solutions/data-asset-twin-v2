@@ -35,6 +35,12 @@
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/syslog/syslog-source.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/syslog/syslog-stream-base.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/syslog/syslog-stream-rfc3164.json",
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/syslog/syslog-stream-rfc5424.json"
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/syslog/syslog-stream-rfc5424.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/modbus/modbus-source.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/modbus/modbus-stream-base.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/modbus/modbus-stream-coil.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/modbus/modbus-stream-discrete-input.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/modbus/modbus-stream-holding-register.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/modbus/modbus-stream-input-register.json"
     ]
 } 
