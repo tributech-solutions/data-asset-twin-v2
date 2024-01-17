@@ -1,0 +1,75 @@
+{
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:io:tributech:source:modbus;1",
+    "@type": "Interface",
+    "extends": "dtmi:io:tributech:source:edge:base;1",
+    "displayName": "Modbus Source",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "DeviceIdentifier",
+            "schema": "integer",
+            "writable": true,
+            "displayName": "Modbus device identifier.",
+            "description": "Modbus device identifier, when not known use 1."
+        },
+        {
+            "@type": "Property",
+            "name": "DeviceHost",
+            "schema": "string",
+            "writable": true,
+            "displayName": "Modbus device ip address or host name.",
+            "description": "Modbus device ip address or host name."
+        },
+        {
+            "@type": "Property",
+            "name": "DevicePort",
+            "schema": "integer",
+            "writable": true,
+            "displayName": "Modbus device TCP port.",
+            "description": "Modbus device TCP port."
+        },
+        {
+            "@type": "Property",
+            "name": "DataEndianness",
+            "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                    {
+                        "name": "LittleEndian",
+                        "enumValue": "LittleEndian",
+                        "displayName": "Little endian",
+                        "description": "Little endian data layout, i.e. the least significant byte is transmitted first."
+                    },
+                    {
+                        "name": "BigEndian",
+                        "enumValue": "BigEndian",
+                        "displayName": "Big endian",
+                        "description": "Big endian data layout, i.e. the most significant byte is transmitted first."
+                    }
+                ]
+            },
+            "writable": true,
+            "displayName": "Modbus device data endianness.",
+            "description": "Modbus device data endianness."
+        },
+        {
+            "@type": "Property",
+            "name": "DataPullInterval",
+            "schema": "duration",
+            "writable": true,
+            "displayName": "Modbus device data pull interval.",
+            "description": "Modbus device data pull interval."
+        },
+        {
+            "@type": "Relationship",
+            "name": "Streams",
+            "minMultiplicity": 0,
+            "maxMultiplicity": 500,
+            "target": "dtmi:io:tributech:stream:modbus:base;1",
+            "displayName": "Streams",
+            "description": "Streams configuration."
+        }
+    ]
+}

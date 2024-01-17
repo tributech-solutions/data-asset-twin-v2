@@ -1,0 +1,9 @@
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:io:tributech:stream:modbus:discreteinput;1",
+  "@type": "Interface",
+  "displayName": "Modbus Discrete Input Stream",
+  "extends": "dtmi:io:tributech:stream:modbus:base;1",
+  "contents": [
+  ]
+}
