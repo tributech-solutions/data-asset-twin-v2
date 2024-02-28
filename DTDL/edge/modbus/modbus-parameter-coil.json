@@ -1,0 +1,17 @@
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:io:tributech:parameter:modbus:coil;1",
+  "@type": "Interface",
+  "displayName": "Modbus Coil Patameter",
+  "extends": "dtmi:io:tributech:parameter:modbus:base;1",
+  "contents": [
+    {
+      "@type" : "Property",
+      "name" : "Value",
+      "schema" : "boolean",
+      "writable" : true,
+      "displayName" : "Value",
+      "description" : "Value"
+    }
+  ]
+}
