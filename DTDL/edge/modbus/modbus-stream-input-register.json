@@ -18,14 +18,34 @@
             "displayName": "Boolean"
           },
           {
+            "name": "Int16",
+            "enumValue": "Int16",
+            "displayName": "Int16"
+          },
+          {
+            "name": "UInt16",
+            "enumValue": "UInt16",
+            "displayName": "Unsigned Int16"
+          },
+          {
             "name": "Int32",
             "enumValue": "Int32",
             "displayName": "Int32"
           },
           {
+            "name": "UInt32",
+            "enumValue": "UInt32",
+            "displayName": "Unsigned Int32"
+          },
+          {
             "name": "Int64",
             "enumValue": "Int64",
             "displayName": "Int64"
+          },
+          {
+            "name": "UInt64",
+            "enumValue": "UInt64",
+            "displayName": "Unsigned Int64"
           },
           {
             "name": "Float",

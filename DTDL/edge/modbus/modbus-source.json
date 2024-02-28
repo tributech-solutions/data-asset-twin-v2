@@ -63,6 +63,31 @@
             "description": "Modbus device data pull interval."
         },
         {
+            "@type": "Property",
+            "name": "RegisterAddressStart",
+            "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                    {
+                        "name": "One",
+                        "enumValue": "One",
+                        "displayName": "One",
+                        "description": "Modbus device data registers start at 1"
+                    },
+                    {
+                        "name": "Zero",
+                        "enumValue": "Zero",
+                        "displayName": "Zero",
+                        "description": "Modbus device data registers start at 0"
+                    }
+                ]
+            },
+            "writable": true,
+            "displayName": "Modbus device data registers start type.",
+            "description": "Modbus device data registers start type."
+        },
+        {
             "@type": "Relationship",
             "name": "Streams",
             "minMultiplicity": 0,
@@ -70,6 +95,15 @@
             "target": "dtmi:io:tributech:stream:modbus:base;1",
             "displayName": "Streams",
             "description": "Streams configuration."
+        },
+        {
+            "@type" : "Relationship",
+            "name" :"Parameters",
+            "minMultiplicity" : 0,
+            "maxMultiplicity" : 100,
+            "target": "dtmi:io:tributech:parameter:modbus:base;1",
+            "displayName" : "Parameters",
+            "description" : "Parameters configuration"
         }
     ]
 }
