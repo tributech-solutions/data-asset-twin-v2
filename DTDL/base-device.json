@@ -72,6 +72,16 @@
                         "name": "SHA256_RSA2048_PKCS1",
                         "displayName": "SHA256 RSA2048-PKCS1",
                         "enumValue": "SHA256_RSA2048_PKCS1"
+                    },
+                    {
+                        "name": "SHA256_ECDSAP256_RFC3279",
+                        "displayName": "SHA256 NIST P-256 RFC3279",
+                        "enumValue": "SHA256_ECDSAP256_RFC3279"
+                    },
+                    {
+                        "name": "SHA256_ECDSAP256_IEEEP1363",
+                        "displayName": "SHA256 NIST P-256 IEEEP1363",
+                        "enumValue": "SHA256_ECDSAP256_IEEEP1363"
                     }
                 ]
             },
