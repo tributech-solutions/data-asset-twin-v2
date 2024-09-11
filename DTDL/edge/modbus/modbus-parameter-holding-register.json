@@ -1,9 +1,9 @@
 {
   "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:io:tributech:stream:modbus:holdingregister;1",
+  "@id": "dtmi:io:tributech:parameter:modbus:holdingregister;1",
   "@type": "Interface",
-  "displayName": "Modbus Holding Register Stream",
-  "extends": "dtmi:io:tributech:stream:modbus:base;1",
+  "displayName": "Modbus Holding Register Patameter",
+  "extends": "dtmi:io:tributech:parameter:modbus:base;1",
   "contents": [
     {
       "@type": "Property",
@@ -74,12 +74,20 @@
       "description": "Modbus device data type."
     },
     {
+      "@type" : "Property",
+      "name" : "Value",
+      "schema" : "string",
+      "writable" : true,
+      "displayName" : "Value",
+      "description" : "Value which will be written to register(eg. 1 or [1,2,3,4] or 'test')"
+    },
+    {
       "@type": "Property",
       "name": "Length",
       "schema": "integer",
       "writable": true,
-      "displayName": "Modbus device data length.",
-      "description": "Modbus device data length. Provide only for ByteArray and ASCIIString data types"
+      "displayName": "Value length.",
+      "description": "Value data length. Provide only for ByteArray and ASCIIString data types"
     }
   ]
 }
