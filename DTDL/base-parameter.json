@@ -13,6 +13,14 @@
             "description": "Human-readable Name"
         },
         {
+            "@type": "Property",
+            "name": "Unit",
+            "schema": "string",
+            "writable": true,
+            "displayName": "Unit",
+            "description": "Represents the unit of the parameter."
+        },
+        {
             "@type": "Relationship",
             "name": "Annotations",
             "minMultiplicity": 0,
