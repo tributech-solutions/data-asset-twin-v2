@@ -45,8 +45,8 @@
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/edge-stream-base.json", 
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk.json", 
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk-stream-base.json", 
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/skd/sdk-stream.json", 
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/skd/sdk-parameter.json", 
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/skd/sdk-source.json" 
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk/sdk-stream.json", 
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk/sdk-parameter.json", 
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk/sdk-source.json" 
     ]
 } 
