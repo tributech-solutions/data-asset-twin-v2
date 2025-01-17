@@ -44,9 +44,8 @@
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/modbus/modbus-stream-input-register.json", 
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/edge/edge-stream-base.json", 
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk.json", 
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk-stream-base.json", 
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk/sdk-stream.json", 
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk/sdk-parameter.json", 
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk/sdk-source.json" 
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk-stream.json", 
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk-parameter.json", 
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/sdk/sdk-source.json" 
     ]
 } 
