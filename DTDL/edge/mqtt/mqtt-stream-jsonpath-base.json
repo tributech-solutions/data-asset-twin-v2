@@ -1,0 +1,44 @@
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:io:tributech:stream:mqtt:jsonpath:base;1",
+  "@type": "Interface",
+  "displayName": "MQTT JSONPath Base Stream",
+  "extends": [
+    "dtmi:io:tributech:stream:edge:base;1"
+  ],
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "JsonPath",
+      "schema": "string",
+      "writable": true,
+      "displayName": "JSONPath Value Field",
+      "description": "RFC 9535-compliant JSONPath to extract the time series value."
+    },
+    {
+      "@type": "Property",
+      "name": "TimestampPath",
+      "schema": "string",
+      "writable": true,
+      "displayName": "JSONPath Timestamp Field",
+      "description": "RFC 9535-compliant JSONPath to extract the timestamp. Optional for flat payloads."
+    },
+    {
+      "@type": "Property",
+      "name": "IsBatchPayload",
+      "schema": "boolean",
+      "writable": true,
+      "displayName": "Batch Payload",
+      "description": "Indicates if the value and timestamp JSONPaths resolve to arrays (e.g. $.array[*].value)."
+    },
+    {
+      "@type": "Property",
+      "name": "Topic",
+      "schema": "string",
+      "writable": true,
+      "displayName": "MQTT Topic",
+      "description": "Topic from which the JSON payload is received."
+    }
+  ]
+}
+
