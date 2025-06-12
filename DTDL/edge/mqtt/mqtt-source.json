@@ -13,6 +13,15 @@
       "target": "dtmi:io:tributech:stream:mqtt:base;1",
       "displayName": "Streams",
       "description": "Contains all MQTT Payload streams in the given source."
+    }, 
+    {
+      "@type": "Relationship",
+      "name": "TopicConfigurations",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 100,
+      "target": "dtmi:io:tributech:mqtt:topicconfig;1",
+      "displayName": "Topic Configurations",
+      "description": "Contains topic-specific configurations with associated streams."
     }
   ]
 }
