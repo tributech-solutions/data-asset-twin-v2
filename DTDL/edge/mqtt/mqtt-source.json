@@ -19,9 +19,9 @@
       "name": "TopicConfigurations",
       "minMultiplicity": 0,
       "maxMultiplicity": 100,
-      "target": "dtmi:io:tributech:mqtt:topicconfig;1",
-      "displayName": "Topic Configurations",
-      "description": "Contains topic-specific configurations with associated streams."
+      "target": "dtmi:io:tributech:mqtt:jsonpathcollection;1",
+      "displayName": "JsonPath Collection",
+      "description": "Contains topic-specific configurations for associated jsonpath based streams."
     }
   ]
 }
