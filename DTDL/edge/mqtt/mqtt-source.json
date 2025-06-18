@@ -5,6 +5,22 @@
   "extends": "dtmi:io:tributech:source:edge:base;1",
   "displayName": "MQTT Source",
   "contents": [
+     {
+      "@type": "Property",
+      "name": "MQTTHost",
+      "schema": "string",
+      "writable": true,
+      "displayName": "MQTTHost",
+      "description": "MQTT host of ingress message broker."
+    },
+    {
+      "@type": "Property",
+      "name": "MQTTPort",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "MQTTPort",
+      "description": "MQTT port of ingress message broker."
+    },
     {
       "@type": "Relationship",
       "name": "Streams",
@@ -16,7 +32,7 @@
     }, 
     {
       "@type": "Relationship",
-      "name": "TopicConfigurations",
+      "name": "JsonPathCollections",
       "minMultiplicity": 0,
       "maxMultiplicity": 100,
       "target": "dtmi:io:tributech:mqtt:jsonpathcollection;1",
