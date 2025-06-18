@@ -1,0 +1,11 @@
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:io:tributech:stream:mqtt:jsonpath:base;1",
+  "@type": "Interface",
+  "displayName": "MQTT JSONPath Base Stream",
+  "extends": [
+    "dtmi:io:tributech:stream:edge:base;1"
+  ],
+  "contents": []
+}
+
