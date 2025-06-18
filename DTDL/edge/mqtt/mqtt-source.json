@@ -10,16 +10,16 @@
       "name": "MQTTHost",
       "schema": "string",
       "writable": true,
-      "displayName": "MQTTHost",
-      "description": "MQTT host of ingress message broker."
+      "displayName": "MQTT Host",
+      "description": "Defines the MQTT broker. E.g.: mqtt://node-x.-node.com, https://host.docker.internal"
     },
     {
       "@type": "Property",
       "name": "MQTTPort",
       "schema": "integer",
       "writable": true,
-      "displayName": "MQTTPort",
-      "description": "MQTT port of ingress message broker."
+      "displayName": "MQTT Port",
+      "description": "Defines the MQTT broker port, e.g. 1883, 8883"
     },
     {
       "@type": "Relationship",
