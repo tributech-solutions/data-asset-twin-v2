@@ -1,9 +1,9 @@
 {
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:io:tributech:stream:mqtt:topic;1",
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:stream:mqtt:topic;2",
   "@type": "Interface",
   "displayName": "MQTT Configurable Topic",
-  "extends": "dtmi:io:tributech:stream:mqtt:base;1",
+  "extends": "dtmi:io:tributech:stream:edge:base;2",
   "contents": [
     {
       "@type": "Property",

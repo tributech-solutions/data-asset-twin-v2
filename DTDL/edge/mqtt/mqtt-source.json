@@ -1,8 +1,8 @@
 {
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:io:tributech:source:mqtt;1",
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:source:mqtt;2",
   "@type": "Interface",
-  "extends": "dtmi:io:tributech:source:edge:base;1",
+  "extends": "dtmi:io:tributech:source:edge:base;2",
   "displayName": "MQTT Source",
   "contents": [
      {
@@ -23,19 +23,28 @@
     },
     {
       "@type": "Relationship",
-      "name": "Streams",
+      "name": "PayloadStreams",
       "minMultiplicity": 0,
       "maxMultiplicity": 500,
-      "target": "dtmi:io:tributech:stream:mqtt:base;1",
-      "displayName": "Streams",
+      "target": "dtmi:io:tributech:stream:mqtt:payload;2",
+      "displayName": "Payload Streams",
       "description": "Contains all MQTT Payload streams in the given source."
+    }, 
+    {
+      "@type": "Relationship",
+      "name": "TopicStreams",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 500,
+      "target": "dtmi:io:tributech:stream:mqtt:topic;2",
+      "displayName": "Topic Streams",
+      "description": "Contains all MQTT Topic streams in the given source."
     }, 
     {
       "@type": "Relationship",
       "name": "JsonPathCollections",
       "minMultiplicity": 0,
       "maxMultiplicity": 100,
-      "target": "dtmi:io:tributech:mqtt:jsonpathcollection;1",
+      "target": "dtmi:io:tributech:mqtt:jsonpathcollection;2",
       "displayName": "JsonPath Collection",
       "description": "Contains topic-specific configurations for associated jsonpath based streams."
     }
