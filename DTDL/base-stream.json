@@ -1,6 +1,6 @@
 {
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:io:tributech:stream:base;1",
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:stream:base;2",
   "@type": "Interface",
   "displayName": "Stream",
   "contents": [
@@ -87,9 +87,9 @@
       "name": "Options",
       "minMultiplicity": 0,
       "maxMultiplicity": 500,
-      "target": "dtmi:io:tributech:options:base;1",
+      "target": "dtmi:io:tributech:options:valuechange;2",
       "displayName": "Options",
-      "description": "Attach options to the stream to configure its properties."
+      "description": "Attach value change options to the stream to configure its properties."
     }
   ]
 }

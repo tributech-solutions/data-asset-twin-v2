@@ -1,8 +1,8 @@
 {
-    "@context" : "dtmi:dtdl:context;2",
-    "@id" : "dtmi:io:tributech:options:valuechange;1", 
+    "@context" : "dtmi:dtdl:context;4",
+    "@id" : "dtmi:io:tributech:options:valuechange;2", 
     "@type": "Interface", 
-    "extends": "dtmi:io:tributech:options:base;1",
+    "extends": "dtmi:io:tributech:options:base;2",
     "displayName": "Value change options", 
     "contents" : [
         {

@@ -1,6 +1,6 @@
 # Tributech Node - Data Asset Twins
 
-The Tributech Node follows the approach of describing all entities of the system and their relations using the open-source [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) standard.
+The Tributech Node follows the approach of describing all entities of the system and their relations using the open-source [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v4/DTDL.v4.md) standard.
 
 ## Tooling
 

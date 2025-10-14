@@ -1,6 +1,6 @@
 {
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:io:tributech:source:base;1",
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:source:base;2",
   "@type": "Interface",
   "displayName": "Source",
   "contents": [
