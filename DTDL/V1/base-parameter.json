@@ -1,0 +1,33 @@
+{
+    "@context" : "dtmi:dtdl:context;2",
+    "@id" : "dtmi:io:tributech:parameter:base;1", 
+    "@type": "Interface", 
+    "displayName": "Parameter", 
+    "contents" : [
+        {
+            "@type": "Property",
+            "name": "Name",
+            "schema": "string",
+            "writable": true,
+            "displayName": "Name",
+            "description": "Human-readable Name"
+        },
+        {
+            "@type": "Property",
+            "name": "Unit",
+            "schema": "string",
+            "writable": true,
+            "displayName": "Unit",
+            "description": "Represents the unit of the parameter."
+        },
+        {
+            "@type": "Relationship",
+            "name": "Annotations",
+            "minMultiplicity": 0,
+            "maxMultiplicity": 1,
+            "target": "dtmi:io:tributech:annotations:base;1",
+            "displayName": "Machine learning annotation",
+            "description": "Machine learning annotation."
+          }
+    ]
+}

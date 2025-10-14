@@ -1,0 +1,16 @@
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:io:tributech:options:base;1",
+  "@type": "Interface",
+  "displayName": "Options base",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Name",
+      "description": "Human-readable Name"
+    }
+  ]
+}

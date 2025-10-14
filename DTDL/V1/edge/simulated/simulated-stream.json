@@ -1,0 +1,81 @@
+{
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:io:tributech:stream:simulated;1",
+    "@type": "Interface",
+    "displayName": "Simulated Stream",
+    "extends": "dtmi:io:tributech:stream:edge:base;1",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "Type",
+            "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                    {
+                        "name": "Double",
+                        "displayName": "Double",
+                        "enumValue": "Double"
+                    },
+                    {
+                        "name": "Int32",
+                        "displayName": "Int32",
+                        "enumValue": "Int32"
+                    },
+                    {
+                        "name": "Int64",
+                        "displayName": "Int64",
+                        "enumValue": "Int64"
+                    },
+                    {
+                        "name": "Binary",
+                        "displayName": "Binary",
+                        "enumValue": "Binary"
+                    },
+                    {
+                        "name": "Float",
+                        "displayName": "Float",
+                        "enumValue": "Float"
+                    },
+                    {
+                        "name":"String_UTF8",
+                        "displayName":"String_UTF8",
+                        "enumValue":"String_UTF8"
+                    },
+                    {
+                        "name" : "BOOL", 
+                        "displayName" : "Boolean", 
+                        "enumValue":  "BOOL"
+                    }
+                ]
+            },
+            "writable": true,
+            "displayName": "Type",
+            "description": "Generated data type"
+        },
+        {
+            "@type": "Property",
+            "name": "MinValue",
+            "schema": "double",
+            "writable": true,
+            "displayName": "Min value",
+            "description": "Minimum for generated values (e.g. -1.2 for double, -5 for int or 8 for binary)."
+        },
+        {
+            "@type": "Property",
+            "name": "MaxValue",
+            "schema": "double",
+            "writable": true,
+            "displayName": "Max value",
+            "description": "Maximum for generated values (e.g. 3.25 for double, 1204 for int or 512 for binary)."
+        },
+        {
+            "@type": "Property",
+            "name": "Frequency",
+            "schema": "double",
+            "writable": true,
+            "displayName": "Frequency",
+            "description": "Data Frequency in Hz (1/s) (e.g 1.0)"
+        }
+    ]
+}

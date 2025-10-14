@@ -1,9 +1,0 @@
-{
-  "@context": "dtmi:dtdl:context;4",
-  "@id": "dtmi:io:tributech:stream:sdk;2",
-  "@type": "Interface",
-  "extends": "dtmi:io:tributech:stream:base;2",
-  "displayName": "SDK Stream",
-  "contents": [
-  ]
-}
