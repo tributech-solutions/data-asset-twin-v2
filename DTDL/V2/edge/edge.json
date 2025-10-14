@@ -27,10 +27,29 @@
       "@type": "Relationship",
       "name": "Sources",
       "minMultiplicity": 0,
-      "maxMultiplicity": 100,
-      "target": "dtmi:io:tributech:source:edge:base;1",
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:source:mqtt",
       "displayName": "Sources",
-      "description": "Contains all sources of the given device. TODO: DEFINE RELATIONSHIPS TO ALL SOURCES SEPARATELY HERE?"
+      "description": "Contains all sources of the given device."
+    },
+    { 
+      "@type": "Relationship",
+      "name": "Sources",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:source:opcua",
+      "displayName": "Sources",
+      "description": "Contains all sources of the given device."
+    },
+    { 
+      "@type": "Relationship",
+      "name": "Sources",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:source:rest",
+      "displayName": "Sources",
+      "description": "Contains all sources of the given device."
     }
+    
   ]
 }

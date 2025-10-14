@@ -1,8 +1,8 @@
 {
-    "@context": "dtmi:dtdl:context;2",
-    "@id": "dtmi:io:tributech:source:sdk;1",
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:source:sdk;2",
     "@type": "Interface",
-    "extends": "dtmi:io:tributech:source:base;1",
+    "extends": "dtmi:io:tributech:source:base;2",
     "displayName": "SDK Source",
     "contents": [
       {
@@ -10,7 +10,7 @@
         "name": "Streams",
         "minMultiplicity": 0,
         "maxMultiplicity": 15,
-        "target": "dtmi:io:tributech:stream:sdk;1",
+        "target": "dtmi:io:tributech:stream:sdk",
         "displayName": "Streams",
         "description": "Contains all streams of the given source."
       },
@@ -19,7 +19,7 @@
         "name": "Parameters",
         "minMultiplicity": 0,
         "maxMultiplicity": 15,
-        "target": "dtmi:io:tributech:parameter:sdk;1",
+        "target": "dtmi:io:tributech:parameter:sdk",
         "displayName": "Parameter",
         "description": "Contains all parameters of the given source."
       }
