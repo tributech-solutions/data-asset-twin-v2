@@ -1,8 +1,8 @@
 {
-    "@context" : "dtmi:dtdl:context;2",
-    "@id" : "dtmi:io:tributech:parameter:tcads;1", 
+    "@context" : "dtmi:dtdl:context;4",
+    "@id" : "dtmi:io:tributech:parameter:tcads;2", 
     "@type": "Interface", 
-    "extends": "dtmi:io:tributech:parameter:base;1",
+    "extends": "dtmi:io:tributech:parameter:base;2",
     "displayName": "Beckhoff TwinCat ADS Parameter", 
     "contents" : [
         {

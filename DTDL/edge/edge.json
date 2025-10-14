@@ -23,14 +23,14 @@
       "description": "Maximum merkle tree age in seconds (e.g. 600).",
       "comment": "If a stream doesn't provides enough values to build an entire merkle tree with the given depth in the given time-period it will be splitted into smaller merkle trees."
     }, 
-    {
+    { 
       "@type": "Relationship",
       "name": "Sources",
       "minMultiplicity": 0,
       "maxMultiplicity": 100,
       "target": "dtmi:io:tributech:source:edge:base;1",
       "displayName": "Sources",
-      "description": "Contains all sources of the given device."
+      "description": "Contains all sources of the given device. TODO: DEFINE RELATIONSHIPS TO ALL SOURCES SEPARATELY HERE?"
     }
   ]
 }

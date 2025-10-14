@@ -1,8 +1,8 @@
 {
-    "@context" : "dtmi:dtdl:context;2",
-    "@id" : "dtmi:io:tributech:source:tcads;1", 
+    "@context" : "dtmi:dtdl:context;4",
+    "@id" : "dtmi:io:tributech:source:tcads;2", 
     "@type": "Interface", 
-    "extends": "dtmi:io:tributech:source:edge:base;1",
+    "extends": "dtmi:io:tributech:source:edge:base;2",
     "displayName": "Beckhoff TwinCat ADS Source", 
     "contents" : [
         {
@@ -66,7 +66,7 @@
             "name" :"Streams", 
             "minMultiplicity" : 0, 
             "maxMultiplicity" : 100,
-            "target": "dtmi:io:tributech:stream:tcads;1",
+            "target": "dtmi:io:tributech:stream:tcads",
             "displayName" : "Streams",
             "description" : "Contains all the TwinCat ADS streams at the given Source"
         },
@@ -75,7 +75,7 @@
             "name" :"Parameter", 
             "minMultiplicity" : 0, 
             "maxMultiplicity" : 100,
-            "target": "dtmi:io:tributech:parameter:tcads;1",
+            "target": "dtmi:io:tributech:parameter:tcads",
             "displayName" : "Parameters",
             "description" : "For writing Configuration Values to the ADS Server"
         }

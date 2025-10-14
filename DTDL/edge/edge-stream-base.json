@@ -1,8 +1,8 @@
 {
-    "@context": "dtmi:dtdl:context;2",
-    "@id": "dtmi:io:tributech:stream:edge:base;1",
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:stream:edge:base;2",
     "@type": "Interface",
-    "extends": "dtmi:io:tributech:stream:base;1",
+    "extends": "dtmi:io:tributech:stream:base;2",
     "displayName": "Edge Stream",
     "contents": [
       {

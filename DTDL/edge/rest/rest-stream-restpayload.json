@@ -1,9 +1,9 @@
 {
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:io:tributech:stream:rest:payload;1",
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:stream:rest:payload;2",
   "@type": "Interface",
   "displayName": "REST Pre-defined Payload",
-  "extends": "dtmi:io:tributech:stream:rest:base;1",
+  "extends": "dtmi:io:tributech:stream:edge:base;2",
   "contents": [
     {
       "@type": "Property",

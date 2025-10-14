@@ -26,7 +26,7 @@
       "name": "PayloadStreams",
       "minMultiplicity": 0,
       "maxMultiplicity": 500,
-      "target": "dtmi:io:tributech:stream:mqtt:payload;2",
+      "target": "dtmi:io:tributech:stream:mqtt:payload",
       "displayName": "Payload Streams",
       "description": "Contains all MQTT Payload streams in the given source."
     }, 
@@ -35,7 +35,7 @@
       "name": "TopicStreams",
       "minMultiplicity": 0,
       "maxMultiplicity": 500,
-      "target": "dtmi:io:tributech:stream:mqtt:topic;2",
+      "target": "dtmi:io:tributech:stream:mqtt:topic",
       "displayName": "Topic Streams",
       "description": "Contains all MQTT Topic streams in the given source."
     }, 
@@ -44,7 +44,7 @@
       "name": "JsonPathCollections",
       "minMultiplicity": 0,
       "maxMultiplicity": 100,
-      "target": "dtmi:io:tributech:mqtt:jsonpathcollection;2",
+      "target": "dtmi:io:tributech:mqtt:jsonpathcollection",
       "displayName": "JsonPath Collection",
       "description": "Contains topic-specific configurations for associated jsonpath based streams."
     }

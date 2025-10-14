@@ -1,18 +1,27 @@
 {
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:io:tributech:source:rest;1",
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:source:rest;2",
   "@type": "Interface",
-  "extends": "dtmi:io:tributech:source:edge:base;1",
+  "extends": "dtmi:io:tributech:source:edge:base;2",
   "displayName": "REST Source",
   "contents": [
+    {
+      "@type": "Relationship",
+      "name": "PredefinedPayloadStreams",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 500,
+      "target": "dtmi:io:tributech:stream:rest:payload",
+      "displayName": "Streams",
+      "description": "Contains all REST Payload streams in the given source."
+    }, 
     {
       "@type": "Relationship",
       "name": "Streams",
       "minMultiplicity": 0,
       "maxMultiplicity": 500,
-      "target": "dtmi:io:tributech:stream:rest:base;1",
+      "target": "dtmi:io:tributech:stream:rest:stream",
       "displayName": "Streams",
-      "description": "Contains all REST Payload streams in the given source."
+      "description": "Contains all REST streams in the given source."
     }
   ]
 }
