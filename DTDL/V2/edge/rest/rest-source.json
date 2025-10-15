@@ -2,7 +2,7 @@
   "@context": "dtmi:dtdl:context;4",
   "@id": "dtmi:io:tributech:source:rest;2",
   "@type": "Interface",
-  "extends": "dtmi:io:tributech:source:edge:base;2",
+  "extends": "dtmi:io:tributech:source:base;2",
   "displayName": "REST Source",
   "contents": [
     {

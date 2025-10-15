@@ -2,7 +2,7 @@
     "@context" : "dtmi:dtdl:context;4",
     "@id" : "dtmi:io:tributech:source:tcads;2", 
     "@type": "Interface", 
-    "extends": "dtmi:io:tributech:source:edge:base;2",
+    "extends": "dtmi:io:tributech:source:base;2",
     "displayName": "Beckhoff TwinCat ADS Source", 
     "contents" : [
         {
@@ -82,17 +82,17 @@
         {
             "@type": "Component",
             "name": "BoolCommand",
-            "schema": "dtmi:io:tributech:command:bool:tcads"
+            "schema": "dtmi:io:tributech:command:bool:tcads;2"
         },
         {
             "@type": "Component",
             "name": "SetPercentageCommand",
-            "schema": "dtmi:io:tributech:command:setpercentage:tcads"
+            "schema": "dtmi:io:tributech:command:setpercentage:tcads;2"
         },
         {
             "@type": "Component",
             "name": "TriggerCommand",
-            "schema": "dtmi:io:tributech:command:trigger:tcads"
+            "schema": "dtmi:io:tributech:command:trigger:tcads;2"
         }
     ]
 }

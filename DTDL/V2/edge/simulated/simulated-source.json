@@ -2,7 +2,7 @@
     "@context": "dtmi:dtdl:context;4",
     "@id": "dtmi:io:tributech:source:simulated;2",
     "@type": "Interface",
-    "extends": "dtmi:io:tributech:source:edge:base;2",
+    "extends": "dtmi:io:tributech:source:base;2",
     "displayName": "Simulated Source",
     "contents": [
         {
@@ -33,12 +33,12 @@
         {
             "@type": "Component",
             "name": "TriggerAnomalyCommand",
-            "schema": "dtmi:io:tributech:command:triggeranomaly:simulated"
+            "schema": "dtmi:io:tributech:command:triggeranomaly:simulated;2"
         },
         {
             "@type": "Component",
             "name": "SetDataGenerationModeCommand",
-            "schema": "dtmi:io:tributech:command:setdatagenerationmode:simulated"
+            "schema": "dtmi:io:tributech:command:setdatagenerationmode:simulated;2"
         }
     ]
 }
