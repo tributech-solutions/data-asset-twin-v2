@@ -78,6 +78,21 @@
             "target": "dtmi:io:tributech:parameter:tcads",
             "displayName" : "Parameters",
             "description" : "For writing Configuration Values to the ADS Server"
+        }, 
+        {
+            "@type": "Component",
+            "name": "BoolCommand",
+            "schema": "dtmi:io:tributech:command:bool:tcads"
+        },
+        {
+            "@type": "Component",
+            "name": "SetPercentageCommand",
+            "schema": "dtmi:io:tributech:command:setpercentage:tcads"
+        },
+        {
+            "@type": "Component",
+            "name": "TriggerCommand",
+            "schema": "dtmi:io:tributech:command:trigger:tcads"
         }
     ]
 }

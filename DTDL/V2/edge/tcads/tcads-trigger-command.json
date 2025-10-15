@@ -1,0 +1,31 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:command:trigger:tcads;2",
+    "@type": "Interface",
+    "displayName": "ADS Source's Trigger Command",
+    "contents": [
+        {
+            "@type": "Command",
+            "name": "TriggerCommand",
+            "displayName": "Trigger Command",
+            "request": {
+                "name": "TriggerCommandRequest",
+                "description": "Request for trigger command",
+                "schema": {
+                    "@type": "Object",
+                    "fields": [
+                        {
+                            "name": "StreamId",
+                            "schema": "uuid"
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "name": "TriggerCommandResponse",
+                "description": "Response of trigger command",
+                "schema": "dtmi:io:tributech:command:response:edge;2"
+            }
+        }
+    ]
+}

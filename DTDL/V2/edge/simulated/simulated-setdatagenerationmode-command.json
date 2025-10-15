@@ -10,7 +10,6 @@
             "displayName": "Set Data Generation Mode Command",
             "request": {
                 "name": "SetDataGenerationModeRequest",
-                "displayName": "Set Data Generation Mode Command Request",
                 "description": "Request to set the data generation mode.",
                 "schema": {
                     "@type": "Object",
@@ -39,7 +38,6 @@
             },
             "response": {
                 "name": "SetDataGenerationModeResponse",
-                "displayName": "Set Data Generation Mode Response",
                 "description": "Response after setting the data generation mode.",
                 "schema": "dtmi:io:tributech:command:response:edge;2"
             }

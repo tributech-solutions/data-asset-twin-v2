@@ -1,0 +1,35 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:command:setpercentage:tcads;2",
+    "@type": "Interface",
+    "displayName": "ADS Source's Set Percentage Command",
+    "contents": [
+        {
+            "@type": "Command",
+            "name": "SetPercentageCommand",
+            "displayName": "Set Percentage Command",
+            "request": {
+                "name": "SetPercentageRequest",
+                "description": "Request for set percentage command",
+                "schema": {
+                    "@type": "Object",
+                    "fields": [
+                        {
+                            "name": "StreamId",
+                            "schema": "uuid"
+                        }, 
+                        {
+                            "name": "Percentage",
+                            "schema": "unsignedInteger"
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "name": "SetPercentageResponse",
+                "description": "Response of set percentage command",
+                "schema": "dtmi:io:tributech:command:response:edge;2"
+            }
+        }
+    ]
+}

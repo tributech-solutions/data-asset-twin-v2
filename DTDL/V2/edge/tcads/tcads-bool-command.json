@@ -1,0 +1,35 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:command:bool:tcads;2",
+    "@type": "Interface",
+    "displayName": "ADS Source's bool Command",
+    "contents": [
+        {
+            "@type": "Command",
+            "name": "BoolCommand",
+            "displayName": "Bool Command",
+            "request": {
+                "name": "BoolCommandRequest",
+                "description": "Request for set boolean value command",
+                "schema": {
+                    "@type": "Object",
+                    "fields": [
+                        {
+                            "name": "StreamId",
+                            "schema": "uuid"
+                        }, 
+                        {
+                            "name": "Value",
+                            "schema": "boolean"
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "name": "BoolCommandResponse",
+                "description": "Response of set boolean value command",
+                "schema": "dtmi:io:tributech:command:response:edge;2"
+            }
+        }
+    ]
+}
