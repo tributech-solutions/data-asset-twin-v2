@@ -1,0 +1,48 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:command:setdatagenerationmode:simulated;2",
+    "@type": "Interface",
+    "displayName": "Simulated Source's Set Data Generation Mode Command",
+    "contents": [
+        {
+            "@type": "Command",
+            "name": "SetDataGenerationModeCommand",
+            "displayName": "Set Data Generation Mode Command",
+            "request": {
+                "name": "SetDataGenerationModeRequest",
+                "displayName": "Set Data Generation Mode Command Request",
+                "description": "Request to set the data generation mode.",
+                "schema": {
+                    "@type": "Object",
+                    "fields": [
+                        {
+                            "name": "NumericDataGenerationMode",
+                            "schema": {
+                                "@type": "Enum",
+                                "valueSchema": "string",
+                                "enumValues": [
+                                {
+                                    "name": "Standard",
+                                    "displayName": "Standard",
+                                    "enumValue": "Standard"
+                                }, 
+                                {
+                                    "name": "Minimal",
+                                    "displayName": "Minimal",
+                                    "enumValue": "Minimal"
+                                }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "name": "SetDataGenerationModeResponse",
+                "displayName": "Set Data Generation Mode Response",
+                "description": "Response after setting the data generation mode.",
+                "schema": "dtmi:io:tributech:command:response:edge;2"
+            }
+        }
+    ]
+}

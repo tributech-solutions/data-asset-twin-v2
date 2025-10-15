@@ -31,99 +31,14 @@
             "description": "Contains all Simulated streams the given source."
         }, 
         {
-            "@type": "Command",
+            "@type": "Component",
             "name": "TriggerAnomalyCommand",
-            "displayName": "Trigger Anomaly Command",
-            "request": {
-                "name": "TriggerAnomalyRequest",
-                "displayName": "Trigger Anomaly Request",
-                "description": "Request to trigger an anomaly.",
-                "schema": {
-                    "@type": "Object",
-                    "fields": [
-                        {
-                            "name": "AnomalyFactor",
-                            "schema": "double"
-                        },
-                        {
-                            "name": "AnomalyType",
-                            "schema": {
-                                "@type": "Enum",
-                                "valueSchema": "string",
-                                "enumValues": [
-                                {
-                                    "name": "MultiplyMaxNumericValue",
-                                    "displayName": "MultiplyMaxNumericValue",
-                                    "enumValue": "MultiplyMaxNumericValue"
-                                }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            "response": {
-                "name": "TriggerAnomalyResponse",
-                "displayName": "Trigger Anomaly Response",
-                "description": "Response after triggering an anomaly.",
-                "schema": {
-                    "@type": "Object",
-                    "fields": [
-                        {
-                            "name": "ExecutedAt",
-                            "schema": "dateTime"
-                        },
-                        {
-                            "name": "AdditionalInformation",
-                            "schema": "string"
-                        }, 
-                        {
-                            "name": "CommandState",
-                            "schema": {
-                                "@type": "Enum",
-                                "valueSchema": "string",
-                                "enumValues": [
-                                {
-                                    "name": "Rejected",
-                                    "displayName": "Rejected",
-                                    "enumValue": "Rejected"
-                                }, 
-                                {
-                                    "name": "CouldNotBeSend",
-                                    "displayName": "CouldNotBeSend",
-                                    "enumValue": "CouldNotBeSend"
-                                }, 
-                                {
-                                    "name": "Timeout",
-                                    "displayName": "Timeout",
-                                    "enumValue": "Timeout"
-                                }, 
-                                {
-                                    "name": "CommandFailed",
-                                    "displayName": "CommandFailed",
-                                    "enumValue": "CommandFailed"
-                                }, 
-                                 {
-                                    "name": "Error",
-                                    "displayName": "Error",
-                                    "enumValue": "Error"
-                                }, 
-                                {
-                                    "name": "Success",
-                                    "displayName": "Success",
-                                    "enumValue": "Success"
-                                }
-                                ]
-                            }
-                        }, 
-                        {
-                            "name": "ExecutionDuration",
-                            "schema": "dateTime"
-                        }
-                    ]
-                }
-            },
-            "description": "The command to trigger an anomaly in the simulated data generation."
+            "schema": "dtmi:io:tributech:command:triggeranomaly:simulated"
+        },
+        {
+            "@type": "Component",
+            "name": "SetDataGenerationModeCommand",
+            "schema": "dtmi:io:tributech:command:setdatagenerationmode:simulated"
         }
     ]
 }

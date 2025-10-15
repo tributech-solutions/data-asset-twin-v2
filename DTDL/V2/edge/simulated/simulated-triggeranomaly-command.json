@@ -1,0 +1,47 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:command:triggeranomaly:simulated;2",
+    "@type": "Interface",
+    "displayName": "Simulated Source's Trigger Anomaly Command",
+    "contents": [
+        {
+            "@type": "Command",
+            "name": "TriggerAnomalyCommand",
+            "displayName": "Trigger Anomaly Command",
+            "request": {
+                "name": "TriggerAnomalyRequest",
+                "displayName": "Trigger Anomaly Request",
+                "description": "Request to trigger an anomaly.",
+                "schema": {
+                    "@type": "Object",
+                    "fields": [
+                        {
+                            "name": "AnomalyFactor",
+                            "schema": "double"
+                        },
+                        {
+                            "name": "AnomalyType",
+                            "schema": {
+                                "@type": "Enum",
+                                "valueSchema": "string",
+                                "enumValues": [
+                                {
+                                    "name": "MultiplyMaxNumericValue",
+                                    "displayName": "MultiplyMaxNumericValue",
+                                    "enumValue": "MultiplyMaxNumericValue"
+                                }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "name": "TriggerAnomalyResponse",
+                "displayName": "Trigger Anomaly Response",
+                "description": "Response after triggering an anomaly.",
+                "schema": "dtmi:io:tributech:command:response:edge;2"
+            }
+        }
+    ]
+}
