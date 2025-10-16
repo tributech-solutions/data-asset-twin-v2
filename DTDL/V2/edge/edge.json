@@ -25,7 +25,7 @@
     }, 
     { 
       "@type": "Relationship",
-      "name": "Sources",
+      "name": "MqttSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
       "target": "dtmi:io:tributech:source:mqtt",
@@ -34,7 +34,7 @@
     },
     { 
       "@type": "Relationship",
-      "name": "Sources",
+      "name": "OpcUaSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
       "target": "dtmi:io:tributech:source:opcua",
@@ -43,7 +43,7 @@
     },
     { 
       "@type": "Relationship",
-      "name": "Sources",
+      "name": "RestSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
       "target": "dtmi:io:tributech:source:rest",
@@ -52,7 +52,7 @@
     }, 
     { 
       "@type": "Relationship",
-      "name": "Sources",
+      "name": "SimulatedSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
       "target": "dtmi:io:tributech:source:simulated",
@@ -61,7 +61,7 @@
     }, 
     { 
       "@type": "Relationship",
-      "name": "Sources",
+      "name": "TcadsSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
       "target": "dtmi:io:tributech:source:tcads",
