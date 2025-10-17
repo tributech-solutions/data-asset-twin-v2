@@ -81,18 +81,8 @@
         }, 
         {
             "@type": "Component",
-            "name": "BoolCommand",
-            "schema": "dtmi:io:tributech:command:bool:tcads;2"
-        },
-        {
-            "@type": "Component",
-            "name": "SetPercentageCommand",
-            "schema": "dtmi:io:tributech:command:setpercentage:tcads;2"
-        },
-        {
-            "@type": "Component",
-            "name": "TriggerCommand",
-            "schema": "dtmi:io:tributech:command:trigger:tcads;2"
+            "name": "Commands",
+            "schema": "dtmi:io:tributech:command:tcads;2"
         }
     ]
 }

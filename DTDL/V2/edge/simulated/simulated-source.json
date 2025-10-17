@@ -32,13 +32,8 @@
         }, 
         {
             "@type": "Component",
-            "name": "TriggerAnomalyCommand",
-            "schema": "dtmi:io:tributech:command:triggeranomaly:simulated;2"
-        },
-        {
-            "@type": "Component",
-            "name": "SetDataGenerationModeCommand",
-            "schema": "dtmi:io:tributech:command:setdatagenerationmode:simulated;2"
+            "name": "Commands",
+            "schema": "dtmi:io:tributech:command:simulated;2"
         }
     ]
 }
