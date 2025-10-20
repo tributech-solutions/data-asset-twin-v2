@@ -1,0 +1,33 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:mqtt:jsonpathcollection;2",
+  "@type": "Interface",
+  "displayName": "MQTT jsonpath collection",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Topic",
+      "schema": "string",
+      "writable": true,
+      "displayName": "MQTT Topic",
+      "description": "MQTT topic from which we recieve json path based messages."
+    },
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Name",
+      "description": "Human-readable name of the json path collection."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Streams",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 500,
+      "target": "dtmi:io:tributech:stream:mqtt:jsonpath",
+      "displayName": "Streams",
+      "description": "JSONPath streams processing messages from this topic."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:device:sdk;2",
+  "extends": "dtmi:io:tributech:device:base;2",
+  "@type": "Interface",
+  "displayName": "Tributech Software Development Kit",
+  "contents": [ 
+    {
+      "@type": "Relationship",
+      "name": "Sources",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 100,
+      "target": "dtmi:io:tributech:source:sdk",
+      "displayName": "Sources",
+      "description": "Contains all sources of the given device."
+    }
+  ]
+}

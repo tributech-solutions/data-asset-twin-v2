@@ -1,0 +1,26 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:stream:mqtt:jsonpath;2",
+  "@type": "Interface",
+  "displayName": "MQTT JSONPath Stream",
+  "extends": "dtmi:io:tributech:stream:edge:base;2",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "JsonPath",
+      "schema": "string",
+      "writable": true,
+      "displayName": "JSONPath Value Field",
+      "description": "RFC 9535-compliant JSONPath to extract the time series value."
+    },
+    {
+      "@type": "Property",
+      "name": "TimestampPath",
+      "schema": "string",
+      "writable": true,
+      "displayName": "JSONPath Timestamp Field",
+      "description": "RFC 9535-compliant JSONPath to extract the timestamp. Optional for flat payloads."
+    }
+  ]
+}
+

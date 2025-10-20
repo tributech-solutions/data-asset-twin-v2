@@ -1,0 +1,65 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:device:base;2",
+    "@type": "Interface",
+    "displayName": "Device",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "Name",
+            "schema": "string",
+            "writable": true,
+            "displayName": "Name",
+            "description": "Represents the name of the Tributech-device."
+        },
+        {
+            "@type": "Property",
+            "name": "PublicKey",
+            "schema": "string",
+            "writable": false,
+            "displayName": "Public Key",
+            "description": "Represents the current public-key of the device."
+        },
+        {
+            "@type": "Property",
+            "name": "KeyStorageType",
+            "schema": "string",
+            "writable": false,
+            "displayName": "Key Storage Type",
+            "description": "The supported key storage type of the device."
+        },
+        {
+            "@type": "Property",
+            "name": "ProofKind",
+            "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                    {
+                        "name": "SHA256_RSA2048_PSS",
+                        "displayName": "SHA256 RSA2048-PSS",
+                        "enumValue": "SHA256_RSA2048_PSS"
+                    },
+                    {
+                        "name": "SHA256_RSA2048_PKCS1",
+                        "displayName": "SHA256 RSA2048-PKCS1",
+                        "enumValue": "SHA256_RSA2048_PKCS1"
+                    },
+                    {
+                        "name": "SHA256_ECDSAP256_RFC3279",
+                        "displayName": "SHA256 NIST P-256 RFC3279",
+                        "enumValue": "SHA256_ECDSAP256_RFC3279"
+                    },
+                    {
+                        "name": "SHA256_ECDSAP256_IEEEP1363",
+                        "displayName": "SHA256 NIST P-256 IEEEP1363",
+                        "enumValue": "SHA256_ECDSAP256_IEEEP1363"
+                    }
+                ]
+            },
+            "writable": false,
+            "displayName": "Proof Kind",
+            "description": "The supported proof kind of the device."
+        }
+    ]
+}
