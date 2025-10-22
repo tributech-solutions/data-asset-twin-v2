@@ -28,7 +28,7 @@
       "name": "MqttSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
-      "target": "dtmi:io:tributech:source:mqtt",
+      "target": "dtmi:io:tributech:source:mqtt;2",
       "displayName": "Sources",
       "description": "Contain MQTT source of the given device."
     },
@@ -37,7 +37,7 @@
       "name": "OpcUaSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
-      "target": "dtmi:io:tributech:source:opcua",
+      "target": "dtmi:io:tributech:source:opcua;2",
       "displayName": "Sources",
       "description": "Contain OPC UA source of the given device."
     },
@@ -46,7 +46,7 @@
       "name": "RestSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
-      "target": "dtmi:io:tributech:source:rest",
+      "target": "dtmi:io:tributech:source:rest;2",
       "displayName": "Sources",
       "description": "Contain REST source of the given device."
     }, 
@@ -55,7 +55,7 @@
       "name": "SimulatedSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
-      "target": "dtmi:io:tributech:source:simulated",
+      "target": "dtmi:io:tributech:source:simulated;2",
       "displayName": "Sources",
       "description": "Contain simulated source of the given device."
     }, 
@@ -64,7 +64,7 @@
       "name": "TcadsSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
-      "target": "dtmi:io:tributech:source:tcads",
+      "target": "dtmi:io:tributech:source:tcads;2",
       "displayName": "Sources",
       "description": "Contain ADS source of the given device."
     }

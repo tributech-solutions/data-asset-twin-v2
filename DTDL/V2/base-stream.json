@@ -87,7 +87,7 @@
       "name": "Options",
       "minMultiplicity": 0,
       "maxMultiplicity": 500,
-      "target": "dtmi:io:tributech:options:valuechange",
+      "target": "dtmi:io:tributech:options:valuechange;2",
       "displayName": "Options",
       "description": "Attach value change options to the stream to configure its properties."
     }

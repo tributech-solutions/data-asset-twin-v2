@@ -19,7 +19,7 @@
       "name": "Streams",
       "minMultiplicity": 0,
       "maxMultiplicity": 500,
-      "target": "dtmi:io:tributech:stream:rest:stream",
+      "target": "dtmi:io:tributech:stream:rest:stream;2",
       "displayName": "Streams",
       "description": "Contains all REST streams in the given source."
     }

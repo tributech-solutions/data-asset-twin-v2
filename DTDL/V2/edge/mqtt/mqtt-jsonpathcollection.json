@@ -25,7 +25,7 @@
       "name": "Streams",
       "minMultiplicity": 0,
       "maxMultiplicity": 500,
-      "target": "dtmi:io:tributech:stream:mqtt:jsonpath",
+      "target": "dtmi:io:tributech:stream:mqtt:jsonpath;2",
       "displayName": "Streams",
       "description": "JSONPath streams processing messages from this topic."
     }
