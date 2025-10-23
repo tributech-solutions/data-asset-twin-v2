@@ -10,7 +10,7 @@
         "name": "Streams",
         "minMultiplicity": 0,
         "maxMultiplicity": 15,
-        "target": "dtmi:io:tributech:stream:sdk",
+        "target": "dtmi:io:tributech:stream:sdk;2",
         "displayName": "Streams",
         "description": "Contains all streams of the given source."
       },
@@ -19,7 +19,7 @@
         "name": "Parameters",
         "minMultiplicity": 0,
         "maxMultiplicity": 15,
-        "target": "dtmi:io:tributech:parameter:sdk",
+        "target": "dtmi:io:tributech:parameter:sdk;2",
         "displayName": "Parameter",
         "description": "Contains all parameters of the given source."
       }
