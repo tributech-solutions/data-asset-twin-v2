@@ -1,0 +1,110 @@
+{
+  "@context": [
+    "dtmi:dtdl:context;4",
+    "dtmi:dtdl:extension:annotation;2"
+  ],
+  "@id": "dtmi:io:tributech:healthmessage:edge;1",
+  "@type": "Interface",
+  "extends": [
+    "dtmi:io:tributech:healthmessage:base;1"
+  ],
+  "displayName": "Agent Health",
+  "contents": [
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "isConnectedToSourceBroker",
+      "annotates": "health",
+      "schema": "boolean",
+      "description": "Agent connection to source broker."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "isConnectedToCloudBroker",
+      "annotates": "health",
+      "schema": "boolean",
+      "description": "Agent connection to node/cloud broker."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "doesEnrollmentCertificatesExist",
+      "annotates": "health",
+      "schema": "boolean",
+      "description": "Enrollment certificates present and valid."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "isMerkleTreeAgeLimitHitInsteadOfDepth",
+      "annotates": "health",
+      "schema": "boolean",
+      "description": "Proof computation used age limit instead of depth for any stream."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "sourceMqttClientHealthState",
+      "annotates": "health",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "Healthy",
+            "enumValue": "Healthy"
+          },
+          {
+            "name": "Unhealthy",
+            "enumValue": "Unhealthy"
+          }
+        ]
+      },
+      "description": "Internal health of the Source-side MQTT client in Agent."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "nodeMqttClientHealthState",
+      "annotates": "health",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "Healthy",
+            "enumValue": "Healthy"
+          },
+          {
+            "name": "Unhealthy",
+            "enumValue": "Unhealthy"
+          }
+        ]
+      },
+      "description": "Internal health of the Node-side MQTT client in Agent."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "dlqQueuePercentage",
+      "annotates": "health",
+      "schema": "double",
+      "description": "Current DLQ utilization percentage (0-100)."
+    }
+  ]
+}

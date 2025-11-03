@@ -1,0 +1,89 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:opcua;1",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "OPC UA Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "connectionStateWithOpcuaServer",
+            "annotates": "health",
+            "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                    {
+                        "name": "Connected",
+                        "enumValue": "Connected"
+                    },
+                    {
+                        "name": "Connecting",
+                        "enumValue": "Connecting"
+                    },
+                    {
+                        "name": "Recovering",
+                        "enumValue": "Recovering"
+                    },
+                    {
+                        "name": "Disconnected",
+                        "enumValue": "Disconnected"
+                    },
+                    {
+                        "name": "Error",
+                        "enumValue": "Error"
+                    }
+                ]
+            },
+            "description": "Connection state to OPC UA server."
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "serverHeartbeatStopped",
+            "annotates": "health",
+            "schema": "boolean",
+            "description": "True if no server response for ≥2 X KeepAliveInterval or error."
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "serverStateIsRunning",
+            "annotates": "health",
+            "schema": "boolean",
+            "description": "OPC UA ServerState is Running."
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "faultyStreams",
+            "annotates": "health",
+            "schema": {
+                "@type": "Map",
+                "mapKey": {
+                    "name": "streamId",
+                    "schema": "string"
+                },
+                "mapValue": {
+                    "name": "nodeId",
+                    "schema": "string"
+                }
+            },
+            "description": "Key-value of faulty streams with its nodeId. Empty map when all OK."
+        }
+    ]
+}

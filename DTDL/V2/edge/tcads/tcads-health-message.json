@@ -1,0 +1,64 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:tcads;1",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "ADS Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "isRouterStatusStarted",
+            "annotates": "health",
+            "schema": "boolean",
+            "description": "True if state of the ADS Router in the source is Started."
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "isPLCADSStateRun",
+            "annotates": "health",
+            "schema": "boolean",
+            "description": "True if PLC ADS communication state is Run."
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "isADSClientConnectedToRouter",
+            "annotates": "health",
+            "schema": "boolean",
+            "description": "True if ADS client is currently connected to the Router."
+        }, 
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "faultyStreams",
+            "annotates": "health",
+            "schema": {
+                "@type": "Map",
+                "mapKey": {
+                    "name": "streamId",
+                    "schema": "string"
+                },
+                "mapValue": {
+                    "name": "symbol",
+                    "schema": "string"
+                }
+            },
+            "description": "Key-value of faulty streams with its symbol. Empty map when all OK."
+        }
+    ]
+}

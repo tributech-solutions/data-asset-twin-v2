@@ -1,0 +1,34 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:simulated;1",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "Simulated Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "faultyStreams",
+            "annotates": "health",
+            "schema": {
+                "@type": "Map",
+                "mapKey": {
+                    "name": "streamId",
+                    "schema": "string"
+                },
+                "mapValue": {
+                    "name": "configuredPeriod",
+                    "schema": "duration"
+                }
+            },
+            "description": "Key-Value of faulty streams currently not meeting schedule with its configured period."
+        }
+    ]
+}
