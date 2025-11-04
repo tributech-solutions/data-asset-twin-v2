@@ -15,8 +15,8 @@
                 "Telemetry",
                 "ValueAnnotation"
             ],
-            "name": "faultyStreams",
-            "annotates": "health",
+            "name": "FaultyStreams",
+            "annotates": "Health",
             "schema": {
                 "@type": "Map",
                 "mapKey": {

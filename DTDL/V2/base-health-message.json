@@ -9,7 +9,7 @@
   "contents": [
     {
       "@type": "Telemetry",
-      "name": "health",
+      "name": "Health",
       "schema": {
         "@type": "Enum",
         "valueSchema": "integer",
@@ -42,8 +42,8 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "healthTimestamp",
-      "annotates": "health",
+      "name": "HealthTimestamp",
+      "annotates": "Health",
       "schema": "dateTime"
     },
     {
@@ -51,18 +51,18 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "healthMessage",
+      "name": "HealthMessage",
       "schema": "string",
-      "annotates": "health"
+      "annotates": "Health"
     },
     {
       "@type": [
         "Property",
         "ValueAnnotation"
       ],
-      "name": "expectedHealthFrequency",
+      "name": "ExpectedHealthFrequency",
       "schema": "duration",
-      "annotates": "health",
+      "annotates": "Health",
       "writeable": true
     }
   ]

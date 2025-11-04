@@ -15,8 +15,8 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "isConnectedToSourceBroker",
-      "annotates": "health",
+      "name": "IsConnectedToSourceBroker",
+      "annotates": "Health",
       "schema": "boolean",
       "description": "Agent connection to source broker."
     },
@@ -25,8 +25,8 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "isConnectedToCloudBroker",
-      "annotates": "health",
+      "name": "IsConnectedToCloudBroker",
+      "annotates": "Health",
       "schema": "boolean",
       "description": "Agent connection to node/cloud broker."
     },
@@ -35,8 +35,8 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "doesEnrollmentCertificatesExist",
-      "annotates": "health",
+      "name": "DoesEnrollmentCertificatesExist",
+      "annotates": "Health",
       "schema": "boolean",
       "description": "Enrollment certificates present and valid."
     },
@@ -45,8 +45,8 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "isMerkleTreeAgeLimitHitInsteadOfDepth",
-      "annotates": "health",
+      "name": "IsMerkleTreeAgeLimitHitInsteadOfDepth",
+      "annotates": "Health",
       "schema": "boolean",
       "description": "Proof computation used age limit instead of depth for any stream."
     },
@@ -55,8 +55,8 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "sourceMqttClientHealthState",
-      "annotates": "health",
+      "name": "SourceMqttClientHealthState",
+      "annotates": "Health",
       "schema": {
         "@type": "Enum",
         "valueSchema": "string",
@@ -78,8 +78,8 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "nodeMqttClientHealthState",
-      "annotates": "health",
+      "name": "NodeMqttClientHealthState",
+      "annotates": "Health",
       "schema": {
         "@type": "Enum",
         "valueSchema": "string",
@@ -101,8 +101,8 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "dlqQueuePercentage",
-      "annotates": "health",
+      "name": "DlqQueuePercentage",
+      "annotates": "Health",
       "schema": "double",
       "description": "Current DLQ utilization percentage (0-100)."
     }

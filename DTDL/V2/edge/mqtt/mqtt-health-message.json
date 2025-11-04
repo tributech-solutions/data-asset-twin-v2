@@ -15,8 +15,8 @@
                 "Telemetry",
                 "ValueAnnotation"
             ],
-            "name": "isConnectedToIngressBroker",
-            "annotates": "health",
+            "name": "IsConnectedToIngressBroker",
+            "annotates": "Health",
             "schema": "boolean",
             "description": "True if source is connected to ingress broker (or source broker itself if there is no additional ingress broker)."
         }, 
@@ -25,8 +25,8 @@
                 "Telemetry",
                 "ValueAnnotation"
             ],
-            "name": "faultyStreams",
-            "annotates": "health",
+            "name": "FaultyStreams",
+            "annotates": "Health",
             "schema": {
                 "@type": "Map",
                 "mapKey": {
