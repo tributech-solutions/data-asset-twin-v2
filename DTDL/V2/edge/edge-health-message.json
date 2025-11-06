@@ -35,20 +35,23 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "DoesEnrollmentCertificatesExist",
+      "name": "EnrollmentCertificatesExist",
       "annotates": "Health",
       "schema": "boolean",
-      "description": "Enrollment certificates present and valid."
+      "description": "States if enrollment certificates available with the agent."
     },
     {
       "@type": [
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "IsMerkleTreeAgeLimitHitInsteadOfDepth",
+      "name": "MTAgeHitInsteadOfDepth",
       "annotates": "Health",
-      "schema": "boolean",
-      "description": "Proof computation used age limit instead of depth for any stream."
+      "schema": {
+        "@type": "Array",
+        "elementSchema": "string"
+    },
+      "description": "Streams for which the merkle tree age hit limit instead of depth."
     },
     {
       "@type": [
