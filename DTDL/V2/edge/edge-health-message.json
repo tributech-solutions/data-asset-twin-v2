@@ -45,7 +45,7 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "MTAgeHitInsteadOfDepth",
+      "name": "AgeLimitHitStreams",
       "annotates": "Health",
       "schema": {
         "@type": "Array",
