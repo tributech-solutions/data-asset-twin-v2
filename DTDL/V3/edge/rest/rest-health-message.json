@@ -16,7 +16,7 @@
                 "ValueAnnotation"
             ],
             "name": "PostFailureRatioInPast5Minutes",
-            "annotates": "Health",
+            "annotates": "HealthState",
             "schema": "double",
             "description": "Share of POST failures in last 5 minutes (0.0–1.0)."
         }

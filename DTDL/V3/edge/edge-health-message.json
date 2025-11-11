@@ -16,7 +16,7 @@
         "ValueAnnotation"
       ],
       "name": "IsConnectedToSourceBroker",
-      "annotates": "Health",
+      "annotates": "HealthState",
       "schema": "boolean",
       "description": "Agent connection to source broker."
     },
@@ -26,7 +26,7 @@
         "ValueAnnotation"
       ],
       "name": "IsConnectedToCloudBroker",
-      "annotates": "Health",
+      "annotates": "HealthState",
       "schema": "boolean",
       "description": "Agent connection to node/cloud broker."
     },
@@ -36,7 +36,7 @@
         "ValueAnnotation"
       ],
       "name": "EnrollmentCertificatesExist",
-      "annotates": "Health",
+      "annotates": "HealthState",
       "schema": "boolean",
       "description": "States if enrollment certificates available with the agent."
     },
@@ -46,7 +46,7 @@
         "ValueAnnotation"
       ],
       "name": "AgeLimitHitStreams",
-      "annotates": "Health",
+      "annotates": "HealthState",
       "schema": {
         "@type": "Array",
         "elementSchema": "string"
@@ -59,7 +59,7 @@
         "ValueAnnotation"
       ],
       "name": "SourceMqttClientHealthState",
-      "annotates": "Health",
+      "annotates": "HealthState",
       "schema": {
         "@type": "Enum",
         "valueSchema": "string",
@@ -82,7 +82,7 @@
         "ValueAnnotation"
       ],
       "name": "NodeMqttClientHealthState",
-      "annotates": "Health",
+      "annotates": "HealthState",
       "schema": {
         "@type": "Enum",
         "valueSchema": "string",
@@ -105,7 +105,7 @@
         "ValueAnnotation"
       ],
       "name": "DlqQueuePercentage",
-      "annotates": "Health",
+      "annotates": "HealthState",
       "schema": "double",
       "description": "Current DLQ utilization percentage (0-100)."
     }

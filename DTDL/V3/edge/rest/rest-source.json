@@ -1,6 +1,6 @@
 {
   "@context": "dtmi:dtdl:context;4",
-  "@id": "dtmi:io:tributech:source:rest;2",
+  "@id": "dtmi:io:tributech:source:rest;3",
   "@type": "Interface",
   "extends": "dtmi:io:tributech:source:base;2",
   "displayName": "REST Source",
@@ -22,6 +22,12 @@
       "target": "dtmi:io:tributech:stream:rest:stream",
       "displayName": "Streams",
       "description": "Contains all REST streams in the given source."
+    }, 
+    {
+      "@type": "Component",
+      "name": "Health",
+      "schema": "dtmi:io:tributech:healthmessage:rest;1",
+      "displayName": "REST Source Health"
     }
   ]
 }

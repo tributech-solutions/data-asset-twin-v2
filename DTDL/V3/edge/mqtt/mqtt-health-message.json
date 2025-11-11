@@ -16,7 +16,7 @@
                 "ValueAnnotation"
             ],
             "name": "IsConnectedToIngressBroker",
-            "annotates": "Health",
+            "annotates": "HealthState",
             "schema": "boolean",
             "description": "True if source is connected to ingress broker (or source broker itself if there is no additional ingress broker)."
         }, 
@@ -26,7 +26,7 @@
                 "ValueAnnotation"
             ],
             "name": "FaultyStreams",
-            "annotates": "Health",
+            "annotates": "HealthState",
             "schema": {
                 "@type": "Map",
                 "mapKey": {

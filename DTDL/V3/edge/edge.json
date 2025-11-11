@@ -1,6 +1,6 @@
 {
   "@context": "dtmi:dtdl:context;4",
-  "@id": "dtmi:io:tributech:device:edge;2",
+  "@id": "dtmi:io:tributech:device:edge;3",
   "extends": "dtmi:io:tributech:device:base;2",
   "@type": "Interface",
   "displayName": "Edge",
@@ -23,6 +23,12 @@
       "description": "Maximum merkle tree age in seconds (e.g. 600).",
       "comment": "If a stream doesn't provides enough values to build an entire merkle tree with the given depth in the given time-period it will be splitted into smaller merkle trees."
     }, 
+    {
+      "@type": "Component",
+      "name": "Health",
+      "schema": "dtmi:io:tributech:healthmessage:edge;1",
+      "displayName": "Agent Health"
+    },
     { 
       "@type": "Relationship",
       "name": "MqttSource",

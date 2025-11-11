@@ -16,7 +16,7 @@
                 "ValueAnnotation"
             ],
             "name": "FaultyStreams",
-            "annotates": "Health",
+            "annotates": "HealthState",
             "schema": {
                 "@type": "Map",
                 "mapKey": {

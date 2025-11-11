@@ -16,7 +16,7 @@
                 "ValueAnnotation"
             ],
             "name": "ConnectionStateWithOpcuaServer",
-            "annotates": "Health",
+            "annotates": "HealthState",
             "schema": {
                 "@type": "Enum",
                 "valueSchema": "string",
@@ -51,7 +51,7 @@
                 "ValueAnnotation"
             ],
             "name": "ServerHeartbeatStopped",
-            "annotates": "Health",
+            "annotates": "HealthState",
             "schema": "boolean",
             "description": "True if no server response for ≥2 X KeepAliveInterval or error."
         },
@@ -61,7 +61,7 @@
                 "ValueAnnotation"
             ],
             "name": "ServerStateIsRunning",
-            "annotates": "Health",
+            "annotates": "HealthState",
             "schema": "boolean",
             "description": "OPC UA ServerState is Running."
         },
@@ -71,7 +71,7 @@
                 "ValueAnnotation"
             ],
             "name": "FaultyStreams",
-            "annotates": "Health",
+            "annotates": "HealthState",
             "schema": {
                 "@type": "Map",
                 "mapKey": {

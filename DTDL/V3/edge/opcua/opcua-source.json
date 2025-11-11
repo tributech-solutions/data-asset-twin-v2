@@ -1,6 +1,6 @@
 {
   "@context": "dtmi:dtdl:context;4",
-  "@id": "dtmi:io:tributech:source:opcua;2",
+  "@id": "dtmi:io:tributech:source:opcua;3",
   "@type": "Interface",
   "extends": "dtmi:io:tributech:source:base;2",
   "displayName": "OPC UA Source",
@@ -29,6 +29,12 @@
       "target": "dtmi:io:tributech:stream:opcua",
       "displayName": "Streams",
       "description": "Contains all OPC UA streams the given source."
+    },
+    {
+      "@type": "Component",
+      "name": "Health",
+      "schema": "dtmi:io:tributech:healthmessage:opcua;1",
+      "displayName": "OPC UA Source Health"
     }
   ]
 }
