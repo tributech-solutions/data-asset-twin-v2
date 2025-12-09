@@ -1,0 +1,87 @@
+{
+  "@context": [
+    "dtmi:dtdl:context;4",
+    "dtmi:dtdl:extension:annotation;2"
+  ],
+  "@id": "dtmi:io:tributech:healthmessage:edge;1",
+  "@type": "Interface",
+  "extends": [
+    "dtmi:io:tributech:healthmessage:base;1"
+  ],
+  "displayName": "Agent Health",
+  "contents": [
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "IsConnectedToSourceBroker",
+      "annotates": "HealthState",
+      "schema": "boolean",
+      "description": "Agent connection to source broker."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "IsConnectedToCloudBroker",
+      "annotates": "HealthState",
+      "schema": "boolean",
+      "description": "Agent connection to node/cloud broker."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "EnrollmentCertificatesExist",
+      "annotates": "HealthState",
+      "schema": "boolean",
+      "description": "States if enrollment certificates available with the agent."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "AgeLimitHitStreams",
+      "annotates": "HealthState",
+      "schema": {
+        "@type": "Array",
+        "elementSchema": "string"
+    },
+      "description": "Streams for which the merkle tree age hit limit instead of depth."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "IsSourceMqttClientHealthy",
+      "annotates": "HealthState",
+      "schema": "boolean",
+      "description": "Is innternal health of the Source-side MQTT client in Agent healthy."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "IsNodeMqttClientHealthy",
+      "annotates": "HealthState",
+      "schema": "boolean",
+      "description": "Is internal health of the Node-side MQTT client in Agent healthy."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "DlqQueuePercentage",
+      "annotates": "HealthState",
+      "schema": "double",
+      "description": "Current DLQ utilization percentage (0-100)."
+    }
+  ]
+}

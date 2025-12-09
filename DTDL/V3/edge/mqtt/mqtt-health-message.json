@@ -1,0 +1,44 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:mqtt;1",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "MQTT Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "IsConnectedToIngressBroker",
+            "annotates": "HealthState",
+            "schema": "boolean",
+            "description": "True if source is connected to ingress broker (or source broker itself if there is no additional ingress broker)."
+        }, 
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "FaultyStreams",
+            "annotates": "HealthState",
+            "schema": {
+                "@type": "Map",
+                "mapKey": {
+                    "name": "streamId",
+                    "schema": "string"
+                },
+                "mapValue": {
+                    "name": "contextInfo",
+                    "schema": "string"
+                }
+            },
+            "description": "Key-value of faulty streams with its contextInfo (like the MQTT topic for Topic streams and jsonpath for jsonpath streams). Empty map when all OK."
+        }
+    ]
+}

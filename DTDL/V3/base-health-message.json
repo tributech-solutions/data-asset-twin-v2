@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "dtmi:dtdl:context;4",
+    "dtmi:dtdl:extension:annotation;2"
+  ],
+  "@id": "dtmi:io:tributech:healthmessage:base;1",
+  "@type": "Interface",
+  "displayName": "Health Check Message base definition",
+  "contents": [
+    {
+      "@type": "Telemetry",
+      "name": "HealthState",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "integer",
+        "enumValues": [
+          {
+            "name": "Unknown",
+            "enumValue": 0
+          },
+          {
+            "name": "Ok",
+            "enumValue": 1
+          },
+          {
+            "name": "Degraded",
+            "enumValue": 2
+          },
+          {
+            "name": "Unhealthy",
+            "enumValue": -1
+          },
+          {
+            "name": "Critical",
+            "enumValue": -2
+          }
+        ]
+      }
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "HealthTimestamp",
+      "annotates": "HealthState",
+      "schema": "dateTime"
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "HealthMessage",
+      "schema": "string",
+      "annotates": "HealthState"
+    },
+    {
+      "@type": [
+        "Property",
+        "ValueAnnotation"
+      ],
+      "name": "ExpectedHealthFrequency",
+      "schema": "duration",
+      "annotates": "HealthState",
+      "writeable": true
+    }
+  ]
+}

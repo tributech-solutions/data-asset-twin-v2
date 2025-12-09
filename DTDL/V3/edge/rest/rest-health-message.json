@@ -1,0 +1,24 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:rest;1",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "REST Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "PostFailureRatioInPast5M",
+            "annotates": "HealthState",
+            "schema": "double",
+            "description": "Share of POST failures in last 5 minutes (0.0–1.0)."
+        }
+    ]
+}

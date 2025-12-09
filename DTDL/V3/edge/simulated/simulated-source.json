@@ -1,0 +1,45 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:source:simulated;3",
+    "@type": "Interface",
+    "extends": "dtmi:io:tributech:source:base;2",
+    "displayName": "Simulated Source",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "MaxBatchSize",
+            "schema": "integer",
+            "writable": true,
+            "displayName": "Max batch size",
+            "description": "The maximum number of values to send as batch in one message to the EdgeAgent (e.g. 1024)"
+        },
+        {
+            "@type": "Property",
+            "name": "FlushInterval",
+            "schema": "integer",
+            "writable": true,
+            "displayName": "Flush interval",
+            "description": "The interval (in seconds) in which the values should be flushed from the buffer and send to the Data-API. Regardless if the MaxBatchSize was reached. (e.g. 1)"
+        },
+        {
+            "@type": "Relationship",
+            "name": "Streams",
+            "minMultiplicity": 0,
+            "maxMultiplicity": 10,
+            "target": "dtmi:io:tributech:stream:simulated",
+            "displayName": "Streams",
+            "description": "Contains all Simulated streams the given source."
+        },
+        {
+            "@type": "Component",
+            "name": "Commands",
+            "schema": "dtmi:io:tributech:command:simulated;2"
+        },
+        {
+            "@type": "Component",
+            "name": "Health",
+            "schema": "dtmi:io:tributech:healthmessage:simulated;1",
+            "displayName": "Simulated Source Health"
+        }
+    ]
+}

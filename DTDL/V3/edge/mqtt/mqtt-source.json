@@ -1,0 +1,58 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:source:mqtt;3",
+  "@type": "Interface",
+  "extends": "dtmi:io:tributech:source:base;2",
+  "displayName": "MQTT Source",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "MQTTHost",
+      "schema": "string",
+      "writable": true,
+      "displayName": "MQTT Host",
+      "description": "Defines the MQTT broker. E.g.: mqtt://node-x.-node.com, https://host.docker.internal"
+    },
+    {
+      "@type": "Property",
+      "name": "MQTTPort",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "MQTT Port",
+      "description": "Defines the MQTT broker port, e.g. 1883, 8883"
+    },
+    {
+      "@type": "Relationship",
+      "name": "PayloadStreams",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 500,
+      "target": "dtmi:io:tributech:stream:mqtt:payload",
+      "displayName": "Payload Streams",
+      "description": "Contains all MQTT Payload streams in the given source."
+    },
+    {
+      "@type": "Relationship",
+      "name": "TopicStreams",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 500,
+      "target": "dtmi:io:tributech:stream:mqtt:topic",
+      "displayName": "Topic Streams",
+      "description": "Contains all MQTT Topic streams in the given source."
+    },
+    {
+      "@type": "Relationship",
+      "name": "JsonPathCollections",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 100,
+      "target": "dtmi:io:tributech:mqtt:jsonpathcollection",
+      "displayName": "JsonPath Collection",
+      "description": "Contains topic-specific configurations for associated jsonpath based streams."
+    },
+    {
+      "@type": "Component",
+      "name": "Health",
+      "schema": "dtmi:io:tributech:healthmessage:mqtt;1",
+      "displayName": "Mqtt Source Health"
+    }
+  ]
+}
