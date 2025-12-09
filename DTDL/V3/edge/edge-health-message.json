@@ -58,46 +58,20 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "SourceMqttClientHealthState",
+      "name": "IsSourceMqttClientHealthy",
       "annotates": "HealthState",
-      "schema": {
-        "@type": "Enum",
-        "valueSchema": "string",
-        "enumValues": [
-          {
-            "name": "Healthy",
-            "enumValue": "Healthy"
-          },
-          {
-            "name": "Unhealthy",
-            "enumValue": "Unhealthy"
-          }
-        ]
-      },
-      "description": "Internal health of the Source-side MQTT client in Agent."
+      "schema": "boolean",
+      "description": "Is innternal health of the Source-side MQTT client in Agent healthy."
     },
     {
       "@type": [
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "NodeMqttClientHealthState",
+      "name": "IsNodeMqttClientHealthy",
       "annotates": "HealthState",
-      "schema": {
-        "@type": "Enum",
-        "valueSchema": "string",
-        "enumValues": [
-          {
-            "name": "Healthy",
-            "enumValue": "Healthy"
-          },
-          {
-            "name": "Unhealthy",
-            "enumValue": "Unhealthy"
-          }
-        ]
-      },
-      "description": "Internal health of the Node-side MQTT client in Agent."
+      "schema": "boolean",
+      "description": "Is internal health of the Node-side MQTT client in Agent healthy."
     },
     {
       "@type": [

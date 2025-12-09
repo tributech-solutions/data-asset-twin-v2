@@ -15,7 +15,7 @@
                 "Telemetry",
                 "ValueAnnotation"
             ],
-            "name": "PostFailureRatioInPast5Minutes",
+            "name": "PostFailureRatioInPast5M",
             "annotates": "HealthState",
             "schema": "double",
             "description": "Share of POST failures in last 5 minutes (0.0–1.0)."
