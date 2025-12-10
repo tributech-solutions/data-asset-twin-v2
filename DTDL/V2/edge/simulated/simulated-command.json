@@ -7,7 +7,7 @@
         {
             "@type": "Object",
             "@id": "dtmi:io:tributech:command:response:simulated;2",
-            "name": "SimulatedCommandResponse",
+            "displayName": "Simulated Command Response",
             "description": "Response schema for simulated commands.",
             "fields": [
                 {

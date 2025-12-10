@@ -7,7 +7,7 @@
         {
             "@type": "Object",
             "@id": "dtmi:io:tributech:command:response:tcads;2",
-            "name": "TcadsCommandResponse",
+            "displayName": "ADS Command Response",
             "description": "Response schema for tcads commands.",
             "fields": [
                 {
