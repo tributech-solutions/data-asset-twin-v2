@@ -63,7 +63,7 @@
       "name": "ExpectedHealthFrequency",
       "schema": "duration",
       "annotates": "HealthState",
-      "writeable": true
+      "writable": true
     }
   ]
 }
