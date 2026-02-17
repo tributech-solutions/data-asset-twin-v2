@@ -7,16 +7,16 @@
     "references": [
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/base-health-message.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/edge-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/mqtt/mqtt-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/rest/rest-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/opcua/opcua-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/simulated/simulated-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/tcads/tcads-health-message.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/edge.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/mqtt/mqtt-source.json",
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/mqtt/mqtt-health-message.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/rest/rest-source.json",
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/rest/rest-health-message.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/opcua/opcua-source.json",
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/opcua/opcua-health-message.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/simulated/simulated-source.json",
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/simulated/simulated-health-message.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/tcads/tcads-source.json",
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V3/edge/tcads/tcads-health-message.json"
     ]
 } 
