@@ -71,7 +71,7 @@
     "contents": [
         {
             "@type": "Command",
-            "name": "BoolCommand",
+            "name": "Bool",
             "displayName": "Bool Command",
             "request": {
                 "name": "BoolCommandRequest",
@@ -98,7 +98,7 @@
         }, 
         {
             "@type": "Command",
-            "name": "SetPercentageCommand",
+            "name": "SetPercentage",
             "displayName": "Set Percentage Command",
             "request": {
                 "name": "SetPercentageRequest",
@@ -125,7 +125,7 @@
         }, 
         {
             "@type": "Command",
-            "name": "TriggerCommand",
+            "name": "Trigger",
             "displayName": "Trigger Command",
             "request": {
                 "name": "TriggerCommandRequest",

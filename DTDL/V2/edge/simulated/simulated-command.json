@@ -71,7 +71,7 @@
     "contents": [
         {
             "@type": "Command",
-            "name": "SetDataGenerationModeCommand",
+            "name": "SetDataGenerationMode",
             "displayName": "Set Data Generation Mode Command",
             "request": {
                 "name": "SetDataGenerationModeRequest",
@@ -83,17 +83,17 @@
                             "name": "NumericDataGenerationMode",
                             "schema": {
                                 "@type": "Enum",
-                                "valueSchema": "string",
+                                "valueSchema": "integer",
                                 "enumValues": [
                                 {
                                     "name": "Standard",
                                     "displayName": "Standard",
-                                    "enumValue": "Standard"
+                                    "enumValue": 1
                                 }, 
                                 {
                                     "name": "Minimal",
                                     "displayName": "Minimal",
-                                    "enumValue": "Minimal"
+                                    "enumValue": 2
                                 }
                                 ]
                             }
@@ -109,7 +109,7 @@
         }, 
         {
             "@type": "Command",
-            "name": "TriggerAnomalyCommand",
+            "name": "TriggerAnomaly",
             "displayName": "Trigger Anomaly Command",
             "request": {
                 "name": "TriggerAnomalyRequest",
@@ -125,12 +125,12 @@
                             "name": "AnomalyType",
                             "schema": {
                                 "@type": "Enum",
-                                "valueSchema": "string",
+                                "valueSchema": "integer",
                                 "enumValues": [
                                 {
                                     "name": "MultiplyMaxNumericValue",
                                     "displayName": "MultiplyMaxNumericValue",
-                                    "enumValue": "MultiplyMaxNumericValue"
+                                    "enumValue": 1
                                 }
                                 ]
                             }
