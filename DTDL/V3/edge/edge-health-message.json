@@ -82,6 +82,16 @@
       "annotates": "HealthState",
       "schema": "double",
       "description": "Current DLQ utilization percentage (0-100)."
+    }, 
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "TwinWasClearedDueToEnrollmentFailure",
+      "annotates": "HealthState",
+      "schema": "boolean",
+      "description": "Indicates if the twin was cleared due to enrollment failure."
     }
   ]
 }
