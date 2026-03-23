@@ -7,7 +7,7 @@
     "schemas": [
         {
             "@type": "Object",
-            "@id": "dtmi:io:tributech:command:response:tcads;2",
+            "@id": "dtmi:io:tributech:command:response:tcads;3",
             "displayName": "ADS Command Response",
             "description": "Response schema for tcads commands.",
             "fields": [
@@ -168,7 +168,7 @@
             "response": {
                 "name": "BoolCommandResponse",
                 "description": "Response of set boolean value command",
-                "schema": "dtmi:io:tributech:command:response:tcads;2"
+                "schema": "dtmi:io:tributech:command:response:tcads;3"
             }
         },
         {
@@ -195,7 +195,7 @@
             "response": {
                 "name": "SetPercentageResponse",
                 "description": "Response of set percentage command",
-                "schema": "dtmi:io:tributech:command:response:tcads;2"
+                "schema": "dtmi:io:tributech:command:response:tcads;3"
             }
         },
         {
@@ -218,7 +218,7 @@
             "response": {
                 "name": "TriggerCommandResponse",
                 "description": "Response of trigger command",
-                "schema": "dtmi:io:tributech:command:response:tcads;2"
+                "schema": "dtmi:io:tributech:command:response:tcads;3"
             }
         },
         {
