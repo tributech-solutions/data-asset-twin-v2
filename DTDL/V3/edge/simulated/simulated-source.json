@@ -4,71 +4,6 @@
     "@type": "Interface",
     "extends": "dtmi:io:tributech:source:base;2",
     "displayName": "Simulated Source",
-    "schemas": [
-        {
-            "@type": "Object",
-            "@id": "dtmi:io:tributech:command:response:simulated;3",
-            "displayName": "Simulated Command Response",
-            "description": "Response schema for simulated commands.",
-            "fields": [
-                {
-                    "name": "ResponseBody",
-                    "schema": "bytes"
-                },
-                {
-                    "name": "ExecutedAt",
-                    "schema": "dateTime"
-                },
-                {
-                    "name": "AdditionalInformation",
-                    "schema": "string"
-                },
-                {
-                    "name": "ExecutionDuration",
-                    "schema": "duration"
-                },
-                {
-                    "name": "CommandState",
-                    "schema": {
-                        "@type": "Enum",
-                        "valueSchema": "string",
-                        "enumValues": [
-                            {
-                                "name": "Rejected",
-                                "displayName": "Rejected",
-                                "enumValue": "Rejected"
-                            },
-                            {
-                                "name": "CouldNotBeSend",
-                                "displayName": "CouldNotBeSend",
-                                "enumValue": "CouldNotBeSend"
-                            },
-                            {
-                                "name": "Timeout",
-                                "displayName": "Timeout",
-                                "enumValue": "Timeout"
-                            },
-                            {
-                                "name": "CommandFailed",
-                                "displayName": "CommandFailed",
-                                "enumValue": "CommandFailed"
-                            },
-                            {
-                                "name": "Error",
-                                "displayName": "Error",
-                                "enumValue": "Error"
-                            },
-                            {
-                                "name": "Success",
-                                "displayName": "Success",
-                                "enumValue": "Success"
-                            }
-                        ]
-                    }
-                }
-            ]
-        }
-    ],
     "contents": [
         {
             "@type": "Property",
@@ -130,7 +65,7 @@
             "response": {
                 "name": "SetDataGenerationModeResponse",
                 "description": "Response after setting the data generation mode.",
-                "schema": "dtmi:io:tributech:command:response:simulated;3"
+                "schema": "dtmi:io:tributech:command:response:simulated;2"
             }
         },
         {
@@ -167,7 +102,7 @@
             "response": {
                 "name": "TriggerAnomalyResponse",
                 "description": "Response after triggering an anomaly.",
-                "schema": "dtmi:io:tributech:command:response:simulated;3"
+                "schema": "dtmi:io:tributech:command:response:simulated;2"
             }
         },
         {
