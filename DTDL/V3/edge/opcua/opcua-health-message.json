@@ -23,23 +23,28 @@
                 "enumValues": [
                     {
                         "name": "Connected",
-                        "enumValue": "Connected"
+                        "enumValue": "Connected",
+                        "displayName": "Connected"
                     },
                     {
                         "name": "Connecting",
-                        "enumValue": "Connecting"
+                        "enumValue": "Connecting",
+                        "displayName": "Connecting"
                     },
                     {
                         "name": "Recovering",
-                        "enumValue": "Recovering"
+                        "enumValue": "Recovering",
+                        "displayName": "Recovering"
                     },
                     {
                         "name": "Disconnected",
-                        "enumValue": "Disconnected"
+                        "enumValue": "Disconnected",
+                        "displayName": "Disconnected"
                     },
                     {
                         "name": "Error",
-                        "enumValue": "Error"
+                        "enumValue": "Error",
+                        "displayName": "Error"
                     }
                 ]
             },
