@@ -12,27 +12,32 @@
       "name": "HealthState",
       "schema": {
         "@type": "Enum",
-        "valueSchema": "integer",
+        "valueSchema": "string",
         "enumValues": [
           {
             "name": "Unknown",
-            "enumValue": 0
+            "enumValue": "Unknown",
+            "displayName": "Unknown"
           },
           {
             "name": "Ok",
-            "enumValue": 1
+            "enumValue": "Ok",
+            "displayName": "Ok"
           },
           {
             "name": "Degraded",
-            "enumValue": 2
+            "enumValue": "Degraded",
+            "displayName": "Degraded"
           },
           {
             "name": "Unhealthy",
-            "enumValue": -1
+            "enumValue": "Unhealthy",
+            "displayName": "Unhealthy"
           },
           {
             "name": "Critical",
-            "enumValue": -2
+            "enumValue": "Critical",
+            "displayName": "Critical"
           }
         ]
       }
