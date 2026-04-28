@@ -68,7 +68,9 @@
       "name": "ExpectedHealthFrequency",
       "schema": "duration",
       "annotates": "HealthState",
-      "writable": true
+      "writable": true,
+      "displayName": "Expected Health Frequency",
+      "description": "The expected frequency of health messages in xml duration format for example: 'PT30S' for 30 seconds, 'PT5M' for 5 minutes, 'PT1H' for 1 hour."
     }
   ]
 }
