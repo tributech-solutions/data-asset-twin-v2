@@ -18,6 +18,7 @@
             "name": "PostFailureRatioInPast5M",
             "annotates": "HealthState",
             "schema": "double",
+            "displayName": "POST Failure Ratio In Past 5 Minutes",
             "description": "Share of POST failures in last 5 minutes (0.0–1.0)."
         }
     ]

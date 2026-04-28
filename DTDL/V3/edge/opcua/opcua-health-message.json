@@ -48,7 +48,8 @@
                     }
                 ]
             },
-            "description": "Connection state to OPC UA server."
+            "displayName": "Connection State With OPC UA Server",
+            "description": "Connection state to OPC UA server. 'Connected' means healthy connection, 'Connecting' or 'Recovering' indicate intermediate states during connection setup or recovery, 'Disconnected' or 'Error' indicate unhealthy states."
         },
         {
             "@type": [
@@ -58,6 +59,7 @@
             "name": "ServerHeartbeatStopped",
             "annotates": "HealthState",
             "schema": "boolean",
+            "displayName": "OPC UA Server Heartbeat Stopped",
             "description": "True if no server response for ≥2 X KeepAliveInterval or error."
         },
         {
@@ -68,6 +70,7 @@
             "name": "ServerStateIsRunning",
             "annotates": "HealthState",
             "schema": "boolean",
+            "displayName": "OPC UA Server State Is Running",
             "description": "OPC UA ServerState is Running."
         },
         {
@@ -88,6 +91,7 @@
                     "schema": "string"
                 }
             },
+            "displayName": "Faulty Streams",
             "description": "Key-value of faulty streams with its nodeId. Empty map when all OK."
         }
     ]

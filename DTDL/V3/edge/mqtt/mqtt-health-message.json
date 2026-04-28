@@ -18,6 +18,7 @@
             "name": "IsConnectedToIngressBroker",
             "annotates": "HealthState",
             "schema": "boolean",
+            "displayName": "Is Connected To Ingress Broker",
             "description": "True if source is connected to ingress broker (or source broker itself if there is no additional ingress broker)."
         }, 
         {
@@ -38,6 +39,7 @@
                     "schema": "string"
                 }
             },
+            "displayName": "Faulty Streams",
             "description": "Key-value of faulty streams with its contextInfo (like the MQTT topic for Topic streams and jsonpath for jsonpath streams). Empty map when all OK."
         }
     ]

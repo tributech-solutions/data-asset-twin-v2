@@ -40,7 +40,9 @@
             "displayName": "Critical"
           }
         ]
-      }
+      },
+      "displayName": "Health State",
+      "description": "The current health state of the component."
     },
     {
       "@type": [
@@ -49,7 +51,9 @@
       ],
       "name": "HealthTimestamp",
       "annotates": "HealthState",
-      "schema": "dateTime"
+      "schema": "dateTime",
+      "displayName": "Health Timestamp",
+      "description": "The timestamp when the health message was generated."
     },
     {
       "@type": [
@@ -58,7 +62,9 @@
       ],
       "name": "HealthMessage",
       "schema": "string",
-      "annotates": "HealthState"
+      "annotates": "HealthState",
+      "displayName": "Health Message",
+      "description": "A message describing the current health state."
     },
     {
       "@type": [

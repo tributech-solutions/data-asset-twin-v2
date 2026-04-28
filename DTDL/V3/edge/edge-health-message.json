@@ -18,6 +18,7 @@
       "name": "IsConnectedToSourceBroker",
       "annotates": "HealthState",
       "schema": "boolean",
+      "displayName": "Is Connected To Source Broker",
       "description": "Agent connection to source broker."
     },
     {
@@ -28,6 +29,7 @@
       "name": "IsConnectedToCloudBroker",
       "annotates": "HealthState",
       "schema": "boolean",
+      "displayName": "Is Connected To Cloud Broker",
       "description": "Agent connection to node/cloud broker."
     },
     {
@@ -38,6 +40,7 @@
       "name": "EnrollmentCertificatesExist",
       "annotates": "HealthState",
       "schema": "boolean",
+      "displayName": "Enrollment Certificates Exist",
       "description": "States if enrollment certificates available with the agent."
     },
     {
@@ -51,6 +54,7 @@
         "@type": "Array",
         "elementSchema": "string"
     },
+      "displayName": "Age Limit Hit Streams",
       "description": "Streams for which the merkle tree age hit limit instead of depth."
     },
     {
@@ -61,7 +65,8 @@
       "name": "IsSourceMqttClientHealthy",
       "annotates": "HealthState",
       "schema": "boolean",
-      "description": "Is innternal health of the Source-side MQTT client in Agent healthy."
+      "displayName": "Is Source MQTT Client Healthy",
+      "description": "Is internal health of the Source-side MQTT client in Agent healthy."
     },
     {
       "@type": [
@@ -71,6 +76,7 @@
       "name": "IsNodeMqttClientHealthy",
       "annotates": "HealthState",
       "schema": "boolean",
+      "displayName": "Is Node MQTT Client Healthy",
       "description": "Is internal health of the Node-side MQTT client in Agent healthy."
     },
     {
@@ -81,6 +87,7 @@
       "name": "DlqQueuePercentage",
       "annotates": "HealthState",
       "schema": "double",
+      "displayName": "DLQ Queue Percentage",
       "description": "Current DLQ utilization percentage (0-100)."
     }, 
     {
@@ -91,6 +98,7 @@
       "name": "TwinWasClearedDueToEnrollmentFailure",
       "annotates": "HealthState",
       "schema": "boolean",
+      "displayName": "Twin Cleared Due To Enrollment Failure",
       "description": "Indicates if the twin was cleared due to enrollment failure."
     }
   ]
