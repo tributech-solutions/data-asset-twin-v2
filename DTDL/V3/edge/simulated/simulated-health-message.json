@@ -28,6 +28,7 @@
                     "schema": "duration"
                 }
             },
+            "displayName": "Faulty Streams",
             "description": "Key-Value of faulty streams currently not meeting schedule with its configured period."
         }
     ]

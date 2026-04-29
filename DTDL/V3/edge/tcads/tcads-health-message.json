@@ -18,6 +18,7 @@
             "name": "IsRouterStatusStarted",
             "annotates": "HealthState",
             "schema": "boolean",
+            "displayName": "Is Router in Started State",
             "description": "True if state of the ADS Router in the source is Started."
         },
         {
@@ -28,6 +29,7 @@
             "name": "IsPLCADSStateRun",
             "annotates": "HealthState",
             "schema": "boolean",
+            "displayName": "Is PLC ADS in Run State",  
             "description": "True if PLC ADS communication state is Run."
         },
         {
@@ -38,6 +40,7 @@
             "name": "IsADSClientConnectedToRouter",
             "annotates": "HealthState",
             "schema": "boolean",
+            "displayName": "Is ADS Client Connected To Router",
             "description": "True if ADS client is currently connected to the Router."
         }, 
         {
@@ -58,6 +61,7 @@
                     "schema": "string"
                 }
             },
+            "displayName": "Faulty Streams",
             "description": "Key-value of faulty streams with its symbol. Empty map when all OK."
         }
     ]

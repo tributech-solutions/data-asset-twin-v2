@@ -174,7 +174,8 @@
             "@type": "Component",
             "name": "Health",
             "schema": "dtmi:io:tributech:healthmessage:simulated;1",
-            "displayName": "Simulated Source Health"
+            "displayName": "Simulated Source Health",
+            "description": "Health message with simulated source specific health information."
         }
     ]
 }
