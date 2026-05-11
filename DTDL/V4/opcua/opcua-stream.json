@@ -1,6 +1,6 @@
 {
     "@context": "dtmi:dtdl:context;4",
-    "@id": "dtmi:io:tributech:stream:opcua;4",
+    "@id": "dtmi:io:tributech:stream:opcua;3",
     "@type": "Interface",
     "displayName": "OPC UA Stream",
     "extends": "dtmi:io:tributech:stream:edge:base;2",
