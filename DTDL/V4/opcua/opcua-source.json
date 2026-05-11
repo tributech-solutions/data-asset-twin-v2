@@ -27,7 +27,7 @@
       "schema": "integer",
       "writable": true,
       "displayName": "OPC UA write cycle interval",
-      "description": "The OPC UA write cycle interval in milliseconds (e.g. 100) for writing values to the OPC UA server with parameters."
+      "description": "The OPC UA write cycle interval in seconds (e.g. 10) for writing values to the OPC UA server with parameters."
     },
     {
       "@type": "Relationship",
