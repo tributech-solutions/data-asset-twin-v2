@@ -4,6 +4,71 @@
   "@type": "Interface",
   "extends": "dtmi:io:tributech:source:base;2",
   "displayName": "OPC UA Source",
+  "schemas": [
+      {
+          "@type": "Object",
+          "@id": "dtmi:io:tributech:command:response:opcua;1",
+          "displayName": "OPC UA Command Response",
+          "description": "Response schema for OPC UA commands.",
+          "fields": [
+              {
+                  "name": "ResponseBody",
+                  "schema": "bytes"
+              },
+              {
+                  "name": "ExecutedAt",
+                  "schema": "dateTime"
+              },
+              {
+                  "name": "AdditionalInformation",
+                  "schema": "string"
+              },
+              {
+                  "name": "ExecutionDuration",
+                  "schema": "duration"
+              },
+              {
+                  "name": "CommandState",
+                  "schema": {
+                      "@type": "Enum",
+                      "valueSchema": "string",
+                      "enumValues": [
+                          {
+                              "name": "Rejected",
+                              "displayName": "Rejected",
+                              "enumValue": "Rejected"
+                          },
+                          {
+                              "name": "CouldNotBeSend",
+                              "displayName": "CouldNotBeSend",
+                              "enumValue": "CouldNotBeSend"
+                          },
+                          {
+                              "name": "Timeout",
+                              "displayName": "Timeout",
+                              "enumValue": "Timeout"
+                          },
+                          {
+                              "name": "CommandFailed",
+                              "displayName": "CommandFailed",
+                              "enumValue": "CommandFailed"
+                          },
+                          {
+                              "name": "Error",
+                              "displayName": "Error",
+                              "enumValue": "Error"
+                          },
+                          {
+                              "name": "Success",
+                              "displayName": "Success",
+                              "enumValue": "Success"
+                          }
+                      ]
+                  }
+              }
+          ]
+      }
+  ],
   "contents": [
     {
       "@type": "Property",
@@ -46,6 +111,54 @@
       "target": "dtmi:io:tributech:parameter:opcua",
       "displayName": "Parameters",
       "description": "For writing Configuration Values to the OPC UA Server"
+    },
+    {
+          "@type": "Command",
+          "name": "WriteOnce",
+          "displayName": "Write Once Command",
+          "request": {
+              "name": "WriteOnceCommandRequest",
+              "description": "Request for writing a value once to the OPC UA server",
+              "schema": {
+                  "@type": "Object",
+                  "fields": [
+                      {
+                          "name": "Identifier",
+                          "schema": "string"
+                      },
+                      {
+                          "name": "IntValue",
+                          "schema": "integer"
+                      },
+                      {
+                          "name": "FloatValue",
+                          "schema": "float"
+                      },
+                      {
+                          "name": "LongValue",
+                          "schema": "long"
+                      },
+                      {
+                          "name": "DoubleValue",
+                          "schema": "double"
+                      },
+                      {
+                          "name": "StringValue",
+                          "schema": "string"
+                      },
+                      {
+                          "name": "BoolValue",
+                          "schema": "boolean"
+                      }
+
+                  ]
+              }
+          },
+          "response": {
+              "name": "WriteOnceCommandResponse",
+              "description": "Response of write once command",
+              "schema": "dtmi:io:tributech:command:response:opcua;1"
+          }
     },
     {
       "@type": "Component",
