@@ -1,0 +1,171 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:source:opcua;4",
+  "@type": "Interface",
+  "extends": "dtmi:io:tributech:source:base;2",
+  "displayName": "OPC UA Source",
+  "schemas": [
+      {
+          "@type": "Object",
+          "@id": "dtmi:io:tributech:command:response:opcua;1",
+          "displayName": "OPC UA Command Response",
+          "description": "Response schema for OPC UA commands.",
+          "fields": [
+              {
+                  "name": "ResponseBody",
+                  "schema": "bytes"
+              },
+              {
+                  "name": "ExecutedAt",
+                  "schema": "dateTime"
+              },
+              {
+                  "name": "AdditionalInformation",
+                  "schema": "string"
+              },
+              {
+                  "name": "ExecutionDuration",
+                  "schema": "duration"
+              },
+              {
+                  "name": "CommandState",
+                  "schema": {
+                      "@type": "Enum",
+                      "valueSchema": "string",
+                      "enumValues": [
+                          {
+                              "name": "Rejected",
+                              "displayName": "Rejected",
+                              "enumValue": "Rejected"
+                          },
+                          {
+                              "name": "CouldNotBeSend",
+                              "displayName": "CouldNotBeSend",
+                              "enumValue": "CouldNotBeSend"
+                          },
+                          {
+                              "name": "Timeout",
+                              "displayName": "Timeout",
+                              "enumValue": "Timeout"
+                          },
+                          {
+                              "name": "CommandFailed",
+                              "displayName": "CommandFailed",
+                              "enumValue": "CommandFailed"
+                          },
+                          {
+                              "name": "Error",
+                              "displayName": "Error",
+                              "enumValue": "Error"
+                          },
+                          {
+                              "name": "Success",
+                              "displayName": "Success",
+                              "enumValue": "Success"
+                          }
+                      ]
+                  }
+              }
+          ]
+      }
+  ],
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "ConnectionString",
+      "schema": "string",
+      "writable": true,
+      "displayName": "OPC UA Connection string",
+      "description": "The connection string for the OPC UA value source (e.g. \"opc.tcp://opcua-server:4840\")"
+    },
+    {
+      "@type": "Property",
+      "name": "PublishingInterval",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "OPC UA publishing interval",
+      "description": "The OPC UA publishing interval in milliseconds (e.g. 100)."
+    },
+    {
+      "@type": "Property",
+      "name": "WriteCycleInterval",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "OPC UA write cycle interval",
+      "description": "The OPC UA write cycle interval in seconds (e.g. 10) for writing values to the OPC UA server with parameters."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Streams",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 100,
+      "target": "dtmi:io:tributech:stream:opcua",
+      "displayName": "Streams",
+      "description": "Contains all OPC UA streams the given source."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Parameter",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 100,
+      "target": "dtmi:io:tributech:parameter:opcua",
+      "displayName": "Parameters",
+      "description": "For writing Configuration Values to the OPC UA Server"
+    },
+    {
+          "@type": "Command",
+          "name": "WriteOnce",
+          "displayName": "Write Once Command",
+          "request": {
+              "name": "WriteOnceCommandRequest",
+              "description": "Request for writing a value once to the OPC UA server",
+              "schema": {
+                  "@type": "Object",
+                  "fields": [
+                      {
+                          "name": "Identifier",
+                          "schema": "string"
+                      },
+                      {
+                          "name": "IntValue",
+                          "schema": "integer"
+                      },
+                      {
+                          "name": "FloatValue",
+                          "schema": "float"
+                      },
+                      {
+                          "name": "LongValue",
+                          "schema": "long"
+                      },
+                      {
+                          "name": "DoubleValue",
+                          "schema": "double"
+                      },
+                      {
+                          "name": "StringValue",
+                          "schema": "string"
+                      },
+                      {
+                          "name": "BoolValue",
+                          "schema": "boolean"
+                      }
+
+                  ]
+              }
+          },
+          "response": {
+              "name": "WriteOnceCommandResponse",
+              "description": "Response of write once command",
+              "schema": "dtmi:io:tributech:command:response:opcua;1"
+          }
+    },
+    {
+      "@type": "Component",
+      "name": "Health",
+      "schema": "dtmi:io:tributech:healthmessage:opcua;2",
+      "displayName": "OPC UA Source Health",
+      "description": "Health message with OPC UA source specific health information."
+    }
+  ]
+}

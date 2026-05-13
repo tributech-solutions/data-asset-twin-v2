@@ -1,0 +1,25 @@
+{
+    "@context" : "dtmi:dtdl:context;4",
+    "@id" : "dtmi:io:tributech:parameter:opcua;1", 
+    "@type": "Interface", 
+    "extends": "dtmi:io:tributech:parameter:base;2",
+    "displayName": "OPC UA Parameter", 
+    "contents" : [
+        {
+            "@type": "Property",
+            "name": "Identifier",
+            "schema": "string",
+            "writable": true,
+            "displayName": "Identifier",
+            "description": "The direct identifier for the OPC UA node (eg. \"ns=1;i=0\") or the browse path (eg. \"3:Data/3:Dynamic/3:Scalar/3:BooleanValue\") of the OPC UA node to be read."
+        },
+        {
+            "@type" : "Property", 
+            "name" : "Value", 
+            "schema" : "string", 
+            "writable" : true, 
+            "displayName" : "Write Value", 
+            "description" : "Value which will be written to the OPC UA Node (eg.\"1.2232\" for a Double or \"Hello\" for a String)"
+        }
+    ]
+}
