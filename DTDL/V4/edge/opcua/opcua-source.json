@@ -127,30 +127,9 @@
                           "schema": "string"
                       },
                       {
-                          "name": "IntValue",
-                          "schema": "integer"
-                      },
-                      {
-                          "name": "FloatValue",
-                          "schema": "float"
-                      },
-                      {
-                          "name": "LongValue",
-                          "schema": "long"
-                      },
-                      {
-                          "name": "DoubleValue",
-                          "schema": "double"
-                      },
-                      {
-                          "name": "StringValue",
+                          "name": "Value",
                           "schema": "string"
-                      },
-                      {
-                          "name": "BoolValue",
-                          "schema": "boolean"
                       }
-
                   ]
               }
           },
