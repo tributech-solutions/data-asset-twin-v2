@@ -1,0 +1,79 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:device:edge;4",
+  "extends": "dtmi:io:tributech:device:base;2",
+  "@type": "Interface",
+  "displayName": "Edge",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "MaxMerkleTreeDepth",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Max Merkle Tree Depth",
+      "description": "Maximum depth of the binary merkle-tree used for proof generation (e.g. 12). Value used as 2^MerkleTreeDepth.",
+      "comment": "Proofs allows to verify integrity and origin of the stream. A proof represents a binary-merkle-tree and 2^MerkleTreeDepth values are necessary to build a single proof."
+    },
+    {
+      "@type": "Property",
+      "name": "MaxMerkleTreeAge",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Max Merkle Tree Age",
+      "description": "Maximum merkle tree age in seconds (e.g. 600).",
+      "comment": "If a stream doesn't provides enough values to build an entire merkle tree with the given depth in the given time-period it will be splitted into smaller merkle trees."
+    },
+    {
+      "@type": "Component",
+      "name": "Health",
+      "schema": "dtmi:io:tributech:healthmessage:edge;2",
+      "displayName": "Agent Health",
+      "description": "Health message with edge agent specific health information."
+    },
+    {
+      "@type": "Relationship",
+      "name": "MqttSource",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:source:mqtt",
+      "displayName": "Sources",
+      "description": "Contain MQTT source of the given device."
+    },
+    {
+      "@type": "Relationship",
+      "name": "OpcUaSource",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:source:opcua",
+      "displayName": "Sources",
+      "description": "Contain OPC UA source of the given device."
+    },
+    {
+      "@type": "Relationship",
+      "name": "RestSource",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:source:rest",
+      "displayName": "Sources",
+      "description": "Contain REST source of the given device."
+    },
+    {
+      "@type": "Relationship",
+      "name": "SimulatedSource",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:source:simulated",
+      "displayName": "Sources",
+      "description": "Contain simulated source of the given device."
+    },
+    {
+      "@type": "Relationship",
+      "name": "TcadsSource",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:source:tcads",
+      "displayName": "Sources",
+      "description": "Contain ADS source of the given device."
+    }
+  ]
+}

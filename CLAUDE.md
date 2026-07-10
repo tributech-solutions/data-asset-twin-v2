@@ -1,0 +1,57 @@
+# data-asset-twin-v2
+
+DTDL (Digital Twins Definition Language) model definitions for the Tributech Node / Tributech Edge Agent. This repo is pure data — JSON DTDL interface files, no build/test tooling.
+
+## Repo layout
+
+- `DTDL/V1`, `DTDL/V2`, `DTDL/V3`, `DTDL/V4` — versioned model folders, described below.
+- `vocabulary.json`, `vocabulary-v2.json`, `vocabulary-v3.json`, `vocabulary-v4.json` — one vocabulary manifest per `DTDL/Vn` folder (see "Vocabulary files").
+- `examples/` — example DTDL digital twin instances (`$metadata.$model` references) showing how models are used together, e.g. [ads-demo.json](examples/ads-demo.json), [opcua-demo.json](examples/opcua-demo.json).
+
+## Versioning model (important — read before adding/editing any interface)
+
+Every DTDL interface has a DTMI in the form:
+
+```
+dtmi:io:tributech:<category>:<name>;<version>
+```
+
+e.g. `dtmi:io:tributech:device:edge;4`, `dtmi:io:tributech:healthmessage:edge;2`, `dtmi:io:tributech:source:opcua;4`.
+
+**The trailing `;N` is a per-model version counter, not the folder number.** Rules:
+
+- A brand new model starts at `;1` in whichever `DTDL/Vx` folder it's first introduced in.
+- When an existing model is changed, its version increments by exactly 1 and the new file is placed in the current/next `DTDL/Vx` folder.
+- If a model is *not* changed for a given release, it is **not duplicated** into the new `Vx` folder — the old file (and its old `;N`) simply keeps being referenced from its original folder via `extends`/`schema`/`target`.
+
+Example: `dtmi:io:tributech:device:base` was introduced as `;1` in `DTDL/V1/base-device.json`, bumped to `;2` in `DTDL/V2/base-device.json`, and has not changed since — there is no `base-device.json` in `DTDL/V3` or `DTDL/V4`; `edge.json` in those folders still does `"extends": "dtmi:io:tributech:device:base;2"`.
+
+Another example: `dtmi:io:tributech:healthmessage:edge` was introduced as `;1` in [DTDL/V3/edge/edge-health-message.json](DTDL/V3/edge/edge-health-message.json), then changed and bumped to `;2` in [DTDL/V4/edge/edge-health-message.json](DTDL/V4/edge/edge-health-message.json) (Snapshot/Windowed telemetry restructure).
+
+So: **the folder a file lives in tells you where it was last touched, not what its version number is.** Always check the actual `@id` in the file (or grep for the DTMI) rather than assuming `;N` == folder number `N`. In practice many "core" models (`device:edge`, `source:opcua`, ...) happen to have changed in every release so far, so their `;N` does line up with the folder number — but that's a coincidence of history, not a rule, and `device:base` above already breaks it.
+
+When adding a new version of a model:
+1. Copy the file into the current `DTDL/Vx` folder (create the folder if starting a new version line).
+2. Bump `@id`'s `;N` by 1.
+3. Bump `;N` in every other file's `extends`/`schema`/`target`/`request`/`response` reference that points at the old version, **only if** that referencing file is also being updated in this release. Otherwise leave older references pointing at the old version until that file's owner updates it.
+4. Add the new file's raw GitHub URL to the corresponding `vocabulary-vX.json`.
+
+## `@context` conventions
+
+- `DTDL/V1/**` uses DTDL spec v2: `"@context": "dtmi:dtdl:context;2"`.
+- `DTDL/V2/**`, `DTDL/V3/**`, `DTDL/V4/**` use DTDL spec v4: `"@context": "dtmi:dtdl:context;4"`.
+- Any interface that uses `ValueAnnotation` (i.e. telemetry/property annotated with `"annotates": "..."`, used heavily by health-message interfaces) must add the annotation extension to `@context` as an array:
+  ```json
+  "@context": ["dtmi:dtdl:context;4", "dtmi:dtdl:extension:annotation;2"]
+  ```
+  See [DTDL/V3/edge/edge-health-message.json](DTDL/V3/edge/edge-health-message.json) or [DTDL/V4/edge/edge-health-message.json](DTDL/V4/edge/edge-health-message.json). Interfaces without `ValueAnnotation` content use the plain single-string context.
+
+## Vocabulary files (`vocabulary*.json`)
+
+Each `vocabulary-vN.json` (and the unsuffixed `vocabulary.json` for V1) is a manifest listing the raw GitHub URLs of the DTDL files that belong to that version line — **not** a cumulative "latest state" list. `vocabulary-v4.json` currently only lists the 4 OPC UA files that exist under `DTDL/V4` (it doesn't re-list unchanged files from V1–V3). To resolve the *complete, current* model set for a consumer, you conceptually need to overlay `vocabulary.json` → `vocabulary-v2.json` → `vocabulary-v3.json` → `vocabulary-v4.json`, with later entries superseding earlier ones for the same DTMI base name.
+
+When adding a new file to a `DTDL/Vx` folder, always add its raw URL to the matching `vocabulary-vX.json` (`vocabulary.json` for V1).
+
+## Naming/category conventions
+
+DTMI categories in use: `device`, `source`, `stream`, `parameter`, `options`, `healthmessage`, `command:response`, `sdk`, `oem`. Folder layout under each `DTDL/Vx` groups by transport/protocol (`edge/mqtt`, `edge/opcua`, `edge/rest`, `edge/simulated`, `edge/tcads`, `edge/syslog`, `edge/modbus`, `oem/emb`, `sdk`), each typically providing a `*-source.json`, `*-stream*.json`, optionally `*-parameter.json` and `*-health-message.json`.

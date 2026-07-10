@@ -53,7 +53,7 @@
       "schema": {
         "@type": "Array",
         "elementSchema": "string"
-    },
+      },
       "displayName": "Age Limit Hit Streams",
       "description": "Streams for which the merkle tree age hit limit instead of depth."
     },
@@ -89,7 +89,7 @@
       "schema": "double",
       "displayName": "DLQ Queue Percentage",
       "description": "Current DLQ utilization percentage (0-100)."
-    }, 
+    },
     {
       "@type": [
         "Telemetry",
