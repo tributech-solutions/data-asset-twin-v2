@@ -1,0 +1,125 @@
+{
+  "@context": [
+    "dtmi:dtdl:context;4",
+    "dtmi:dtdl:extension:annotation;2"
+  ],
+  "@id": "dtmi:io:tributech:healthmessage:edge;2",
+  "@type": "Interface",
+  "extends": [
+    "dtmi:io:tributech:healthmessage:base;1"
+  ],
+  "displayName": "Agent Health",
+  "contents": [
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "Snapshot",
+      "annotates": "HealthState",
+      "displayName": "Snapshot",
+      "description": "Point-in-time health readings taken at tick time.",
+      "schema": {
+        "@type": "Object",
+        "fields": [
+          {
+            "name": "IsConnectedToSourceBroker",
+            "schema": "boolean",
+            "displayName": "Is Connected To Source Broker",
+            "description": "Agent connection to source broker."
+          },
+          {
+            "name": "IsConnectedToCloudBroker",
+            "schema": "boolean",
+            "displayName": "Is Connected To Cloud Broker",
+            "description": "Agent connection to node/cloud broker."
+          },
+          {
+            "name": "EnrollmentCertificatesExist",
+            "schema": "boolean",
+            "displayName": "Enrollment Certificates Exist",
+            "description": "States if enrollment certificates available with the agent."
+          },
+          {
+            "name": "IsSourceMqttClientHealthy",
+            "schema": "boolean",
+            "displayName": "Is Source MQTT Client Healthy",
+            "description": "Is internal health of the Source-side MQTT client in Agent healthy."
+          },
+          {
+            "name": "IsNodeMqttClientHealthy",
+            "schema": "boolean",
+            "displayName": "Is Node MQTT Client Healthy",
+            "description": "Is internal health of the Node-side MQTT client in Agent healthy."
+          },
+          {
+            "name": "DlqQueuePercentage",
+            "schema": "double",
+            "displayName": "DLQ Queue Percentage",
+            "description": "Current DLQ utilization percentage (0-100)."
+          }
+        ]
+      }
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "Windowed",
+      "annotates": "HealthState",
+      "displayName": "Windowed",
+      "description": "Windowed health observations accumulated since the last health tick.",
+      "schema": {
+        "@type": "Object",
+        "fields": [
+          {
+            "name": "TwinWasClearedDueToEnrollmentFailureCount",
+            "schema": "integer",
+            "displayName": "Twin Cleared Due To Enrollment Failure Count",
+            "description": "Number of times the twin was cleared due to enrollment failure since the last health tick."
+          },
+          {
+            "name": "AgeLimitHitStreams",
+            "schema": {
+              "@type": "Array",
+              "elementSchema": "string"
+            },
+            "displayName": "Age Limit Hit Streams",
+            "description": "Streams for which the merkle tree age hit limit instead of depth."
+          },
+          {
+            "name": "SourceBrokerDisconnectionCount",
+            "schema": "integer",
+            "displayName": "Source Broker Disconnection Count",
+            "description": "Number of times the agent was disconnected from the source broker since the last health tick."
+          },
+          {
+            "name": "NodeBrokerDisconnectionCount",
+            "schema": "integer",
+            "displayName": "Node Broker Disconnection Count",
+            "description": "Number of times the agent was disconnected from the node/cloud broker since the last health tick."
+          },
+          {
+            "name": "SourceMqttClientWasUnhealthyCount",
+            "schema": "integer",
+            "displayName": "Source MQTT Client Was Unhealthy Count",
+            "description": "Number of times the Source-side MQTT client in Agent was unhealthy since the last health tick."
+          },
+          {
+            "name": "NodeMqttClientWasUnhealthyCount",
+            "schema": "integer",
+            "displayName": "Node MQTT Client Was Unhealthy Count",
+            "description": "Number of times the Node-side MQTT client in Agent was unhealthy since the last health tick."
+          },
+          {
+            "name": "DlqFullCount",
+            "schema": "integer",
+            "displayName": "DLQ Full Count",
+            "description": "Number of times the DLQ reached full capacity since the last health tick."
+          }
+        ]
+      }
+    }
+  ]
+}
