@@ -57,6 +57,12 @@
             "schema": "double",
             "displayName": "DLQ Queue Percentage",
             "description": "Current DLQ utilization percentage (0-100)."
+          },
+          {
+            "name": "IsInInitialConfiguration",
+            "schema": "boolean",
+            "displayName": "Is In Initial Configuration",
+            "description": "States if the agent is still running its initial, unconfigured twin graph and has not yet received a source/stream configuration from the cloud."
           }
         ]
       }
