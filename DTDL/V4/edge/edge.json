@@ -74,6 +74,15 @@
       "target": "dtmi:io:tributech:source:tcads",
       "displayName": "Sources",
       "description": "Contain ADS source of the given device."
+    },
+    {
+      "@type": "Relationship",
+      "name": "ChangeTrackerStream",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:stream:edge;1",
+      "displayName": "Streams",
+      "description": "Contain edge stream of the given device which is used for tracking the configuration changes."
     }
   ]
 }
