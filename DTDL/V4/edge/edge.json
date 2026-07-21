@@ -77,7 +77,7 @@
     },
     {
       "@type": "Relationship",
-      "name": "EdgeStream",
+      "name": "ChangeTrackerStream",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
       "target": "dtmi:io:tributech:stream:edge;1",
