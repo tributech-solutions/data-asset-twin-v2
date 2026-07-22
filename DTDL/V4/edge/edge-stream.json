@@ -1,0 +1,17 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:stream:edge;1",
+    "@type": "Interface",
+    "displayName": "Edge Stream",
+    "description": "General-purpose stream for edge devices, including tracking configuration changes.",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "Name",
+            "schema": "string",
+            "writable": true,
+            "displayName": "Name",
+            "description": "Human-readable name of the stream."
+        }
+    ]
+}
