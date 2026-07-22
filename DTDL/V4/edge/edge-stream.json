@@ -3,7 +3,7 @@
     "@id": "dtmi:io:tributech:stream:edge;1",
     "@type": "Interface",
     "displayName": "Edge Stream",
-    "description": "Stream used for tracking the configuration changes of the device.",
+    "description": "General-purpose stream for edge devices, including tracking configuration changes.",
     "contents": [
         {
             "@type": "Property",

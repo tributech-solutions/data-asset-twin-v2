@@ -82,7 +82,7 @@
       "maxMultiplicity": 1,
       "target": "dtmi:io:tributech:stream:edge;1",
       "displayName": "Streams",
-      "description": "Contain edge stream of the given device which is used for tracking the configuration changes."
+      "description": "General-purpose stream for edge devices, including tracking configuration changes."
     }
   ]
 }
