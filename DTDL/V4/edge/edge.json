@@ -77,6 +77,15 @@
     },
     {
       "@type": "Relationship",
+      "name": "ModbusSource",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:source:modbus",
+      "displayName": "Sources",
+      "description": "Contain Modbus source of the given device."
+    },
+    {
+      "@type": "Relationship",
       "name": "ChangeTrackerStream",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,

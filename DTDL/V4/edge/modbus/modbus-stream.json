@@ -1,0 +1,39 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:stream:modbus;1",
+    "@type": "Interface",
+    "extends": "dtmi:io:tributech:stream:edge:base;2",
+    "displayName": "Modbus Stream",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "Identifier",
+            "schema": "string",
+            "writable": true,
+            "displayName": "Identifier",
+            "description": "The Modbus register table and zero-based address of the datum to read: a table prefix (\"CO\" coil/FC01, \"DI\" discrete input/FC02, \"HR\" holding register/FC03, \"IR\" input register/FC04) followed by \":\" and the zero-based address 0-65535 (eg. \"HR:100\", \"IR:30\", \"CO:5\", \"DI:2\"). Multi-register values (32/64-bit) start at this address and span the register count implied by Datatype."
+        },
+        {
+            "@type": "Property",
+            "name": "Datatype",
+            "writable": true,
+            "displayName": "Modbus Datatype",
+            "description": "The wire type of the value, which determines the register/bit count read from Identifier onwards and the .NET decoding (eg. \"FLOAT32\"). BOOL is only valid with CO/DI identifiers; the numeric types only with HR/IR identifiers.",
+            "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                    { "name": "BOOL", "displayName": "Boolean", "enumValue": "BOOL", "comment": ".NET Type: System.Boolean. 1 bit, CO/DI only." },
+                    { "name": "INT16", "displayName": "INT16 (Integer 16)", "enumValue": "INT16", "comment": ".NET Type: System.Int16. 1 register, big-endian." },
+                    { "name": "UINT16", "displayName": "UINT16 (Unsigned Integer 16)", "enumValue": "UINT16", "comment": ".NET Type: System.UInt16. 1 register, big-endian." },
+                    { "name": "INT32", "displayName": "INT32 (Integer 32)", "enumValue": "INT32", "comment": ".NET Type: System.Int32. 2 registers, most-significant-word first." },
+                    { "name": "UINT32", "displayName": "UINT32 (Unsigned Integer 32)", "enumValue": "UINT32", "comment": ".NET Type: System.UInt32. 2 registers, most-significant-word first." },
+                    { "name": "INT64", "displayName": "INT64 (Integer 64)", "enumValue": "INT64", "comment": ".NET Type: System.Int64. 4 registers, most-significant-word first." },
+                    { "name": "UINT64", "displayName": "UINT64 (Unsigned Integer 64)", "enumValue": "UINT64", "comment": ".NET Type: System.UInt64. 4 registers, most-significant-word first." },
+                    { "name": "FLOAT32", "displayName": "FLOAT32 (Float)", "enumValue": "FLOAT32", "comment": ".NET Type: System.Single. 2 registers, IEEE 754, most-significant-word first." },
+                    { "name": "FLOAT64", "displayName": "FLOAT64 (Double)", "enumValue": "FLOAT64", "comment": ".NET Type: System.Double. 4 registers, IEEE 754, most-significant-word first." }
+                ]
+            }
+        }
+    ]
+}
