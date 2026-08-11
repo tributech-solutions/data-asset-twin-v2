@@ -1,0 +1,13 @@
+{
+  "@context": [
+    "dtmi:dtdl:context;4",
+    "dtmi:dtdl:extension:annotation;2"
+  ],
+  "@id": "dtmi:io:tributech:healthmessage:modbus;1",
+  "@type": "Interface",
+  "extends": [
+    "dtmi:io:tributech:healthmessage:base;1"
+  ],
+  "displayName": "Modbus Source Health",
+  "contents": []
+}

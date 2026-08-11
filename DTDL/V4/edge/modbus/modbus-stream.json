@@ -1,0 +1,128 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:stream:modbus;1",
+  "@type": "Interface",
+  "extends": "dtmi:io:tributech:stream:edge:base;2",
+  "displayName": "Modbus Stream",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Identifier",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Identifier",
+      "description": "The address of the Modbus datum to be read, as <TABLE>:<0-based address>. Table prefixes: CO (coils), DI (discrete inputs), IR (input registers), HR (holding registers). E.g. \"HR:100\" reads holding register 100 (traditional number 40101), \"IR:30\" input register 30 (30031), \"CO:5\" coil 5, \"DI:2\" discrete input 2. Must be unique across the streams of a source."
+    },
+    {
+      "@type": "Property",
+      "name": "Datatype",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "BOOL",
+            "enumValue": "BOOL",
+            "displayName": "Boolean",
+            "description": "Single bit read from a coil or discrete input.",
+            "comment": "Maps to System.Boolean. Only valid for CO and DI addresses."
+          },
+          {
+            "name": "INT16",
+            "enumValue": "INT16",
+            "displayName": "Signed 16-bit integer",
+            "description": "Signed 16-bit integer in one register.",
+            "comment": "Maps to System.Int16. Occupies 1 register. Only valid for IR and HR addresses."
+          },
+          {
+            "name": "UINT16",
+            "enumValue": "UINT16",
+            "displayName": "Unsigned 16-bit integer",
+            "description": "Unsigned 16-bit integer in one register.",
+            "comment": "Maps to System.UInt16. Occupies 1 register. Only valid for IR and HR addresses."
+          },
+          {
+            "name": "INT32",
+            "enumValue": "INT32",
+            "displayName": "Signed 32-bit integer",
+            "description": "Signed 32-bit integer in two consecutive registers.",
+            "comment": "Maps to System.Int32. Occupies 2 registers. Only valid for IR and HR addresses."
+          },
+          {
+            "name": "UINT32",
+            "enumValue": "UINT32",
+            "displayName": "Unsigned 32-bit integer",
+            "description": "Unsigned 32-bit integer in two consecutive registers.",
+            "comment": "Maps to System.UInt32. Occupies 2 registers. Only valid for IR and HR addresses."
+          },
+          {
+            "name": "INT64",
+            "enumValue": "INT64",
+            "displayName": "Signed 64-bit integer",
+            "description": "Signed 64-bit integer in four consecutive registers.",
+            "comment": "Maps to System.Int64. Occupies 4 registers. Only valid for IR and HR addresses."
+          },
+          {
+            "name": "UINT64",
+            "enumValue": "UINT64",
+            "displayName": "Unsigned 64-bit integer",
+            "description": "Unsigned 64-bit integer in four consecutive registers.",
+            "comment": "Maps to System.UInt64. Occupies 4 registers. Only valid for IR and HR addresses."
+          },
+          {
+            "name": "FLOAT32",
+            "enumValue": "FLOAT32",
+            "displayName": "32-bit floating point",
+            "description": "IEEE 754 single-precision value in two consecutive registers.",
+            "comment": "Maps to System.Single. Occupies 2 registers. Only valid for IR and HR addresses."
+          },
+          {
+            "name": "FLOAT64",
+            "enumValue": "FLOAT64",
+            "displayName": "64-bit floating point",
+            "description": "IEEE 754 double-precision value in four consecutive registers.",
+            "comment": "Maps to System.Double. Occupies 4 registers. Only valid for IR and HR addresses."
+          }
+        ]
+      },
+      "writable": true,
+      "displayName": "Datatype",
+      "description": "The wire type of the Modbus datum (e.g. \"FLOAT32\"). Modbus registers are raw 16-bit words, so the type cannot be discovered from the device. BOOL is only valid for CO/DI addresses; all other types only for IR/HR addresses."
+    },
+    {
+      "@type": "Property",
+      "name": "ByteOrder",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "BIG_ENDIAN",
+            "enumValue": "BIG_ENDIAN",
+            "displayName": "Big endian",
+            "description": "Most significant register/byte first (the Modbus specification default, also called ABCD).",
+            "comment": "Default when not set."
+          },
+          {
+            "name": "LITTLE_ENDIAN",
+            "enumValue": "LITTLE_ENDIAN",
+            "displayName": "Little endian",
+            "description": "Least significant register/byte first (DCBA), used by some vendors for multi-register values.",
+            "comment": "Applies to multi-register values (32/64-bit types)."
+          }
+        ]
+      },
+      "writable": true,
+      "displayName": "Byte Order",
+      "description": "Byte/register order used to decode values spanning multiple registers (e.g. \"BIG_ENDIAN\"). Defaults to BIG_ENDIAN (Modbus specification conformant) when not set. Irrelevant for BOOL/INT16/UINT16."
+    },
+    {
+      "@type": "Property",
+      "name": "ReadCycleInterval",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Reading cycle interval",
+      "description": "Poll interval in seconds for this stream (e.g. 10). When not set, defaults to the source's DefaultReadCycleInterval."
+    }
+  ]
+}

@@ -5,6 +5,10 @@
     "issuerURL": "https://tributech.io",
     "documentationURL": "https://github.com/tributech-solutions/data-asset-twin-v2",
     "references": [
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/edge/modbus/modbus-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/edge/modbus/modbus-parameter.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/edge/modbus/modbus-source.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/edge/modbus/modbus-stream.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/edge/opcua/opcua-health-message.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/edge/opcua/opcua-parameter.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/edge/opcua/opcua-source.json",

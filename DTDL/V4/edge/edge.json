@@ -32,6 +32,15 @@
     },
     {
       "@type": "Relationship",
+      "name": "ModbusSource",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:source:modbus",
+      "displayName": "Sources",
+      "description": "Contain Modbus source of the given device."
+    },
+    {
+      "@type": "Relationship",
       "name": "MqttSource",
       "minMultiplicity": 0,
       "maxMultiplicity": 1,
