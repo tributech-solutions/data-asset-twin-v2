@@ -1,0 +1,181 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:source:simulated;4",
+    "@type": "Interface",
+    "extends": "dtmi:io:tributech:source:base;2",
+    "displayName": "Simulated Source",
+    "schemas": [
+        {
+            "@type": "Object",
+            "@id": "dtmi:io:tributech:command:response:simulated;2",
+            "displayName": "Simulated Command Response",
+            "description": "Response schema for simulated commands.",
+            "fields": [
+                {
+                    "name": "ResponseBody",
+                    "schema": "bytes"
+                },
+                {
+                    "name": "ExecutedAt",
+                    "schema": "dateTime"
+                },
+                {
+                    "name": "AdditionalInformation",
+                    "schema": "string"
+                },
+                {
+                    "name": "ExecutionDuration",
+                    "schema": "duration"
+                },
+                {
+                    "name": "CommandState",
+                    "schema": {
+                        "@type": "Enum",
+                        "valueSchema": "string",
+                        "enumValues": [
+                            {
+                                "name": "Rejected",
+                                "displayName": "Rejected",
+                                "enumValue": "Rejected"
+                            },
+                            {
+                                "name": "CouldNotBeSend",
+                                "displayName": "CouldNotBeSend",
+                                "enumValue": "CouldNotBeSend"
+                            },
+                            {
+                                "name": "Timeout",
+                                "displayName": "Timeout",
+                                "enumValue": "Timeout"
+                            },
+                            {
+                                "name": "CommandFailed",
+                                "displayName": "CommandFailed",
+                                "enumValue": "CommandFailed"
+                            },
+                            {
+                                "name": "Error",
+                                "displayName": "Error",
+                                "enumValue": "Error"
+                            },
+                            {
+                                "name": "Success",
+                                "displayName": "Success",
+                                "enumValue": "Success"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "MaxBatchSize",
+            "schema": "integer",
+            "writable": true,
+            "displayName": "Max batch size",
+            "description": "The maximum number of values to send as batch in one message to the EdgeAgent (e.g. 1024)"
+        },
+        {
+            "@type": "Property",
+            "name": "FlushInterval",
+            "schema": "integer",
+            "writable": true,
+            "displayName": "Flush interval",
+            "description": "The interval (in seconds) in which the values should be flushed from the buffer and send to the Data-API. Regardless if the MaxBatchSize was reached. (e.g. 1)"
+        },
+        {
+            "@type": "Relationship",
+            "name": "Streams",
+            "minMultiplicity": 0,
+            "maxMultiplicity": 10,
+            "target": "dtmi:io:tributech:stream:simulated",
+            "displayName": "Streams",
+            "description": "Contains all Simulated streams the given source."
+        },
+        {
+            "@type": "Command",
+            "name": "SetDataGenerationMode",
+            "displayName": "Set Data Generation Mode Command",
+            "request": {
+                "name": "SetDataGenerationModeRequest",
+                "description": "Request to set the data generation mode.",
+                "schema": {
+                    "@type": "Object",
+                    "fields": [
+                        {
+                            "name": "NumericDataGenerationMode",
+                            "schema": {
+                                "@type": "Enum",
+                                "valueSchema": "integer",
+                                "enumValues": [
+                                    {
+                                        "name": "Standard",
+                                        "displayName": "Standard",
+                                        "enumValue": 1
+                                    },
+                                    {
+                                        "name": "Minimal",
+                                        "displayName": "Minimal",
+                                        "enumValue": 2
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "name": "SetDataGenerationModeResponse",
+                "description": "Response after setting the data generation mode.",
+                "schema": "dtmi:io:tributech:command:response:simulated;2"
+            }
+        },
+        {
+            "@type": "Command",
+            "name": "TriggerAnomaly",
+            "displayName": "Trigger Anomaly Command",
+            "request": {
+                "name": "TriggerAnomalyRequest",
+                "description": "Request to trigger an anomaly.",
+                "schema": {
+                    "@type": "Object",
+                    "fields": [
+                        {
+                            "name": "AnomalyFactor",
+                            "schema": "double"
+                        },
+                        {
+                            "name": "AnomalyType",
+                            "schema": {
+                                "@type": "Enum",
+                                "valueSchema": "integer",
+                                "enumValues": [
+                                    {
+                                        "name": "MultiplyMaxNumericValue",
+                                        "displayName": "MultiplyMaxNumericValue",
+                                        "enumValue": 1
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "name": "TriggerAnomalyResponse",
+                "description": "Response after triggering an anomaly.",
+                "schema": "dtmi:io:tributech:command:response:simulated;2"
+            }
+        },
+        {
+            "@type": "Component",
+            "name": "Health",
+            "schema": "dtmi:io:tributech:healthmessage:simulated;2",
+            "displayName": "Simulated Source Health",
+            "description": "Health message with simulated source specific health information."
+        }
+    ]
+}

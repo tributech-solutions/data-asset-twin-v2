@@ -1,0 +1,77 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:tcads;2",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "ADS Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Snapshot",
+            "annotates": "HealthState",
+            "displayName": "Snapshot",
+            "description": "Point-in-time health readings taken at tick time.",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "IsRouterStatusStarted",
+                        "schema": "boolean",
+                        "displayName": "Is Router in Started State",
+                        "description": "True if state of the ADS Router in the source is Started."
+                    },
+                    {
+                        "name": "IsPLCADSStateRun",
+                        "schema": "boolean",
+                        "displayName": "Is PLC ADS in Run State",
+                        "description": "True if PLC ADS communication state is Run."
+                    },
+                    {
+                        "name": "IsADSClientConnectedToRouter",
+                        "schema": "boolean",
+                        "displayName": "Is ADS Client Connected To Router",
+                        "description": "True if ADS client is currently connected to the Router."
+                    },
+                    {
+                        "name": "FaultyStreams",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "streamId",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "symbol",
+                                "schema": "string"
+                            }
+                        },
+                        "displayName": "Faulty Streams",
+                        "description": "Key-value of faulty streams with its symbol. Empty map when all OK."
+                    }
+                ]
+            }
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Windowed",
+            "annotates": "HealthState",
+            "displayName": "Windowed",
+            "description": "Windowed health observations accumulated since the last health tick.",
+            "schema": {
+                "@type": "Object",
+                "fields": []
+            }
+        }
+    ]
+}
