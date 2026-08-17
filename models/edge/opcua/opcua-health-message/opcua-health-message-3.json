@@ -1,0 +1,116 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:opcua;3",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "OPC UA Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Snapshot",
+            "annotates": "HealthState",
+            "displayName": "Snapshot",
+            "description": "Point-in-time health readings taken at tick time.",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "ConnectionStateWithOpcuaServer",
+                        "schema": {
+                            "@type": "Enum",
+                            "valueSchema": "string",
+                            "enumValues": [
+                                {
+                                    "name": "Connected",
+                                    "enumValue": "Connected",
+                                    "displayName": "Connected"
+                                },
+                                {
+                                    "name": "Connecting",
+                                    "enumValue": "Connecting",
+                                    "displayName": "Connecting"
+                                },
+                                {
+                                    "name": "Recovering",
+                                    "enumValue": "Recovering",
+                                    "displayName": "Recovering"
+                                },
+                                {
+                                    "name": "Disconnected",
+                                    "enumValue": "Disconnected",
+                                    "displayName": "Disconnected"
+                                },
+                                {
+                                    "name": "Error",
+                                    "enumValue": "Error",
+                                    "displayName": "Error"
+                                }
+                            ]
+                        },
+                        "displayName": "Connection State With OPC UA Server",
+                        "description": "Connection state to OPC UA server. 'Connected' means healthy connection, 'Connecting' or 'Recovering' indicate intermediate states during connection setup or recovery, 'Disconnected' or 'Error' indicate unhealthy states."
+                    },
+                    {
+                        "name": "ServerHeartbeatStopped",
+                        "schema": "boolean",
+                        "displayName": "OPC UA Server Heartbeat Stopped",
+                        "description": "True if no server response for ≥2 X KeepAliveInterval or error."
+                    },
+                    {
+                        "name": "ServerStateIsRunning",
+                        "schema": "boolean",
+                        "displayName": "OPC UA Server State Is Running",
+                        "description": "OPC UA ServerState is Running."
+                    },
+                    {
+                        "name": "FaultyStreams",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "streamId",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "nodeId",
+                                "schema": "string"
+                            }
+                        },
+                        "displayName": "Faulty Streams",
+                        "description": "Key-value of faulty streams with its nodeId. Empty map when all OK."
+                    },
+                    {
+                        "name": "FaultyParameters",
+                        "schema": {
+                            "@type": "Array",
+                            "elementSchema": "string"
+                        },
+                        "displayName": "Faulty Parameters",
+                        "description": "Array indicating faulty parameters. Empty array when all OK."
+                    }
+                ]
+            }
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Windowed",
+            "annotates": "HealthState",
+            "displayName": "Windowed",
+            "description": "Windowed health observations accumulated since the last health tick.",
+            "schema": {
+                "@type": "Object",
+                "fields": []
+            }
+        }
+    ]
+}

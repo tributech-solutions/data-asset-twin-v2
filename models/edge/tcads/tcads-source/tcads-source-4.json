@@ -1,0 +1,232 @@
+{
+    "@context": "dtmi:dtdl:context;4",
+    "@id": "dtmi:io:tributech:source:tcads;4",
+    "@type": "Interface",
+    "extends": "dtmi:io:tributech:source:base;2",
+    "displayName": "Beckhoff TwinCat ADS Source",
+    "schemas": [
+        {
+            "@type": "Object",
+            "@id": "dtmi:io:tributech:command:response:tcads;2",
+            "displayName": "ADS Command Response",
+            "description": "Response schema for tcads commands.",
+            "fields": [
+                {
+                    "name": "ResponseBody",
+                    "schema": "bytes"
+                },
+                {
+                    "name": "ExecutedAt",
+                    "schema": "dateTime"
+                },
+                {
+                    "name": "AdditionalInformation",
+                    "schema": "string"
+                },
+                {
+                    "name": "ExecutionDuration",
+                    "schema": "duration"
+                },
+                {
+                    "name": "CommandState",
+                    "schema": {
+                        "@type": "Enum",
+                        "valueSchema": "string",
+                        "enumValues": [
+                            {
+                                "name": "Rejected",
+                                "displayName": "Rejected",
+                                "enumValue": "Rejected"
+                            },
+                            {
+                                "name": "CouldNotBeSend",
+                                "displayName": "CouldNotBeSend",
+                                "enumValue": "CouldNotBeSend"
+                            },
+                            {
+                                "name": "Timeout",
+                                "displayName": "Timeout",
+                                "enumValue": "Timeout"
+                            },
+                            {
+                                "name": "CommandFailed",
+                                "displayName": "CommandFailed",
+                                "enumValue": "CommandFailed"
+                            },
+                            {
+                                "name": "Error",
+                                "displayName": "Error",
+                                "enumValue": "Error"
+                            },
+                            {
+                                "name": "Success",
+                                "displayName": "Success",
+                                "enumValue": "Success"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "AMSNetId",
+            "schema": "string",
+            "writable": true,
+            "displayName": "Server AMS Net Id",
+            "description": "ADS AMS Net Id which should be connected to"
+        },
+        {
+            "@type": "Property",
+            "name": "Port",
+            "schema": "integer",
+            "writable": true,
+            "displayName": "ADS Server Port",
+            "description": "TwinCat ADS Port to Beckhoff PLC"
+        },
+        {
+            "@type": "Property",
+            "name": "ADSServerAddress",
+            "schema": "string",
+            "writable": true,
+            "displayName": "ADS Server IP Address",
+            "description": "Whitelist Entry for Network Discovery"
+        },
+        {
+            "@type": "Property",
+            "name": "RouterAMSNetId",
+            "schema": "string",
+            "writable": true,
+            "displayName": "Client AMS Net Id",
+            "description": "Client Identifier for the Router Whitelist"
+        },
+        {
+            "@type": "Property",
+            "name": "RouterPort",
+            "schema": "integer",
+            "writable": true,
+            "displayName": "InProcess Router Port",
+            "description": "Exposed ADS Router Port"
+        },
+        {
+            "@type": "Property",
+            "name": "DefaultReadCycleInterval",
+            "schema": "integer",
+            "writable": true,
+            "displayName": "Read Cycle Default Interval (Seconds)",
+            "description": "Default reading Interval for Symbol Values"
+        },
+        {
+            "@type": "Property",
+            "name": "WriteCycleTime",
+            "schema": "integer",
+            "writable": true,
+            "displayName": "Configuration writing Cycle (Seconds)",
+            "description": "Interval for cyclic Configuration writing"
+        },
+        {
+            "@type": "Relationship",
+            "name": "Streams",
+            "minMultiplicity": 0,
+            "maxMultiplicity": 100,
+            "target": "dtmi:io:tributech:stream:tcads",
+            "displayName": "Streams",
+            "description": "Contains all the TwinCat ADS streams at the given Source"
+        },
+        {
+            "@type": "Relationship",
+            "name": "Parameter",
+            "minMultiplicity": 0,
+            "maxMultiplicity": 100,
+            "target": "dtmi:io:tributech:parameter:tcads",
+            "displayName": "Parameters",
+            "description": "For writing Configuration Values to the ADS Server"
+        },
+        {
+            "@type": "Command",
+            "name": "Bool",
+            "displayName": "Bool Command",
+            "request": {
+                "name": "BoolCommandRequest",
+                "description": "Request for set boolean value command",
+                "schema": {
+                    "@type": "Object",
+                    "fields": [
+                        {
+                            "name": "StreamId",
+                            "schema": "uuid"
+                        },
+                        {
+                            "name": "Value",
+                            "schema": "boolean"
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "name": "BoolCommandResponse",
+                "description": "Response of set boolean value command",
+                "schema": "dtmi:io:tributech:command:response:tcads;2"
+            }
+        },
+        {
+            "@type": "Command",
+            "name": "SetPercentage",
+            "displayName": "Set Percentage Command",
+            "request": {
+                "name": "SetPercentageRequest",
+                "description": "Request for set percentage command",
+                "schema": {
+                    "@type": "Object",
+                    "fields": [
+                        {
+                            "name": "StreamId",
+                            "schema": "uuid"
+                        },
+                        {
+                            "name": "Percentage",
+                            "schema": "unsignedInteger"
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "name": "SetPercentageResponse",
+                "description": "Response of set percentage command",
+                "schema": "dtmi:io:tributech:command:response:tcads;2"
+            }
+        },
+        {
+            "@type": "Command",
+            "name": "Trigger",
+            "displayName": "Trigger Command",
+            "request": {
+                "name": "TriggerCommandRequest",
+                "description": "Request for trigger command",
+                "schema": {
+                    "@type": "Object",
+                    "fields": [
+                        {
+                            "name": "StreamId",
+                            "schema": "uuid"
+                        }
+                    ]
+                }
+            },
+            "response": {
+                "name": "TriggerCommandResponse",
+                "description": "Response of trigger command",
+                "schema": "dtmi:io:tributech:command:response:tcads;2"
+            }
+        },
+        {
+            "@type": "Component",
+            "name": "Health",
+            "schema": "dtmi:io:tributech:healthmessage:tcads;2",
+            "displayName": "ADS Source Health",
+            "description": "Health message with ADS source specific health information."
+        }
+    ]
+}
