@@ -1,0 +1,80 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:node:enrollmentgroup:tenant;1",
+  "@type": "Interface",
+  "displayName": "Tenant",
+  "description": "A tenant of a Tributech Node, backed by exactly one enrollment group. Root of the tenant's site topology and the level all depth limits are counted from.",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Name",
+      "description": "Represents the name of the tenant. Matches the alias of the tenant's organization and the name of its enrollment group.",
+      "comment": "The enrollment group id itself is not repeated here - it is held in the twin metadata, which is the value the node stamps and the only one that can be trusted."
+    },
+    {
+      "@type": "Property",
+      "name": "DisplayNames",
+      "schema": {
+        "@type": "Map",
+        "mapKey": {
+          "name": "locale",
+          "schema": "string"
+        },
+        "mapValue": {
+          "name": "text",
+          "schema": "string"
+        }
+      },
+      "writable": true,
+      "displayName": "Display Names",
+      "description": "Labels shown for this tenant, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
+    },
+    {
+      "@type": "Property",
+      "name": "Descriptions",
+      "schema": {
+        "@type": "Map",
+        "mapKey": {
+          "name": "locale",
+          "schema": "string"
+        },
+        "mapValue": {
+          "name": "text",
+          "schema": "string"
+        }
+      },
+      "writable": true,
+      "displayName": "Descriptions",
+      "description": "Descriptions of this tenant, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
+    },
+    {
+      "@type": "Property",
+      "name": "DefaultLocale",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Default Locale",
+      "description": "BCP-47 language tag of the entry in DisplayNames and Descriptions to fall back to when the requested locale is absent."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Sites",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1000,
+      "target": "dtmi:io:tributech:node:enrollmentgroup:site",
+      "displayName": "Sites",
+      "description": "Top-level sites of this tenant."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Agents",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1000,
+      "target": "dtmi:io:tributech:device:base",
+      "displayName": "Agents",
+      "description": "Agents assigned directly to the tenant, without a site."
+    }
+  ]
+}

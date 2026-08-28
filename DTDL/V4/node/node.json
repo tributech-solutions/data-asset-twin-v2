@@ -1,0 +1,71 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:node;1",
+  "@type": "Interface",
+  "displayName": "Tributech Node",
+  "description": "A Tributech Node deployment. Root of the unified namespace and identified by the public key of its node signer.",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Name",
+      "description": "Represents the name of the Tributech Node."
+    },
+    {
+      "@type": "Property",
+      "name": "PublicKey",
+      "schema": "string",
+      "writable": false,
+      "displayName": "Public Key",
+      "description": "PEM-encoded public key of the node signer. Uniquely identifies this Tributech Node.",
+      "comment": "The node signer key pair is loaded once per deployment, so its public key is the only value that stays stable across restarts, renames and tenant changes."
+    },
+    {
+      "@type": "Property",
+      "name": "Thumbprint",
+      "schema": "string",
+      "writable": false,
+      "displayName": "Thumbprint",
+      "description": "Hex-encoded SHA-256 fingerprint of the node signer public key, for display and lookup."
+    },
+    {
+      "@type": "Property",
+      "name": "CypherSuite",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "SHA256_RSA2048_PSS",
+            "displayName": "SHA256 RSA2048-PSS",
+            "enumValue": "SHA256_RSA2048_PSS"
+          },
+          {
+            "name": "SHA256_RSA2048_PKCS1",
+            "displayName": "SHA256 RSA2048-PKCS1",
+            "enumValue": "SHA256_RSA2048_PKCS1"
+          },
+          {
+            "name": "SHA256_ECC",
+            "displayName": "SHA256 ECC",
+            "enumValue": "SHA256_ECC"
+          }
+        ]
+      },
+      "writable": false,
+      "displayName": "Cypher Suite",
+      "description": "Cryptographic algorithm the node signer uses to sign data."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Tenants",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1000,
+      "target": "dtmi:io:tributech:node:enrollmentgroup:tenant",
+      "displayName": "Tenants",
+      "description": "Tenants hosted on this Tributech Node."
+    }
+  ]
+}
