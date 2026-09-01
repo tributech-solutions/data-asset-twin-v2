@@ -168,6 +168,59 @@
               "schema": "string"
             },
             {
+              "name": "Datatype",
+              "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                  {
+                    "name": "BOOL",
+                    "enumValue": "BOOL",
+                    "displayName": "BOOL",
+                    "comment": ".NET Type: System.Boolean. Valid only with Coil addresses (1 bit)."
+                  },
+                  {
+                    "name": "INT16",
+                    "enumValue": "INT16",
+                    "displayName": "INT16",
+                    "comment": ".NET Type: System.Int16. 1 register."
+                  },
+                  {
+                    "name": "UINT16",
+                    "enumValue": "UINT16",
+                    "displayName": "UINT16",
+                    "comment": ".NET Type: System.UInt16. 1 register."
+                  },
+                  {
+                    "name": "INT32",
+                    "enumValue": "INT32",
+                    "displayName": "INT32",
+                    "comment": ".NET Type: System.Int32. 2 consecutive registers, combined per the source's WordOrder."
+                  },
+                  {
+                    "name": "UINT32",
+                    "enumValue": "UINT32",
+                    "displayName": "UINT32",
+                    "comment": ".NET Type: System.UInt32. 2 consecutive registers, combined per the source's WordOrder."
+                  },
+                  {
+                    "name": "FLOAT32",
+                    "enumValue": "FLOAT32",
+                    "displayName": "FLOAT32",
+                    "comment": ".NET Type: System.Single (IEEE 754). 2 consecutive registers, combined per the source's WordOrder."
+                  },
+                  {
+                    "name": "FLOAT64",
+                    "enumValue": "FLOAT64",
+                    "displayName": "FLOAT64",
+                    "comment": ".NET Type: System.Double (IEEE 754). 4 consecutive registers, combined per the source's WordOrder."
+                  }
+                ]
+              },
+              "displayName": "Datatype",
+              "description": "Optional wire-type of the value to write (e.g. \"FLOAT32\"), token-identical to the Modbus parameter's Datatype enum. When omitted, the type falls back to the register kind the Identifier names: Coil - BOOL, HoldingRegister - one 16-bit register; multi-register values (INT32/UINT32/FLOAT32/FLOAT64) therefore require this field. BOOL is valid only with Coil addresses, the numeric types only with HoldingRegister addresses (1, 2 or 4 consecutive registers, combined per the source's WordOrder)."
+            },
+            {
               "name": "Value",
               "schema": "string"
             }
