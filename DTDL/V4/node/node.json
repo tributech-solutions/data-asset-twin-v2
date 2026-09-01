@@ -20,15 +20,7 @@
       "writable": false,
       "displayName": "Public Key",
       "description": "PEM-encoded public key of the node signer. Uniquely identifies this Tributech Node.",
-      "comment": "The node signer key pair is loaded once per deployment, so its public key is the only value that stays stable across restarts, renames and tenant changes."
-    },
-    {
-      "@type": "Property",
-      "name": "Thumbprint",
-      "schema": "string",
-      "writable": false,
-      "displayName": "Thumbprint",
-      "description": "Hex-encoded SHA-256 fingerprint of the node signer public key, for display and lookup."
+      "comment": "The node signer key pair is loaded once per deployment, so its public key is the only value that stays stable across restarts, renames and enrollment group changes."
     },
     {
       "@type": "Property",
@@ -60,12 +52,12 @@
     },
     {
       "@type": "Relationship",
-      "name": "Tenants",
+      "name": "EnrollmentGroups",
       "minMultiplicity": 0,
       "maxMultiplicity": 1000,
-      "target": "dtmi:io:tributech:node:enrollmentgroup:tenant",
-      "displayName": "Tenants",
-      "description": "Tenants hosted on this Tributech Node."
+      "target": "dtmi:io:tributech:node:enrollmentgroup",
+      "displayName": "Enrollment Groups",
+      "description": "Enrollment groups hosted on this Tributech Node."
     }
   ]
 }

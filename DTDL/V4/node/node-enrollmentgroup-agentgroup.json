@@ -1,0 +1,82 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:node:enrollmentgroup:agentgroup;1",
+  "@type": "Interface",
+  "displayName": "Agent Group",
+  "description": "A level of an enrollment group's agent topology, e.g. a site, an area or a production line. Agent groups nest into themselves and carry the agents assigned to them.",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Name",
+      "description": "Path segment of this agent group within the unified namespace. Unique among its siblings.",
+      "comment": "Concatenated with the ancestors' names to form the namespace path, so it is never translated - a path must resolve to the same agent group in every locale. Localized labels belong in DisplayNames."
+    },
+    {
+      "@type": "Property",
+      "name": "GroupType",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Group Type",
+      "description": "Classification of this level, e.g. Site, Area, ProductionLine, WorkCell.",
+      "comment": "Deliberately a string and not an Enum so a customer can introduce a level name without a new version of this shared model."
+    },
+    {
+      "@type": "Property",
+      "name": "DisplayNames",
+      "schema": {
+        "@type": "Map",
+        "mapKey": {
+          "name": "locale",
+          "schema": "string"
+        },
+        "mapValue": {
+          "name": "text",
+          "schema": "string"
+        }
+      },
+      "writable": true,
+      "displayName": "Display Names",
+      "description": "Labels shown for this agent group, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
+    },
+    {
+      "@type": "Property",
+      "name": "Descriptions",
+      "schema": {
+        "@type": "Map",
+        "mapKey": {
+          "name": "locale",
+          "schema": "string"
+        },
+        "mapValue": {
+          "name": "text",
+          "schema": "string"
+        }
+      },
+      "writable": true,
+      "displayName": "Descriptions",
+      "description": "Descriptions of this agent group, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
+    },
+    {
+      "@type": "Relationship",
+      "name": "ChildAgentGroups",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1000,
+      "target": "dtmi:io:tributech:node:enrollmentgroup:agentgroup",
+      "displayName": "Child Agent Groups",
+      "description": "Agent groups nested directly below this agent group.",
+      "comment": "Depth and single-parent are not expressible in DTDL and are enforced by the API: at most six levels below the enrollment group, and exactly one incoming ChildAgentGroups relationship per agent group."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Agents",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1000,
+      "target": "dtmi:io:tributech:device:base",
+      "displayName": "Agents",
+      "description": "Agents assigned to this agent group."
+    }
+  ]
+}
