@@ -23,7 +23,17 @@
       "$etag": "W/\"22222222-2222-4222-8222-222222222223\"",
       "$metadata": {
         "$model": "dtmi:io:tributech:node:enrollmentgroup;1",
-        "$enrollmentGroup": "99999999-9999-4999-8999-999999999999"
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+      }
+    },
+    {
+      "Name": "unassigned",
+      "GroupType": "System",
+      "$dtId": "22222222-2222-4222-8222-000000000001",
+      "$etag": "W/\"22222222-2222-4222-8222-000000000002\"",
+      "$metadata": {
+        "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgroup;1",
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
       }
     },
     {
@@ -37,7 +47,7 @@
       "$etag": "W/\"33333333-3333-4333-8333-333333333334\"",
       "$metadata": {
         "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgroup;1",
-        "$enrollmentGroup": "99999999-9999-4999-8999-999999999999"
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
       }
     },
     {
@@ -51,7 +61,7 @@
       "$etag": "W/\"44444444-4444-4444-8444-444444444445\"",
       "$metadata": {
         "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgroup;1",
-        "$enrollmentGroup": "99999999-9999-4999-8999-999999999999"
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
       }
     },
     {
@@ -65,11 +75,11 @@
       "$etag": "W/\"55555555-5555-4555-8555-555555555556\"",
       "$metadata": {
         "$model": "dtmi:io:tributech:device:edge;4",
-        "$enrollmentGroup": "99999999-9999-4999-8999-999999999999"
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
       }
     },
     {
-      "Name": "unassigned-agent",
+      "Name": "press-4",
       "PublicKey": "-----BEGIN PUBLIC KEY-----\nAGENT_PUBLIC_KEY\n-----END PUBLIC KEY-----",
       "KeyStorageType": "NONE",
       "ProofKind": "SHA256_RSA2048_PSS",
@@ -79,7 +89,21 @@
       "$etag": "W/\"66666666-6666-4666-8666-666666666667\"",
       "$metadata": {
         "$model": "dtmi:io:tributech:device:edge;4",
-        "$enrollmentGroup": "99999999-9999-4999-8999-999999999999"
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+      }
+    },
+    {
+      "Name": "gateway-1",
+      "PublicKey": "-----BEGIN PUBLIC KEY-----\nAGENT_PUBLIC_KEY\n-----END PUBLIC KEY-----",
+      "KeyStorageType": "NONE",
+      "ProofKind": "SHA256_RSA2048_PSS",
+      "MaxMerkleTreeDepth": 12,
+      "MaxMerkleTreeAge": 600,
+      "$dtId": "77777777-7777-4777-8777-777777777777",
+      "$etag": "W/\"77777777-7777-4777-8777-777777777778\"",
+      "$metadata": {
+        "$model": "dtmi:io:tributech:device:edge;4",
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
       }
     }
   ],
@@ -94,34 +118,50 @@
     {
       "$relationshipId": "b0000000-0000-4000-8000-000000000001",
       "$sourceId": "22222222-2222-4222-8222-222222222222",
-      "$targetId": "33333333-3333-4333-8333-333333333333",
+      "$targetId": "22222222-2222-4222-8222-000000000001",
       "$relationshipName": "AgentGroups",
       "$etag": "W/\"b0000000-0000-4000-8000-000000000002\"",
-      "$enrollmentGroup": "99999999-9999-4999-8999-999999999999"
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
     },
     {
       "$relationshipId": "c0000000-0000-4000-8000-000000000001",
-      "$sourceId": "33333333-3333-4333-8333-333333333333",
-      "$targetId": "44444444-4444-4444-8444-444444444444",
-      "$relationshipName": "ChildAgentGroups",
+      "$sourceId": "22222222-2222-4222-8222-222222222222",
+      "$targetId": "33333333-3333-4333-8333-333333333333",
+      "$relationshipName": "AgentGroups",
       "$etag": "W/\"c0000000-0000-4000-8000-000000000002\"",
-      "$enrollmentGroup": "99999999-9999-4999-8999-999999999999"
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
     },
     {
       "$relationshipId": "d0000000-0000-4000-8000-000000000001",
-      "$sourceId": "44444444-4444-4444-8444-444444444444",
-      "$targetId": "55555555-5555-4555-8555-555555555555",
-      "$relationshipName": "Agents",
+      "$sourceId": "33333333-3333-4333-8333-333333333333",
+      "$targetId": "44444444-4444-4444-8444-444444444444",
+      "$relationshipName": "ChildAgentGroups",
       "$etag": "W/\"d0000000-0000-4000-8000-000000000002\"",
-      "$enrollmentGroup": "99999999-9999-4999-8999-999999999999"
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
     },
     {
       "$relationshipId": "e0000000-0000-4000-8000-000000000001",
-      "$sourceId": "22222222-2222-4222-8222-222222222222",
-      "$targetId": "66666666-6666-4666-8666-666666666666",
+      "$sourceId": "44444444-4444-4444-8444-444444444444",
+      "$targetId": "55555555-5555-4555-8555-555555555555",
       "$relationshipName": "Agents",
       "$etag": "W/\"e0000000-0000-4000-8000-000000000002\"",
-      "$enrollmentGroup": "99999999-9999-4999-8999-999999999999"
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+    },
+    {
+      "$relationshipId": "f0000000-0000-4000-8000-000000000001",
+      "$sourceId": "22222222-2222-4222-8222-000000000001",
+      "$targetId": "66666666-6666-4666-8666-666666666666",
+      "$relationshipName": "Agents",
+      "$etag": "W/\"f0000000-0000-4000-8000-000000000002\"",
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+    },
+    {
+      "$relationshipId": "a1000000-0000-4000-8000-000000000001",
+      "$sourceId": "22222222-2222-4222-8222-222222222222",
+      "$targetId": "77777777-7777-4777-8777-777777777777",
+      "$relationshipName": "Agents",
+      "$etag": "W/\"a1000000-0000-4000-8000-000000000002\"",
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
     }
   ]
 }
