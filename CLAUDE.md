@@ -36,6 +36,19 @@ When adding a new version of a model:
 3. Bump `;N` in every other file's `extends`/`schema`/`target`/`request`/`response` reference that points at the old version, **only if** that referencing file is also being updated in this release. Otherwise leave older references pointing at the old version until that file's owner updates it.
 4. Add the new file's raw GitHub URL to the corresponding `vocabulary-vX.json`.
 
+## Model immutability (never edit a committed model file)
+
+Published models are **strictly immutable**. Tributech Nodes (Demeter) store each model by exact DTMI and hash-check it on every vocabulary load: if the content served for an already-registered DTMI differs, the node logs `Wrong hashcode detected` / `Twin Model ... has changed but is not permitted to update` and **aborts loading that entire vocabulary manifest** — which then cascades into `No DtmiResolver provided` failures in later vocabulary sets that reference models from the aborted one.
+
+Rules:
+
+- **Never change the content of an existing model file** — no restructuring, no in-place `@id` bumps, not even inside the current-release `DTDL/Vx` folder. Any content change means a new `;N+1` version in a **new file**.
+- When the model's file already lives in the current `DTDL/Vx` folder, add the new version as a *suffixed* file in the same folder (e.g. `opcua-source-5.json`, `opcua-health-message-3.json`) — don't create the next `Vx` folder unless the release line itself increments.
+- **Inline `schemas` `@id`s are global within one vocabulary parse set.** Two files listed in the same `vocabulary-vX.json` must not both define the same `schemas` `@id`, even byte-identically — the DTDL parser rejects the whole set with `has more than one definition`. When a new source version needs a schema already defined by the previous version's file in the same manifest, reference it by DTMI string instead of redefining it — and if the new version is itself already registered on nodes, that edit is also forbidden and requires a further `;N+1` bump.
+- Removing a superseded file's URL from the vocabulary manifest makes that version unavailable to fresh installs ("models went missing"), so both versions stay listed.
+
+**After creating or changing any model, validate it with the Demeter MCP tool `tribute_dtdl_model_validate`.** It resolves references against the live registry; a `TwinModelNotFound` for models that exist only in the working tree (not yet published) is expected and not a structural error — everything else must pass.
+
 ## `@context` conventions
 
 - `DTDL/V1/**` uses DTDL spec v2: `"@context": "dtmi:dtdl:context;2"`.
