@@ -1,0 +1,14 @@
+{
+    "name": "Tributech Core Vocabulary V5",
+    "tags": ["tributech", "data-asset-twins", "iot", "iiot"],
+    "issuer": "Tributech Solutions GmBH",
+    "issuerURL": "https://tributech.io",
+    "documentationURL": "https://github.com/tributech-solutions/data-asset-twin-v2",
+    "references": [
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/modbus/modbus-source.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/modbus/modbus-stream.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/modbus/modbus-parameter.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/modbus/modbus-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/edge.json"
+    ]
+}

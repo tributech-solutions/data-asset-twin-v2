@@ -1,0 +1,80 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:stream:modbus;1",
+  "@type": "Interface",
+  "extends": "dtmi:io:tributech:stream:edge:base;2",
+  "displayName": "Modbus Stream",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Identifier",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Identifier",
+      "description": "Composite Modbus address \"<RegisterType>:<PDU offset>\" of the datum to be read (e.g. \"HoldingRegister:100\", \"Coil:5\", \"InputRegister:0\", \"DiscreteInput:12\"). RegisterType is one of Coil, DiscreteInput, HoldingRegister, InputRegister; the offset is the 0-based PDU address of the Modbus specification, not the vendor 1-based/5-digit numbering some device manuals print (e.g. holding register 40101 in a vendor manual is \"HoldingRegister:100\")."
+    },
+    {
+      "@type": "Property",
+      "name": "Datatype",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "BOOL",
+            "enumValue": "BOOL",
+            "displayName": "BOOL",
+            "comment": ".NET Type: System.Boolean. Valid only with Coil/DiscreteInput addresses (1 bit)."
+          },
+          {
+            "name": "INT16",
+            "enumValue": "INT16",
+            "displayName": "INT16",
+            "comment": ".NET Type: System.Int16. 1 register."
+          },
+          {
+            "name": "UINT16",
+            "enumValue": "UINT16",
+            "displayName": "UINT16",
+            "comment": ".NET Type: System.UInt16. 1 register."
+          },
+          {
+            "name": "INT32",
+            "enumValue": "INT32",
+            "displayName": "INT32",
+            "comment": ".NET Type: System.Int32. 2 consecutive registers, combined per the source's WordOrder."
+          },
+          {
+            "name": "UINT32",
+            "enumValue": "UINT32",
+            "displayName": "UINT32",
+            "comment": ".NET Type: System.UInt32. 2 consecutive registers, combined per the source's WordOrder."
+          },
+          {
+            "name": "FLOAT32",
+            "enumValue": "FLOAT32",
+            "displayName": "FLOAT32",
+            "comment": ".NET Type: System.Single (IEEE 754). 2 consecutive registers, combined per the source's WordOrder."
+          },
+          {
+            "name": "FLOAT64",
+            "enumValue": "FLOAT64",
+            "displayName": "FLOAT64",
+            "comment": ".NET Type: System.Double (IEEE 754). 4 consecutive registers, combined per the source's WordOrder."
+          }
+        ]
+      },
+      "writable": true,
+      "displayName": "Datatype",
+      "description": "Wire-type hint for the address (e.g. \"FLOAT32\") - Modbus has no self-describing type system. BOOL is valid only with Coil/DiscreteInput addresses; the numeric types apply to HoldingRegister/InputRegister addresses and determine how many consecutive 16-bit registers are read (1 for INT16/UINT16, 2 for INT32/UINT32/FLOAT32, 4 for FLOAT64). A mismatch (e.g. FLOAT32 on a Coil address) is rejected by the source."
+    },
+    {
+      "@type": "Property",
+      "name": "ReadCycleInterval",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Read cycle interval",
+      "description": "Per-stream poll interval in seconds (e.g. 10). Falls back to the source twin's DefaultReadCycleInterval when unset."
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:source:modbus;2",
+  "@type": "Interface",
+  "extends": "dtmi:io:tributech:source:base;2",
+  "displayName": "Modbus Source",
+  "schemas": [
+    {
+      "@type": "Object",
+      "@id": "dtmi:io:tributech:command:response:modbus;1",
+      "displayName": "Modbus Command Response",
+      "description": "Response schema for Modbus commands.",
+      "fields": [
+        {
+          "name": "ResponseBody",
+          "schema": "bytes"
+        },
+        {
+          "name": "ExecutedAt",
+          "schema": "dateTime"
+        },
+        {
+          "name": "AdditionalInformation",
+          "schema": "string"
+        },
+        {
+          "name": "ExecutionDuration",
+          "schema": "duration"
+        },
+        {
+          "name": "CommandState",
+          "schema": {
+            "@type": "Enum",
+            "valueSchema": "string",
+            "enumValues": [
+              {
+                "name": "Rejected",
+                "displayName": "Rejected",
+                "enumValue": "Rejected"
+              },
+              {
+                "name": "CouldNotBeSend",
+                "displayName": "CouldNotBeSend",
+                "enumValue": "CouldNotBeSend"
+              },
+              {
+                "name": "Timeout",
+                "displayName": "Timeout",
+                "enumValue": "Timeout"
+              },
+              {
+                "name": "CommandFailed",
+                "displayName": "CommandFailed",
+                "enumValue": "CommandFailed"
+              },
+              {
+                "name": "Error",
+                "displayName": "Error",
+                "enumValue": "Error"
+              },
+              {
+                "name": "Success",
+                "displayName": "Success",
+                "enumValue": "Success"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Host",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Modbus host",
+      "description": "The IP address or hostname of the Modbus TCP device or gateway (e.g. \"10.0.0.5\")."
+    },
+    {
+      "@type": "Property",
+      "name": "Port",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Modbus port",
+      "description": "The Modbus TCP port of the device (e.g. 502, the IANA-registered Modbus default)."
+    },
+    {
+      "@type": "Property",
+      "name": "UnitIdentifier",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Modbus unit identifier",
+      "description": "The Modbus unit identifier (0-255) routed in the MBAP header (e.g. 255). Conventionally 255 or 0 when addressing a Modbus TCP device directly; identifies one downstream slave (1-247) when connecting through a TCP-to-serial gateway."
+    },
+    {
+      "@type": "Property",
+      "name": "WordOrder",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "HighWordFirst",
+            "enumValue": "HighWordFirst",
+            "displayName": "HighWordFirst",
+            "comment": "The register at the lower address holds the most-significant 16 bits."
+          },
+          {
+            "name": "LowWordFirst",
+            "enumValue": "LowWordFirst",
+            "displayName": "LowWordFirst",
+            "comment": "The register at the lower address holds the least-significant 16 bits."
+          }
+        ]
+      },
+      "writable": true,
+      "displayName": "Modbus word order",
+      "description": "The vendor-specific register order used to combine multiple consecutive 16-bit registers into 32-/64-bit values (e.g. \"HighWordFirst\"). The Modbus specification fixes byte order within one register but not word order across registers - this must match the target device's convention."
+    },
+    {
+      "@type": "Property",
+      "name": "DefaultReadCycleInterval",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Modbus default read cycle interval",
+      "description": "Default poll interval in seconds (e.g. 10) for streams that do not set their own ReadCycleInterval."
+    },
+    {
+      "@type": "Property",
+      "name": "WriteCycleInterval",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Modbus write cycle interval",
+      "description": "The Modbus write cycle interval in seconds (e.g. 10) for cyclically writing configured Parameter values to the device."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Streams",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 100,
+      "target": "dtmi:io:tributech:stream:modbus",
+      "displayName": "Streams",
+      "description": "Contains all Modbus streams of the given source."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Parameter",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 100,
+      "target": "dtmi:io:tributech:parameter:modbus",
+      "displayName": "Parameters",
+      "description": "For writing configuration values to the Modbus device."
+    },
+    {
+      "@type": "Command",
+      "name": "WriteOnce",
+      "displayName": "Write Once Command",
+      "request": {
+        "name": "WriteOnceCommandRequest",
+        "description": "Request for writing a value once to the Modbus device",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "Identifier",
+              "schema": "string"
+            },
+            {
+              "name": "Value",
+              "schema": "string"
+            }
+          ]
+        }
+      },
+      "response": {
+        "name": "WriteOnceCommandResponse",
+        "description": "Response of write once command",
+        "schema": "dtmi:io:tributech:command:response:modbus;1"
+      }
+    },
+    {
+      "@type": "Component",
+      "name": "Health",
+      "schema": "dtmi:io:tributech:healthmessage:modbus;1",
+      "displayName": "Modbus Source Health",
+      "description": "Health message with Modbus source specific health information."
+    }
+  ]
+}

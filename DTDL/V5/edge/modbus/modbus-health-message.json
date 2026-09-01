@@ -1,0 +1,42 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:modbus;1",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "Modbus Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Snapshot",
+            "annotates": "HealthState",
+            "displayName": "Snapshot",
+            "description": "Point-in-time health readings taken at tick time.",
+            "schema": {
+                "@type": "Object",
+                "fields": []
+            }
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Windowed",
+            "annotates": "HealthState",
+            "displayName": "Windowed",
+            "description": "Windowed health observations accumulated since the last health tick.",
+            "schema": {
+                "@type": "Object",
+                "fields": []
+            }
+        }
+    ]
+}
