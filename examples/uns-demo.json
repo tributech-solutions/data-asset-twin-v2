@@ -28,9 +28,8 @@
     },
     {
       "Name": "unassigned",
-      "GroupType": "System",
-      "$dtId": "22222222-2222-4222-8222-000000000001",
-      "$etag": "W/\"22222222-2222-4222-8222-000000000002\"",
+      "$dtId": "f3d903b5-6d29-54fd-9d36-4650473dcb48",
+      "$etag": "W/\"f3d903b5-6d29-54fd-9d36-4650473dcb49\"",
       "$metadata": {
         "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgroup;1",
         "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
@@ -38,7 +37,6 @@
     },
     {
       "Name": "vienna",
-      "GroupType": "Site",
       "DisplayNames": {
         "en": "Vienna Plant",
         "de": "Werk Wien"
@@ -52,7 +50,6 @@
     },
     {
       "Name": "line-1",
-      "GroupType": "ProductionLine",
       "DisplayNames": {
         "en": "Assembly Line 1",
         "de": "Montagelinie 1"
@@ -118,7 +115,7 @@
     {
       "$relationshipId": "b0000000-0000-4000-8000-000000000001",
       "$sourceId": "22222222-2222-4222-8222-222222222222",
-      "$targetId": "22222222-2222-4222-8222-000000000001",
+      "$targetId": "f3d903b5-6d29-54fd-9d36-4650473dcb48",
       "$relationshipName": "AgentGroups",
       "$etag": "W/\"b0000000-0000-4000-8000-000000000002\"",
       "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
@@ -149,7 +146,7 @@
     },
     {
       "$relationshipId": "f0000000-0000-4000-8000-000000000001",
-      "$sourceId": "22222222-2222-4222-8222-000000000001",
+      "$sourceId": "f3d903b5-6d29-54fd-9d36-4650473dcb48",
       "$targetId": "66666666-6666-4666-8666-666666666666",
       "$relationshipName": "Agents",
       "$etag": "W/\"f0000000-0000-4000-8000-000000000002\"",

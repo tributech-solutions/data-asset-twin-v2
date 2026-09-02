@@ -54,7 +54,7 @@
       "@type": "Relationship",
       "name": "AgentGroups",
       "minMultiplicity": 0,
-      "maxMultiplicity": 1000,
+      "maxMultiplicity": 100,
       "target": "dtmi:io:tributech:node:enrollmentgroup:agentgroup",
       "displayName": "Agent Groups",
       "description": "Top-level agent groups of this enrollment group."
@@ -66,7 +66,8 @@
       "maxMultiplicity": 1000,
       "target": "dtmi:io:tributech:device:base",
       "displayName": "Agents",
-      "description": "Agents assigned directly to the enrollment group, without an agent group."
+      "description": "Agents assigned directly to the enrollment group, without an agent group.",
+      "comment": "Bound set high deliberately: an enrollment group's reserved 'unassigned' agent group holds every agent that was activated without a group, so this relationship must be able to carry every agent in the enrollment group. Verified: the node does not enforce maxMultiplicity on write, so this documents intent rather than a limit the platform upholds."
     }
   ]
 }

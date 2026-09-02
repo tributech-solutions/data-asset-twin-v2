@@ -16,15 +16,6 @@
     },
     {
       "@type": "Property",
-      "name": "GroupType",
-      "schema": "string",
-      "writable": true,
-      "displayName": "Group Type",
-      "description": "Classification of this level, e.g. Site, Area, ProductionLine, WorkCell.",
-      "comment": "Deliberately a string and not an Enum so a customer can introduce a level name without a new version of this shared model."
-    },
-    {
-      "@type": "Property",
       "name": "DisplayNames",
       "schema": {
         "@type": "Map",
@@ -63,7 +54,7 @@
       "@type": "Relationship",
       "name": "ChildAgentGroups",
       "minMultiplicity": 0,
-      "maxMultiplicity": 1000,
+      "maxMultiplicity": 100,
       "target": "dtmi:io:tributech:node:enrollmentgroup:agentgroup",
       "displayName": "Child Agent Groups",
       "description": "Agent groups nested directly below this agent group.",
@@ -73,10 +64,11 @@
       "@type": "Relationship",
       "name": "Agents",
       "minMultiplicity": 0,
-      "maxMultiplicity": 1000,
+      "maxMultiplicity": 10000,
       "target": "dtmi:io:tributech:device:base",
       "displayName": "Agents",
-      "description": "Agents assigned to this agent group."
+      "description": "Agents assigned to this agent group.",
+      "comment": "Bound set high deliberately: an enrollment group's reserved 'unassigned' agent group holds every agent that was activated without a group, so this relationship must be able to carry every agent in the enrollment group. Verified: the node does not enforce maxMultiplicity on write, so this documents intent rather than a limit the platform upholds."
     }
   ]
 }
