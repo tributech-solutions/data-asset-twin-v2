@@ -7,7 +7,7 @@
   "schemas": [
       {
           "@type": "Object",
-          "@id": "dtmi:io:tributech:command:response:opcua;1",
+          "@id": "dtmi:io:tributech:command:response:opcua;2",
           "displayName": "OPC UA Command Response",
           "description": "Response schema for OPC UA commands.",
           "fields": [
@@ -136,7 +136,7 @@
           "response": {
               "name": "WriteOnceCommandResponse",
               "description": "Response of write once command",
-              "schema": "dtmi:io:tributech:command:response:opcua;1"
+              "schema": "dtmi:io:tributech:command:response:opcua;2"
           }
     },
     {
