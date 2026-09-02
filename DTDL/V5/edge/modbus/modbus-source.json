@@ -218,7 +218,7 @@
                 ]
               },
               "displayName": "Datatype",
-              "description": "Optional wire-type of the value to write (e.g. \"FLOAT32\"), token-identical to the Modbus parameter's Datatype enum. When omitted, the type falls back to the register kind the Identifier names: Coil - BOOL, HoldingRegister - one 16-bit register; multi-register values (INT32/UINT32/FLOAT32/FLOAT64) therefore require this field. BOOL is valid only with Coil addresses, the numeric types only with HoldingRegister addresses (1, 2 or 4 consecutive registers, combined per the source's WordOrder)."
+              "description": "Optional wire-type of the value to write (e.g. \"FLOAT32\"), token-identical to the Modbus parameter's Datatype enum. BOOL only with Coil addresses; numeric types only with HoldingRegister addresses (1, 2 or 4 registers, combined per the source's WordOrder). When omitted the fallback is deterministic: Coil - BOOL; HoldingRegister - one 16-bit register, UINT16 for 0..65535, INT16 for -32768..-1 (two's-complement bit pattern); other values are rejected, so INT32/UINT32/FLOAT32/FLOAT64 require this field."
             },
             {
               "name": "Value",
