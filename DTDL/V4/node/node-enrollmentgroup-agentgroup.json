@@ -68,7 +68,7 @@
       "target": "dtmi:io:tributech:device:base",
       "displayName": "Agents",
       "description": "Agents assigned to this agent group.",
-      "comment": "Bound set high deliberately: an enrollment group's reserved 'unassigned' agent group holds every agent that was activated without a group, so this relationship must be able to carry every agent in the enrollment group. Verified: the node does not enforce maxMultiplicity on write, so this documents intent rather than a limit the platform upholds."
+      "comment": "Set an order of magnitude above the intended per-group fan-out because the reserved 'unassigned' agent group is itself an agent group and is exempt from per-group limits - it holds every agent activated without a group. Verified: the node does not enforce maxMultiplicity on write, so this bound documents intent rather than a limit the platform upholds."
     }
   ]
 }

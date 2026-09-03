@@ -67,7 +67,7 @@
       "target": "dtmi:io:tributech:device:base",
       "displayName": "Agents",
       "description": "Agents assigned directly to the enrollment group, without an agent group.",
-      "comment": "Bound set high deliberately: an enrollment group's reserved 'unassigned' agent group holds every agent that was activated without a group, so this relationship must be able to carry every agent in the enrollment group. Verified: the node does not enforce maxMultiplicity on write, so this documents intent rather than a limit the platform upholds."
+      "comment": "Agents filed on the enrollment group itself rather than in an agent group - the 'AtRoot' state, a deliberate placement meaning the agent belongs to the company rather than to a line. Distinct from being uncategorized, which the reserved 'unassigned' agent group holds. Verified: the node does not enforce maxMultiplicity on write, so this bound documents intent rather than a limit the platform upholds."
     }
   ]
 }
