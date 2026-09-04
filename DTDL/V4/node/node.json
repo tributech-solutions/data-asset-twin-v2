@@ -14,43 +14,6 @@
       "description": "Represents the name of the Tributech Node."
     },
     {
-      "@type": "Property",
-      "name": "PublicKey",
-      "schema": "string",
-      "writable": false,
-      "displayName": "Public Key",
-      "description": "PEM-encoded public key of the node signer. Uniquely identifies this Tributech Node.",
-      "comment": "The node signer key pair is loaded once per deployment, so its public key is the only value that stays stable across restarts, renames and enrollment group changes."
-    },
-    {
-      "@type": "Property",
-      "name": "CypherSuite",
-      "schema": {
-        "@type": "Enum",
-        "valueSchema": "string",
-        "enumValues": [
-          {
-            "name": "SHA256_RSA2048_PSS",
-            "displayName": "SHA256 RSA2048-PSS",
-            "enumValue": "SHA256_RSA2048_PSS"
-          },
-          {
-            "name": "SHA256_RSA2048_PKCS1",
-            "displayName": "SHA256 RSA2048-PKCS1",
-            "enumValue": "SHA256_RSA2048_PKCS1"
-          },
-          {
-            "name": "SHA256_ECC",
-            "displayName": "SHA256 ECC",
-            "enumValue": "SHA256_ECC"
-          }
-        ]
-      },
-      "writable": false,
-      "displayName": "Cypher Suite",
-      "description": "Cryptographic algorithm the node signer uses to sign data."
-    },
-    {
       "@type": "Relationship",
       "name": "EnrollmentGroups",
       "minMultiplicity": 0,

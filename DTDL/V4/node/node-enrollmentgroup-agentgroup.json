@@ -64,7 +64,7 @@
       "@type": "Relationship",
       "name": "Agents",
       "minMultiplicity": 0,
-      "maxMultiplicity": 10000,
+      "maxMultiplicity": 500,
       "target": "dtmi:io:tributech:device:base",
       "displayName": "Agents",
       "description": "Agents assigned to this agent group.",
