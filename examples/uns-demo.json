@@ -31,7 +31,7 @@
       "$dtId": "f3d903b5-6d29-54fd-9d36-4650473dcb48",
       "$etag": "W/\"f3d903b5-6d29-54fd-9d36-4650473dcb49\"",
       "$metadata": {
-        "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgroup;1",
+        "$model": "dtmi:io:tributech:node:enrollmentgroup:unassignedagentgroup;1",
         "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
       }
     },
@@ -116,7 +116,7 @@
       "$relationshipId": "b0000000-0000-4000-8000-000000000001",
       "$sourceId": "22222222-2222-4222-8222-222222222222",
       "$targetId": "f3d903b5-6d29-54fd-9d36-4650473dcb48",
-      "$relationshipName": "AgentGroups",
+      "$relationshipName": "UnassignedAgentGroup",
       "$etag": "W/\"b0000000-0000-4000-8000-000000000002\"",
       "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
     },
@@ -154,7 +154,7 @@
     },
     {
       "$relationshipId": "a1000000-0000-4000-8000-000000000001",
-      "$sourceId": "22222222-2222-4222-8222-222222222222",
+      "$sourceId": "33333333-3333-4333-8333-333333333333",
       "$targetId": "77777777-7777-4777-8777-777777777777",
       "$relationshipName": "Agents",
       "$etag": "W/\"a1000000-0000-4000-8000-000000000002\"",

@@ -3,17 +3,17 @@
   "@id": "dtmi:io:tributech:node:enrollmentgroup:unassignedagentgroup;1",
   "@type": "Interface",
   "displayName": "Unassigned Agent Group",
-  "description": "The reserved agent group every enrollment group owns exactly once, created with the tenant. It collects the agents that were activated without an agent group, so the navigation tree has a node to render and the API an id to scope by.",
-  "comment": "A distinct interface rather than an instance of the ordinary agent group because it carries no ChildAgentGroups: it sits at depth 1, holds no children, and is neither renamable, movable nor deletable.",
+  "description": "The reserved agent group an enrollment group owns exactly once. It holds the agents that carry no agent group assignment, so the navigation tree has a node to render and the API an id to scope by.",
+  "comment": "A separate interface rather than an instance of the ordinary agent group because it carries no ChildAgentGroups: it is a leaf of the topology, and it is neither renamable, movable nor deletable.",
   "contents": [
     {
       "@type": "Property",
       "name": "Name",
       "schema": "string",
-      "writable": false,
+      "writable": true,
       "displayName": "Name",
       "description": "Always the reserved literal 'unassigned'. Forms the path segment of this agent group within the unified namespace.",
-      "comment": "Reserved at depth 1, so a create, rename or move that would claim it is rejected - the name is set once with the tenant and never written again. Never translated either: a path must resolve to the same agent group in every locale. Localized labels belong in DisplayNames."
+      "comment": "Reserved, so the API rejects any create or rename by a customer that would claim it - writable here means the node seeds the value, not that it can be changed afterwards. Never translated either: a path must resolve to the same agent group in every locale. Localized labels belong in DisplayNames."
     },
     {
       "@type": "Property",
@@ -29,9 +29,9 @@
           "schema": "string"
         }
       },
-      "writable": false,
+      "writable": true,
       "displayName": "Display Names",
-      "description": "Labels shown for the unassigned agent group, keyed by BCP-47 language tag (e.g. en, de, de-AT). Seeded with the tenant and not customer-editable."
+      "description": "Labels shown for this agent group, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
     },
     {
       "@type": "Property",
@@ -47,9 +47,9 @@
           "schema": "string"
         }
       },
-      "writable": false,
+      "writable": true,
       "displayName": "Descriptions",
-      "description": "Descriptions of the unassigned agent group, keyed by BCP-47 language tag (e.g. en, de, de-AT). Seeded with the tenant and not customer-editable."
+      "description": "Descriptions of this agent group, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
     },
     {
       "@type": "Relationship",
@@ -58,8 +58,8 @@
       "maxMultiplicity": 1000,
       "target": "dtmi:io:tributech:device:base",
       "displayName": "Agents",
-      "description": "Agents that hold no agent group assignment within this enrollment group.",
-      "comment": "Bounded by the enrollment group's agent count rather than the per-group fan-out, because this group is where every agent activated without a group lands and where agents predating the feature are backfilled. Verified: the node does not enforce maxMultiplicity on write, so this bound documents intent rather than a limit the platform upholds."
+      "description": "Agents of this enrollment group that carry no agent group assignment.",
+      "comment": "Bounded by the enrollment group's agent count rather than the per-group fan-out, because every agent activated without a group lands here and this group is exempt from per-group limits. Verified: the node does not enforce maxMultiplicity on write, so this bound documents intent rather than a limit the platform upholds."
     }
   ]
 }

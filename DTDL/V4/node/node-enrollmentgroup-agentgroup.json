@@ -68,7 +68,7 @@
       "target": "dtmi:io:tributech:device:base",
       "displayName": "Agents",
       "description": "Agents assigned to this agent group.",
-      "comment": "Set an order of magnitude above the intended per-group fan-out because the reserved 'unassigned' agent group is itself an agent group and is exempt from per-group limits - it holds every agent activated without a group. Verified: the node does not enforce maxMultiplicity on write, so this bound documents intent rather than a limit the platform upholds."
+      "comment": "Sized for the intended per-group fan-out. Agents activated without a group are not counted here - they land on the reserved unassigned agent group, which has its own interface and its own wider bound. Verified: the node does not enforce maxMultiplicity on write, so this bound documents intent rather than a limit the platform upholds."
     }
   ]
 }
