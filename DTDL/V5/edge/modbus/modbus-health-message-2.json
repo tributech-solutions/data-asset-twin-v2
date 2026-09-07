@@ -1,0 +1,184 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:modbus;2",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "Modbus Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Snapshot",
+            "annotates": "HealthState",
+            "displayName": "Snapshot",
+            "description": "Point-in-time health readings taken at tick time.",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "EndpointConnectionStates",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "endpoint",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "connectionState",
+                                "schema": {
+                                    "@type": "Enum",
+                                    "valueSchema": "string",
+                                    "enumValues": [
+                                        {
+                                            "name": "NotDefined",
+                                            "enumValue": "NotDefined",
+                                            "displayName": "NotDefined"
+                                        },
+                                        {
+                                            "name": "Connecting",
+                                            "enumValue": "Connecting",
+                                            "displayName": "Connecting"
+                                        },
+                                        {
+                                            "name": "Connected",
+                                            "enumValue": "Connected",
+                                            "displayName": "Connected"
+                                        },
+                                        {
+                                            "name": "Error",
+                                            "enumValue": "Error",
+                                            "displayName": "Error"
+                                        },
+                                        {
+                                            "name": "Disconnected",
+                                            "enumValue": "Disconnected",
+                                            "displayName": "Disconnected"
+                                        },
+                                        {
+                                            "name": "Recovering",
+                                            "enumValue": "Recovering",
+                                            "displayName": "Recovering"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "displayName": "Endpoint Connection States",
+                        "description": "Key-value of every distinct Modbus endpoint (\"<host>:<port>\") and its current connection state. One entry per endpoint, not per device - several devices may share one endpoint."
+                    },
+                    {
+                        "name": "UnreachableDevices",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "deviceId",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "reason",
+                                "schema": "string"
+                            }
+                        },
+                        "displayName": "Unreachable Devices",
+                        "description": "Key-value of devices behind a Connected endpoint that the gateway currently reports as unreachable (Modbus exception 0x0A gateway path unavailable / 0x0B gateway target device failed to respond), with the exception text. The endpoint itself is healthy - the gateway answered; only this device's unit identifier is affected. Cleared by the next successful read on any stream of the device. Empty map when all OK."
+                    },
+                    {
+                        "name": "FaultyStreams",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "streamId",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "address",
+                                "schema": "string"
+                            }
+                        },
+                        "displayName": "Faulty Streams",
+                        "description": "Key-value of faulty streams with its address in \"<deviceId>/<RegisterType>:<Address>\" form. Empty map when all OK."
+                    },
+                    {
+                        "name": "FaultyParameters",
+                        "schema": {
+                            "@type": "Array",
+                            "elementSchema": "string"
+                        },
+                        "displayName": "Faulty Parameters",
+                        "description": "Array of faulty parameters, each in \"<deviceId>/<Identifier>\" form. Empty array when all OK."
+                    }
+                ]
+            }
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Windowed",
+            "annotates": "HealthState",
+            "displayName": "Windowed",
+            "description": "Windowed health observations accumulated since the last health tick.",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "PerEndpointConnectionLossCount",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "endpoint",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "count",
+                                "schema": "integer"
+                            }
+                        },
+                        "displayName": "Per Endpoint Connection Loss Count",
+                        "description": "Key-value of endpoints (\"<host>:<port>\") and the number of times the endpoint's connection was declared lost since the last health tick: the consecutive transport-failure counter reached its threshold and a recovery reconnect was triggered. Counted per endpoint, not per device - every device on the endpoint was affected. Only endpoints with a non-zero count are listed; empty map when none."
+                    },
+                    {
+                        "name": "PerEndpointTransportFailureCount",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "endpoint",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "count",
+                                "schema": "integer"
+                            }
+                        },
+                        "displayName": "Per Endpoint Transport Failure Count",
+                        "description": "Key-value of endpoints (\"<host>:<port>\") and the number of requests since the last health tick that received no Modbus response at all (request timeout, socket or I/O error), whether or not the failure threshold was reached later. A Modbus exception response is not a transport failure. A high count with zero connection losses indicates a slow or overloaded endpoint. Only endpoints with a non-zero count are listed; empty map when none."
+                    },
+                    {
+                        "name": "PerDeviceUnreachableCount",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "deviceId",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "count",
+                                "schema": "integer"
+                            }
+                        },
+                        "displayName": "Per Device Unreachable Count",
+                        "description": "Key-value of devices and the number of requests since the last health tick that the gateway answered with Modbus exception 0x0A/0x0B for that device's unit identifier. Only devices with a non-zero count are listed; empty map when none."
+                    }
+                ]
+            }
+        }
+    ]
+}

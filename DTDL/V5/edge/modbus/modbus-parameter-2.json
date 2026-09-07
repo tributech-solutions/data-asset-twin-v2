@@ -1,0 +1,105 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:parameter:modbus;2",
+  "@type": "Interface",
+  "extends": "dtmi:io:tributech:parameter:base;2",
+  "displayName": "Modbus Parameter",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Identifier",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Identifier",
+      "description": "Composite Modbus address \"<RegisterType>:<PDU offset>\" of the datum to write to (e.g. \"HoldingRegister:100\", \"Coil:5\") - the same syntax as the Modbus stream Identifier, restricted to the two writable address spaces: Coil and HoldingRegister. DiscreteInput/InputRegister addresses are read-only in Modbus and are rejected by the source if configured here."
+    },
+    {
+      "@type": "Property",
+      "name": "Datatype",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "BOOL",
+            "enumValue": "BOOL",
+            "displayName": "BOOL",
+            "comment": ".NET Type: System.Boolean. Valid only with Coil addresses (1 bit)."
+          },
+          {
+            "name": "INT16",
+            "enumValue": "INT16",
+            "displayName": "INT16",
+            "comment": ".NET Type: System.Int16. 1 register, transported to the agent as Int32 (4 bytes) - pair with Encoding INT32."
+          },
+          {
+            "name": "UINT16",
+            "enumValue": "UINT16",
+            "displayName": "UINT16",
+            "comment": ".NET Type: System.UInt16. 1 register, transported to the agent as Int32 (4 bytes) - pair with Encoding INT32."
+          },
+          {
+            "name": "INT32",
+            "enumValue": "INT32",
+            "displayName": "INT32",
+            "comment": ".NET Type: System.Int32. 2 consecutive registers, combined per the parameter's WordOrder."
+          },
+          {
+            "name": "UINT32",
+            "enumValue": "UINT32",
+            "displayName": "UINT32",
+            "comment": ".NET Type: System.UInt32. 2 consecutive registers, combined per the parameter's WordOrder."
+          },
+          {
+            "name": "FLOAT32",
+            "enumValue": "FLOAT32",
+            "displayName": "FLOAT32",
+            "comment": ".NET Type: System.Single (IEEE 754). 2 consecutive registers, combined per the parameter's WordOrder."
+          },
+          {
+            "name": "FLOAT64",
+            "enumValue": "FLOAT64",
+            "displayName": "FLOAT64",
+            "comment": ".NET Type: System.Double (IEEE 754). 4 consecutive registers, combined per the parameter's WordOrder."
+          }
+        ]
+      },
+      "writable": true,
+      "displayName": "Datatype",
+      "description": "Wire-type of the value to write (e.g. \"INT16\") - Modbus offers no read-before-write type discovery for an arbitrary register, so the type must be configured. Token-identical to the Modbus stream's Datatype enum."
+    },
+    {
+      "@type": "Property",
+      "name": "WordOrder",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "HighWordFirst",
+            "enumValue": "HighWordFirst",
+            "displayName": "HighWordFirst",
+            "comment": "The register at the lower address holds the most-significant 16 bits."
+          },
+          {
+            "name": "LowWordFirst",
+            "enumValue": "LowWordFirst",
+            "displayName": "LowWordFirst",
+            "comment": "The register at the lower address holds the least-significant 16 bits."
+          }
+        ]
+      },
+      "writable": true,
+      "displayName": "Modbus word order",
+      "description": "The vendor-specific register order used to combine multiple consecutive 16-bit registers into 32-/64-bit values (e.g. \"HighWordFirst\"). The Modbus specification fixes byte order within one register but not word order across registers - this must match the target device's convention."
+    },
+    {
+      "@type": "Property",
+      "name": "Value",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Write Value",
+      "description": "Value which will be cyclically written to the configured Modbus address, parsed to the Datatype-hinted type at write time (e.g. \"1\" for a Coil, \"1234\" for an INT16 register, \"98.6\" for a FLOAT32 register)."
+    }
+  ]
+}
