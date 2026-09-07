@@ -61,13 +61,12 @@
     },
     {
       "@type": "Relationship",
-      "name": "Agents",
-      "minMultiplicity": 0,
-      "maxMultiplicity": 1000,
-      "target": "dtmi:io:tributech:device:base",
-      "displayName": "Agents",
-      "description": "Agents assigned directly to the enrollment group, without an agent group.",
-      "comment": "Agents filed on the enrollment group itself rather than in an agent group - the 'AtRoot' state, a deliberate placement meaning the agent belongs to the company rather than to a line. Distinct from being uncategorized, which the reserved 'unassigned' agent group holds. Verified: the node does not enforce maxMultiplicity on write, so this bound documents intent rather than a limit the platform upholds."
+      "name": "UnassignedAgentGroups",
+      "minMultiplicity": 1,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:node:enrollmentgroup:unassignedagentgroup;1",
+      "displayName": "Unassigned Agent Groups",
+      "description": "Top-level agent group that collects all unassigned agents for an enrollment group."
     }
   ]
 }

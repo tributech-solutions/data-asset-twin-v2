@@ -1,0 +1,65 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:node:enrollmentgroup:unassignedagentgroup;1",
+  "@type": "Interface",
+  "displayName": "Unassigned Agent Group",
+  "description": "The reserved agent group every enrollment group owns exactly once, created with the tenant. It collects the agents that were activated without an agent group, so the navigation tree has a node to render and the API an id to scope by.",
+  "comment": "A distinct interface rather than an instance of the ordinary agent group because it carries no ChildAgentGroups: it sits at depth 1, holds no children, and is neither renamable, movable nor deletable.",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string",
+      "writable": false,
+      "displayName": "Name",
+      "description": "Always the reserved literal 'unassigned'. Forms the path segment of this agent group within the unified namespace.",
+      "comment": "Reserved at depth 1, so a create, rename or move that would claim it is rejected - the name is set once with the tenant and never written again. Never translated either: a path must resolve to the same agent group in every locale. Localized labels belong in DisplayNames."
+    },
+    {
+      "@type": "Property",
+      "name": "DisplayNames",
+      "schema": {
+        "@type": "Map",
+        "mapKey": {
+          "name": "locale",
+          "schema": "string"
+        },
+        "mapValue": {
+          "name": "text",
+          "schema": "string"
+        }
+      },
+      "writable": false,
+      "displayName": "Display Names",
+      "description": "Labels shown for the unassigned agent group, keyed by BCP-47 language tag (e.g. en, de, de-AT). Seeded with the tenant and not customer-editable."
+    },
+    {
+      "@type": "Property",
+      "name": "Descriptions",
+      "schema": {
+        "@type": "Map",
+        "mapKey": {
+          "name": "locale",
+          "schema": "string"
+        },
+        "mapValue": {
+          "name": "text",
+          "schema": "string"
+        }
+      },
+      "writable": false,
+      "displayName": "Descriptions",
+      "description": "Descriptions of the unassigned agent group, keyed by BCP-47 language tag (e.g. en, de, de-AT). Seeded with the tenant and not customer-editable."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Agents",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1000,
+      "target": "dtmi:io:tributech:device:base",
+      "displayName": "Agents",
+      "description": "Agents that hold no agent group assignment within this enrollment group.",
+      "comment": "Bounded by the enrollment group's agent count rather than the per-group fan-out, because this group is where every agent activated without a group lands and where agents predating the feature are backfilled. Verified: the node does not enforce maxMultiplicity on write, so this bound documents intent rather than a limit the platform upholds."
+    }
+  ]
+}
