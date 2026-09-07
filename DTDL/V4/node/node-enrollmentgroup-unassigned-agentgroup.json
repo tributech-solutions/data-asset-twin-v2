@@ -10,7 +10,7 @@
       "@type": "Property",
       "name": "Name",
       "schema": "string",
-      "writable": true,
+      "writable": false,
       "displayName": "Name",
       "description": "Always the reserved literal 'unassigned'. Forms the path segment of this agent group within the unified namespace.",
       "comment": "Reserved, so the API rejects any create or rename by a customer that would claim it - writable here means the node seeds the value, not that it can be changed afterwards. Never translated either: a path must resolve to the same agent group in every locale. Localized labels belong in DisplayNames."
