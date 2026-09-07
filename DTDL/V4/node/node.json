@@ -1,0 +1,26 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:node;1",
+  "@type": "Interface",
+  "displayName": "Tributech Node",
+  "description": "A Tributech Node deployment. Root of the unified namespace.",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Name",
+      "description": "Represents the name of the Tributech Node."
+    },
+    {
+      "@type": "Relationship",
+      "name": "EnrollmentGroups",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1000,
+      "target": "dtmi:io:tributech:node:enrollmentgroup",
+      "displayName": "Enrollment Groups",
+      "description": "Enrollment groups hosted on this Tributech Node."
+    }
+  ]
+}

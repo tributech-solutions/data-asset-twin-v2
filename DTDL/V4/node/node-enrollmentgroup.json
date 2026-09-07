@@ -1,0 +1,73 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:node:enrollmentgroup;1",
+  "@type": "Interface",
+  "displayName": "Enrollment Group",
+  "description": "An enrollment group on a Tributech Node. Root of the group's agent topology and the level all depth limits are counted from.",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Name",
+      "description": "Represents the name of the enrollment group. Matches the alias of the corresponding organization.",
+      "comment": "The enrollment group id itself is not repeated here - it is the twin id, and it is also held in the twin metadata, which is the value the node stamps and the only one that can be trusted."
+    },
+    {
+      "@type": "Property",
+      "name": "DisplayNames",
+      "schema": {
+        "@type": "Map",
+        "mapKey": {
+          "name": "locale",
+          "schema": "string"
+        },
+        "mapValue": {
+          "name": "text",
+          "schema": "string"
+        }
+      },
+      "writable": true,
+      "displayName": "Display Names",
+      "description": "Labels shown for this enrollment group, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
+    },
+    {
+      "@type": "Property",
+      "name": "Descriptions",
+      "schema": {
+        "@type": "Map",
+        "mapKey": {
+          "name": "locale",
+          "schema": "string"
+        },
+        "mapValue": {
+          "name": "text",
+          "schema": "string"
+        }
+      },
+      "writable": true,
+      "displayName": "Descriptions",
+      "description": "Descriptions of this enrollment group, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
+    },
+    {
+      "@type": "Relationship",
+      "name": "AgentGroups",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 100,
+      "target": "dtmi:io:tributech:node:enrollmentgroup:agentgroup",
+      "displayName": "Agent Groups",
+      "description": "Top-level agent groups of this enrollment group."
+    },
+    {
+      "@type": "Relationship",
+      "name": "UnassignedAgentGroup",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 1,
+      "target": "dtmi:io:tributech:node:enrollmentgroup:unassignedagentgroup",
+      "displayName": "Unassigned Agent Group",
+      "description": "Reserved agent group holding every agent of this enrollment group that carries no agent group assignment.",
+      "comment": "Exactly one exists per enrollment group and is created with it, but DTDL requires minMultiplicity to be 0 - the API enforces that the edge is present."
+    }
+  ]
+}
