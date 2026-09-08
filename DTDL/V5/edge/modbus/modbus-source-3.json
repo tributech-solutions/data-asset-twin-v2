@@ -115,13 +115,13 @@
                     "name": "INT16",
                     "enumValue": "INT16",
                     "displayName": "INT16",
-                    "comment": ".NET Type: System.Int16. 1 register."
+                    "comment": ".NET Type: System.Int16. 1 register, transported to the agent as Int32 (4 bytes) - pair with Encoding INT32."
                   },
                   {
                     "name": "UINT16",
                     "enumValue": "UINT16",
                     "displayName": "UINT16",
-                    "comment": ".NET Type: System.UInt16. 1 register."
+                    "comment": ".NET Type: System.UInt16. 1 register, transported to the agent as Int32 (4 bytes) - pair with Encoding INT32."
                   },
                   {
                     "name": "INT32",
