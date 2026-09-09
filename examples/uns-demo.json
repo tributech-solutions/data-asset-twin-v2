@@ -52,19 +52,6 @@
       }
     },
     {
-      "Name": "austria",
-      "DisplayNames": {
-        "en": "Austria",
-        "de": "Österreich"
-      },
-      "$dtId": "aaaa0002-0000-4000-8000-000000000002",
-      "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000005\"",
-      "$metadata": {
-        "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgroup;1",
-        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
-      }
-    },
-    {
       "Name": "vienna",
       "DisplayNames": {
         "en": "Vienna",
@@ -241,17 +228,9 @@
     {
       "$relationshipId": "rrrr0004-0000-4000-8000-000000000004",
       "$sourceId": "aaaa0001-0000-4000-8000-000000000001",
-      "$targetId": "aaaa0002-0000-4000-8000-000000000002",
-      "$relationshipName": "ChildAgentGroups",
-      "$etag": "W/\"ffffffff-0000-4000-8000-000000000004\"",
-      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
-    },
-    {
-      "$relationshipId": "rrrr0005-0000-4000-8000-000000000005",
-      "$sourceId": "aaaa0002-0000-4000-8000-000000000002",
       "$targetId": "aaaa0003-0000-4000-8000-000000000003",
       "$relationshipName": "ChildAgentGroups",
-      "$etag": "W/\"ffffffff-0000-4000-8000-000000000005\"",
+      "$etag": "W/\"ffffffff-0000-4000-8000-000000000004\"",
       "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
     },
     {
