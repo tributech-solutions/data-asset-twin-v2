@@ -1,0 +1,74 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:device:modbus;1",
+  "@type": "Interface",
+  "displayName": "Modbus Device",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Name",
+      "description": "Human-readable name of the device."
+    },
+    {
+      "@type": "Property",
+      "name": "Host",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Modbus host",
+      "description": "The IP address or hostname of the Modbus TCP device or gateway (e.g. \"10.0.0.5\")."
+    },
+    {
+      "@type": "Property",
+      "name": "Port",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Modbus port",
+      "description": "The Modbus TCP port of the device (e.g. 502, the IANA-registered Modbus default)."
+    },
+    {
+      "@type": "Property",
+      "name": "UnitIdentifier",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Modbus unit identifier",
+      "description": "The Modbus unit identifier (0-255) routed in the MBAP header (e.g. 255). Conventionally 255 when addressing a Modbus TCP device directly; identifies one downstream slave (1-247) when connecting through a TCP-to-serial gateway. Warning: 0 is the serial broadcast address when forwarded through a gateway - slaves execute the request but never answer, so every request against it will time out; some direct TCP devices do accept 0 as \"me\". 248-254 are reserved by the specification and accepted as configured."
+    },
+    {
+      "@type": "Property",
+      "name": "DefaultReadCycleInterval",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Modbus default read cycle interval",
+      "description": "Default poll interval in seconds (e.g. 10) for streams that do not set their own ReadCycleInterval."
+    },
+    {
+      "@type": "Property",
+      "name": "WriteCycleInterval",
+      "schema": "integer",
+      "writable": true,
+      "displayName": "Modbus write cycle interval",
+      "description": "The Modbus write cycle interval in seconds (e.g. 10) for cyclically writing configured Parameter values to the device."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Streams",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 100,
+      "target": "dtmi:io:tributech:stream:modbus",
+      "displayName": "Streams",
+      "description": "Contains all Modbus streams of the given device."
+    },
+    {
+      "@type": "Relationship",
+      "name": "Parameter",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 100,
+      "target": "dtmi:io:tributech:parameter:modbus",
+      "displayName": "Parameters",
+      "description": "For writing configuration values to the Modbus device."
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:source:modbus;3",
+  "@type": "Interface",
+  "extends": "dtmi:io:tributech:source:base;2",
+  "displayName": "Modbus Source",
+  "schemas": [
+    {
+      "@type": "Object",
+      "@id": "dtmi:io:tributech:command:response:modbus;2",
+      "displayName": "Modbus Command Response",
+      "description": "Response schema for Modbus commands.",
+      "fields": [
+        {
+          "name": "ResponseBody",
+          "schema": "bytes"
+        },
+        {
+          "name": "ExecutedAt",
+          "schema": "dateTime"
+        },
+        {
+          "name": "AdditionalInformation",
+          "schema": "string"
+        },
+        {
+          "name": "ExecutionDuration",
+          "schema": "duration"
+        },
+        {
+          "name": "CommandState",
+          "schema": {
+            "@type": "Enum",
+            "valueSchema": "string",
+            "enumValues": [
+              {
+                "name": "Rejected",
+                "displayName": "Rejected",
+                "enumValue": "Rejected"
+              },
+              {
+                "name": "CouldNotBeSend",
+                "displayName": "CouldNotBeSend",
+                "enumValue": "CouldNotBeSend"
+              },
+              {
+                "name": "Timeout",
+                "displayName": "Timeout",
+                "enumValue": "Timeout"
+              },
+              {
+                "name": "CommandFailed",
+                "displayName": "CommandFailed",
+                "enumValue": "CommandFailed"
+              },
+              {
+                "name": "Error",
+                "displayName": "Error",
+                "enumValue": "Error"
+              },
+              {
+                "name": "Success",
+                "displayName": "Success",
+                "enumValue": "Success"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "contents": [
+    {
+      "@type": "Relationship",
+      "name": "Devices",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 50,
+      "target": "dtmi:io:tributech:device:modbus",
+      "displayName": "Devices",
+      "description": "Contains all Modbus devices of the given source."
+    },
+    {
+      "@type": "Command",
+      "name": "WriteOnce",
+      "displayName": "Write Once Command",
+      "request": {
+        "name": "WriteOnceCommandRequest",
+        "description": "Request for writing a value once to the Modbus device",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "DeviceId",
+              "schema": "string",
+              "displayName": "Device Id",
+              "description": "The $dtId of the target device:modbus twin whose endpoint and unit identifier the write is routed through."
+            },
+            {
+              "name": "Identifier",
+              "schema": "string"
+            },
+            {
+              "name": "Datatype",
+              "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                  {
+                    "name": "BOOL",
+                    "enumValue": "BOOL",
+                    "displayName": "BOOL",
+                    "comment": ".NET Type: System.Boolean. Valid only with Coil addresses (1 bit)."
+                  },
+                  {
+                    "name": "INT16",
+                    "enumValue": "INT16",
+                    "displayName": "INT16",
+                    "comment": ".NET Type: System.Int16. 1 register, transported to the agent as Int32 (4 bytes) - pair with Encoding INT32."
+                  },
+                  {
+                    "name": "UINT16",
+                    "enumValue": "UINT16",
+                    "displayName": "UINT16",
+                    "comment": ".NET Type: System.UInt16. 1 register, transported to the agent as Int32 (4 bytes) - pair with Encoding INT32."
+                  },
+                  {
+                    "name": "INT32",
+                    "enumValue": "INT32",
+                    "displayName": "INT32",
+                    "comment": ".NET Type: System.Int32. 2 consecutive registers, combined per this command's WordOrder."
+                  },
+                  {
+                    "name": "UINT32",
+                    "enumValue": "UINT32",
+                    "displayName": "UINT32",
+                    "comment": ".NET Type: System.UInt32. 2 consecutive registers, combined per this command's WordOrder."
+                  },
+                  {
+                    "name": "FLOAT32",
+                    "enumValue": "FLOAT32",
+                    "displayName": "FLOAT32",
+                    "comment": ".NET Type: System.Single (IEEE 754). 2 consecutive registers, combined per this command's WordOrder."
+                  },
+                  {
+                    "name": "FLOAT64",
+                    "enumValue": "FLOAT64",
+                    "displayName": "FLOAT64",
+                    "comment": ".NET Type: System.Double (IEEE 754). 4 consecutive registers, combined per this command's WordOrder."
+                  }
+                ]
+              },
+              "displayName": "Datatype",
+              "description": "Required wire-type of the value to write (e.g. \"FLOAT32\"), token-identical to the Modbus stream/parameter Datatype enum. BOOL only with Coil addresses; numeric types only with HoldingRegister addresses (1, 2 or 4 registers, combined per this command's WordOrder)."
+            },
+            {
+              "name": "WordOrder",
+              "schema": {
+                "@type": "Enum",
+                "valueSchema": "string",
+                "enumValues": [
+                  {
+                    "name": "HighWordFirst",
+                    "enumValue": "HighWordFirst",
+                    "displayName": "HighWordFirst",
+                    "comment": "The register at the lower address holds the most-significant 16 bits."
+                  },
+                  {
+                    "name": "LowWordFirst",
+                    "enumValue": "LowWordFirst",
+                    "displayName": "LowWordFirst",
+                    "comment": "The register at the lower address holds the least-significant 16 bits."
+                  }
+                ]
+              },
+              "displayName": "Word order",
+              "description": "Optional register order used to combine multiple consecutive registers for this write (e.g. \"HighWordFirst\"), same semantics as the stream/parameter WordOrder. Defaults to HighWordFirst when omitted."
+            },
+            {
+              "name": "Value",
+              "schema": "string"
+            }
+          ]
+        }
+      },
+      "response": {
+        "name": "WriteOnceCommandResponse",
+        "description": "Response of write once command",
+        "schema": "dtmi:io:tributech:command:response:modbus;2"
+      }
+    },
+    {
+      "@type": "Component",
+      "name": "Health",
+      "schema": "dtmi:io:tributech:healthmessage:modbus;2",
+      "displayName": "Modbus Source Health",
+      "description": "Health message with Modbus source specific health information."
+    }
+  ]
+}
