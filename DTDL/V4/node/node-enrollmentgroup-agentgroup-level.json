@@ -1,0 +1,81 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:node:enrollmentgroup:agentgrouplevel;1",
+  "@type": "Interface",
+  "displayName": "Agent Group Level",
+  "description": "A tier of the enrollment group's agent topology, e.g. site, area or production line. Names and styles the depth an agent group sits at; it holds no agent groups itself.",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Level",
+      "schema": "unsignedShort",
+      "writable": true,
+      "displayName": "Level",
+      "description": "Depth this level sits at below the enrollment group, starting at 1.",
+      "comment": "Carries the order DTDL relationships cannot express. Uniqueness within the enrollment group is enforced by the API."
+    },
+    {
+      "@type": "Property",
+      "name": "Name",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Name",
+      "description": "Identifier of this level within the enrollment group's settings. Unique among its siblings.",
+      "comment": "Never translated - the same reasoning as an agent group's Name: it is the value APIs and configuration refer to. Localized labels belong in DisplayNames."
+    },
+    {
+      "@type": "Property",
+      "name": "DisplayNames",
+      "schema": {
+        "@type": "Map",
+        "mapKey": {
+          "name": "locale",
+          "schema": "string"
+        },
+        "mapValue": {
+          "name": "text",
+          "schema": "string"
+        }
+      },
+      "writable": true,
+      "displayName": "Display Names",
+      "description": "Labels shown for this level, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
+    },
+    {
+      "@type": "Property",
+      "name": "Descriptions",
+      "schema": {
+        "@type": "Map",
+        "mapKey": {
+          "name": "locale",
+          "schema": "string"
+        },
+        "mapValue": {
+          "name": "text",
+          "schema": "string"
+        }
+      },
+      "writable": true,
+      "displayName": "Descriptions",
+      "description": "Descriptions of this level, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
+    },
+    {
+      "@type": "Property",
+      "name": "Icon",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Icon",
+      "description": "Icon code rendered for agent groups on this level.",
+      "comment": "The icon set is a client concern - the node stores and serves the code unresolved, so an unknown code is a rendering fallback for the client, not a write error."
+    },
+    {
+      "@type": "Property",
+      "name": "Color",
+      "schema": "string",
+      "writable": true,
+      "displayName": "Color",
+      "description": "Color of agent groups on this level, as a six-digit hex RGB value (e.g. #AAAAAA).",
+      "comment": "DTDL cannot express the format, so the API validates it on write."
+    }
+  ]
+}
