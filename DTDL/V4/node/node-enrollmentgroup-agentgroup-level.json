@@ -11,7 +11,7 @@
       "schema": "unsignedShort",
       "writable": true,
       "displayName": "Level",
-      "description": "Depth this level sits at below the enrollment group, starting at 1.",
+      "description": "Depth this level sits at below the enrollment group, 1 to 5.",
       "comment": "Carries the order DTDL relationships cannot express. Uniqueness within the enrollment group is enforced by the API."
     },
     {

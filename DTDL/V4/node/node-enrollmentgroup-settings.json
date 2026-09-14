@@ -10,11 +10,11 @@
       "@type": "Relationship",
       "name": "AgentGroupLevels",
       "minMultiplicity": 0,
-      "maxMultiplicity": 6,
+      "maxMultiplicity": 5,
       "target": "dtmi:io:tributech:node:enrollmentgroup:agentgrouplevel",
       "displayName": "Agent Group Levels",
       "description": "Levels of this enrollment group's agent topology, outermost first.",
-      "comment": "Bounded by the topology depth the API enforces - at most six levels below the enrollment group. Order is not expressible in DTDL and is carried by the API; the node does not enforce maxMultiplicity on write either, so this bound documents intent rather than a limit the platform upholds."
+      "comment": "Bounded by the topology depth the API enforces - agent groups occupy levels 1..5, level 6 is where agents sit. Order is carried by the Level property because DTDL relationships are unordered; the node does not enforce maxMultiplicity on write, so this bound documents intent rather than a limit the platform upholds."
     }
   ]
 }
