@@ -39,6 +39,114 @@
       }
     },
     {
+      "$dtId": "33333333-3333-4333-8333-333333333333",
+      "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000004\"",
+      "$metadata": {
+        "$model": "dtmi:io:tributech:node:enrollmentgroup:settings;1",
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+      }
+    },
+    {
+      "Level": 1,
+      "Name": "country",
+      "DisplayNames": {
+        "en": "Country",
+        "de": "Land"
+      },
+      "Descriptions": {
+        "en": "Country the assets are operated in.",
+        "de": "Land, in dem die Anlagen betrieben werden."
+      },
+      "Icon": "public",
+      "Color": "#1F6FEB",
+      "$dtId": "bbbb0001-0000-4000-8000-000000000001",
+      "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000011\"",
+      "$metadata": {
+        "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgrouplevel;1",
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+      }
+    },
+    {
+      "Level": 2,
+      "Name": "site",
+      "DisplayNames": {
+        "en": "Site",
+        "de": "Standort"
+      },
+      "Descriptions": {
+        "en": "City or site the plants of a country belong to.",
+        "de": "Stadt oder Standort, zu dem die Werke eines Landes gehören."
+      },
+      "Icon": "location_city",
+      "Color": "#2F81F7",
+      "$dtId": "bbbb0002-0000-4000-8000-000000000002",
+      "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000012\"",
+      "$metadata": {
+        "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgrouplevel;1",
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+      }
+    },
+    {
+      "Level": 3,
+      "Name": "plant",
+      "DisplayNames": {
+        "en": "Plant",
+        "de": "Werk"
+      },
+      "Descriptions": {
+        "en": "Production plant at a site.",
+        "de": "Produktionswerk an einem Standort."
+      },
+      "Icon": "factory",
+      "Color": "#3FB950",
+      "$dtId": "bbbb0003-0000-4000-8000-000000000003",
+      "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000013\"",
+      "$metadata": {
+        "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgrouplevel;1",
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+      }
+    },
+    {
+      "Level": 4,
+      "Name": "area",
+      "DisplayNames": {
+        "en": "Area",
+        "de": "Bereich"
+      },
+      "Descriptions": {
+        "en": "Production area of a plant, e.g. the body shop.",
+        "de": "Produktionsbereich eines Werks, z. B. der Karosseriebau."
+      },
+      "Icon": "construction",
+      "Color": "#D29922",
+      "$dtId": "bbbb0004-0000-4000-8000-000000000004",
+      "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000014\"",
+      "$metadata": {
+        "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgrouplevel;1",
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+      }
+    },
+    {
+      "Level": 5,
+      "Name": "line",
+      "DisplayNames": {
+        "en": "Line",
+        "de": "Linie"
+      },
+      "Descriptions": {
+        "en": "Assembly or press line within an area.",
+        "de": "Montage- oder Pressenlinie innerhalb eines Bereichs."
+      },
+      "Icon": "conveyor_belt",
+      "Color": "#DB6D28",
+      "$dtId": "bbbb0005-0000-4000-8000-000000000005",
+      "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000015\"",
+      "$metadata": {
+        "$model": "dtmi:io:tributech:node:enrollmentgroup:agentgrouplevel;1",
+        "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+      }
+    },
+    {
       "Name": "austria",
       "DisplayNames": {
         "en": "Austria",
@@ -511,6 +619,54 @@
       "$targetId": "f3d903b5-6d29-54fd-9d36-4650473dcb48",
       "$relationshipName": "UnassignedAgentGroup",
       "$etag": "W/\"ffffffff-0000-4000-8000-000000000002\"",
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+    },
+    {
+      "$relationshipId": "rrrr0004-0000-4000-8000-000000000004",
+      "$sourceId": "22222222-2222-4222-8222-222222222222",
+      "$targetId": "33333333-3333-4333-8333-333333333333",
+      "$relationshipName": "Settings",
+      "$etag": "W/\"ffffffff-0000-4000-8000-000000000004\"",
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+    },
+    {
+      "$relationshipId": "rrrr0011-0000-4000-8000-000000000011",
+      "$sourceId": "33333333-3333-4333-8333-333333333333",
+      "$targetId": "bbbb0001-0000-4000-8000-000000000001",
+      "$relationshipName": "AgentGroupLevels",
+      "$etag": "W/\"ffffffff-0000-4000-8000-000000000011\"",
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+    },
+    {
+      "$relationshipId": "rrrr0012-0000-4000-8000-000000000012",
+      "$sourceId": "33333333-3333-4333-8333-333333333333",
+      "$targetId": "bbbb0002-0000-4000-8000-000000000002",
+      "$relationshipName": "AgentGroupLevels",
+      "$etag": "W/\"ffffffff-0000-4000-8000-000000000012\"",
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+    },
+    {
+      "$relationshipId": "rrrr0013-0000-4000-8000-000000000013",
+      "$sourceId": "33333333-3333-4333-8333-333333333333",
+      "$targetId": "bbbb0003-0000-4000-8000-000000000003",
+      "$relationshipName": "AgentGroupLevels",
+      "$etag": "W/\"ffffffff-0000-4000-8000-000000000013\"",
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+    },
+    {
+      "$relationshipId": "rrrr0014-0000-4000-8000-000000000014",
+      "$sourceId": "33333333-3333-4333-8333-333333333333",
+      "$targetId": "bbbb0004-0000-4000-8000-000000000004",
+      "$relationshipName": "AgentGroupLevels",
+      "$etag": "W/\"ffffffff-0000-4000-8000-000000000014\"",
+      "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
+    },
+    {
+      "$relationshipId": "rrrr0015-0000-4000-8000-000000000015",
+      "$sourceId": "33333333-3333-4333-8333-333333333333",
+      "$targetId": "bbbb0005-0000-4000-8000-000000000005",
+      "$relationshipName": "AgentGroupLevels",
+      "$etag": "W/\"ffffffff-0000-4000-8000-000000000015\"",
       "$enrollmentGroup": "22222222-2222-4222-8222-222222222222"
     },
     {

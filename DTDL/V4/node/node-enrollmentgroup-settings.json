@@ -1,0 +1,20 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:node:enrollmentgroup:settings;1",
+  "@type": "Interface",
+  "displayName": "Enrollment Group Settings",
+  "description": "The settings an enrollment group owns exactly once. Holds the configuration that applies to the whole enrollment group rather than to a single agent group.",
+  "comment": "A twin of its own rather than properties on the enrollment group, so settings can grow without versioning the enrollment group interface again and so a client can read them without loading the topology.",
+  "contents": [
+    {
+      "@type": "Relationship",
+      "name": "AgentGroupLevels",
+      "minMultiplicity": 0,
+      "maxMultiplicity": 5,
+      "target": "dtmi:io:tributech:node:enrollmentgroup:agentgrouplevel",
+      "displayName": "Agent Group Levels",
+      "description": "Levels of this enrollment group's agent topology, outermost first.",
+      "comment": "Bounded by the topology depth the API enforces - agent groups occupy levels 1..5, level 6 is where agents sit. Order is carried by the Level property because DTDL relationships are unordered; the node does not enforce maxMultiplicity on write, so this bound documents intent rather than a limit the platform upholds."
+    }
+  ]
+}
