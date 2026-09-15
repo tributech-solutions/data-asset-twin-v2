@@ -57,8 +57,8 @@
         "en": "Country the assets are operated in.",
         "de": "Land, in dem die Anlagen betrieben werden."
       },
-      "Icon": "public",
-      "Color": "#1F6FEB",
+      "Icon": "globe",
+      "Color": "blue",
       "$dtId": "bbbb0001-0000-4000-8000-000000000001",
       "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000011\"",
       "$metadata": {
@@ -77,8 +77,8 @@
         "en": "City or site the plants of a country belong to.",
         "de": "Stadt oder Standort, zu dem die Werke eines Landes gehören."
       },
-      "Icon": "location_city",
-      "Color": "#2F81F7",
+      "Icon": "map-pin",
+      "Color": "cyan",
       "$dtId": "bbbb0002-0000-4000-8000-000000000002",
       "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000012\"",
       "$metadata": {
@@ -98,7 +98,7 @@
         "de": "Produktionswerk an einem Standort."
       },
       "Icon": "factory",
-      "Color": "#3FB950",
+      "Color": "green",
       "$dtId": "bbbb0003-0000-4000-8000-000000000003",
       "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000013\"",
       "$metadata": {
@@ -117,8 +117,8 @@
         "en": "Production area of a plant, e.g. the body shop.",
         "de": "Produktionsbereich eines Werks, z. B. der Karosseriebau."
       },
-      "Icon": "construction",
-      "Color": "#D29922",
+      "Icon": "layer",
+      "Color": "orange",
       "$dtId": "bbbb0004-0000-4000-8000-000000000004",
       "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000014\"",
       "$metadata": {
@@ -137,8 +137,8 @@
         "en": "Assembly or press line within an area.",
         "de": "Montage- oder Pressenlinie innerhalb eines Bereichs."
       },
-      "Icon": "conveyor_belt",
-      "Color": "#DB6D28",
+      "Icon": "conveyor-belt",
+      "Color": "purple",
       "$dtId": "bbbb0005-0000-4000-8000-000000000005",
       "$etag": "W/\"eeeeeeee-0000-4000-8000-000000000015\"",
       "$metadata": {

@@ -109,11 +109,11 @@ edge. Level 6 has no definition: it is where agents sit, not agent groups.
 
 | Level | Name | en / de | Icon | Color |
 |---|---|---|---|---|
-| 1 | `country` | Country / Land | `public` | `#1F6FEB` |
-| 2 | `site` | Site / Standort | `location_city` | `#2F81F7` |
-| 3 | `plant` | Plant / Werk | `factory` | `#3FB950` |
-| 4 | `area` | Area / Bereich | `construction` | `#D29922` |
-| 5 | `line` | Line / Linie | `conveyor_belt` | `#DB6D28` |
+| 1 | `country` | Country / Land | `globe` | `blue` |
+| 2 | `site` | Site / Standort | `map-pin` | `cyan` |
+| 3 | `plant` | Plant / Werk | `factory` | `green` |
+| 4 | `area` | Area / Bereich | `layer` | `orange` |
+| 5 | `line` | Line / Linie | `conveyor-belt` | `purple` |
 
 ## Namespace paths
 
