@@ -65,8 +65,8 @@
       "schema": "string",
       "writable": true,
       "displayName": "Icon",
-      "description": "Icon code rendered for agent groups on this level.",
-      "comment": "The icon set is a client concern - the node stores and serves the code unresolved, so an unknown code is a rendering fallback for the client, not a write error."
+      "description": "Icon of agent groups on this level, as the key of an icon in the client's icon set (e.g. 'layer', 'factory', 'map-pin', 'conveyor-belt').",
+      "comment": "The icon's key:  Lower-case ASCII letters, digits and hyphens, no path separators, dots or spaces ([a-z0-9-]{1,64}). The icon set itself is a client concern."
     },
     {
       "@type": "Property",
@@ -74,8 +74,8 @@
       "schema": "string",
       "writable": true,
       "displayName": "Color",
-      "description": "Color of agent groups on this level, as a six-digit hex RGB value (e.g. #AAAAAA).",
-      "comment": "DTDL cannot express the format, so the API validates it on write."
+      "description": "Color of agent groups on this level, as a named color token (e.g. 'blue', 'green', 'orange', 'purple').",
+      "comment": "Named tokens rather than RGB values so the client can map each one to a light and a dark theme variant with guaranteed contrast."
     }
   ]
 }
