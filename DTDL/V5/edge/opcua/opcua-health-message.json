@@ -1,0 +1,167 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:opcua;4",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "OPC UA Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Snapshot",
+            "annotates": "HealthState",
+            "displayName": "Snapshot",
+            "description": "Point-in-time health readings taken at tick time.",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "ConnectionStateWithOpcuaServer",
+                        "schema": {
+                            "@type": "Enum",
+                            "valueSchema": "string",
+                            "enumValues": [
+                                {
+                                    "name": "Connected",
+                                    "enumValue": "Connected",
+                                    "displayName": "Connected"
+                                },
+                                {
+                                    "name": "Connecting",
+                                    "enumValue": "Connecting",
+                                    "displayName": "Connecting"
+                                },
+                                {
+                                    "name": "Recovering",
+                                    "enumValue": "Recovering",
+                                    "displayName": "Recovering"
+                                },
+                                {
+                                    "name": "Disconnected",
+                                    "enumValue": "Disconnected",
+                                    "displayName": "Disconnected"
+                                },
+                                {
+                                    "name": "Error",
+                                    "enumValue": "Error",
+                                    "displayName": "Error"
+                                }
+                            ]
+                        },
+                        "displayName": "Connection State With OPC UA Server",
+                        "description": "Connection state to OPC UA server. 'Connected' means healthy connection, 'Connecting' or 'Recovering' indicate intermediate states during connection setup or recovery, 'Disconnected' or 'Error' indicate unhealthy states."
+                    },
+                    {
+                        "name": "ServerHeartbeatStopped",
+                        "schema": "boolean",
+                        "displayName": "OPC UA Server Heartbeat Stopped",
+                        "description": "True if no server response for ≥2 X KeepAliveInterval or error."
+                    },
+                    {
+                        "name": "ServerStateIsRunning",
+                        "schema": "boolean",
+                        "displayName": "OPC UA Server State Is Running",
+                        "description": "OPC UA ServerState is Running."
+                    },
+                    {
+                        "name": "FaultyStreams",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "streamId",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "nodeId",
+                                "schema": "string"
+                            }
+                        },
+                        "displayName": "Faulty Streams",
+                        "description": "Key-value of faulty streams with its nodeId. Empty map when all OK."
+                    },
+                    {
+                        "name": "FaultyParameters",
+                        "schema": {
+                            "@type": "Array",
+                            "elementSchema": "string"
+                        },
+                        "displayName": "Faulty Parameters",
+                        "description": "Array indicating faulty parameters. Empty array when all OK."
+                    }
+                ]
+            }
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Windowed",
+            "annotates": "HealthState",
+            "displayName": "Windowed",
+            "description": "Windowed health observations accumulated since the last health tick.",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "SessionLossCount",
+                        "schema": "integer",
+                        "displayName": "Session Loss Count",
+                        "description": "Number of times since the last health tick the session with the OPC UA server was declared lost: a keep-alive returned a bad status and the SDK's in-place session reconnect was started (connection state Recovering). Counted once per outage episode, however many keep-alives failed during it, and whether or not the session was recovered by tick time. 0 when none."
+                    },
+                    {
+                        "name": "WatchdogRestartCount",
+                        "schema": "integer",
+                        "displayName": "Watchdog Restart Count",
+                        "description": "Number of times since the last health tick the connection watchdog found the client in Error, or Connected with the server heartbeat stopped, and queued a full source restart: subscription deleted, session disposed, connect and subscribe run again. Counted per queued restart. 0 when none."
+                    },
+                    {
+                        "name": "ServerHeartbeatStoppedCount",
+                        "schema": "integer",
+                        "displayName": "Server Heartbeat Stopped Count",
+                        "description": "Number of times since the last health tick the subscription stopped receiving publish responses from the server (the ServerHeartbeatStopped snapshot condition became true). Counted once per stall, on the transition from publishing to stopped, so a stall that resumed inside the reporting period is visible here. 0 when none."
+                    },
+                    {
+                        "name": "PerStreamBadQualityNotificationCount",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "streamId",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "count",
+                                "schema": "integer"
+                            }
+                        },
+                        "displayName": "Per Stream Bad Quality Notification Count",
+                        "description": "Key-value of streams and the number of data-change notifications received since the last health tick whose OPC UA StatusCode was not Good (Bad or Uncertain). Every such notification counts once, whether or not the stream is still faulty at tick time, so a stream that reported bad quality and recovered inside the reporting period is still visible here. Only streams with a non-zero count are listed; empty map when none."
+                    },
+                    {
+                        "name": "PerParameterTransientFailureCount",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "identifier",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "count",
+                                "schema": "integer"
+                            }
+                        },
+                        "displayName": "Per Parameter Transient Failure Count",
+                        "description": "Key-value of parameters, identified by their configured NodeId or browse path (the same identifier FaultyParameters uses), and the number of write cycles since the last health tick in which the pre-read or the write failed with a non-permanent status (e.g. BadNotConnected, timeout, BadUnexpectedError) or an exception. Permanent failures (BadNotWritable, BadNodeIdUnknown, type mismatch, ...) are not counted here - they stay in FaultyParameters. Only parameters with a non-zero count are listed; empty map when none."
+                    }
+                ]
+            }
+        }
+    ]
+}

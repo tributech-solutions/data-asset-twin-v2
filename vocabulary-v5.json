@@ -16,6 +16,8 @@
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/modbus/modbus-parameter-2.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/modbus/modbus-health-message-2.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/simulated/simulated-health-message.json",
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/simulated/simulated-source.json"
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/simulated/simulated-source.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/opcua/opcua-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V5/edge/opcua/opcua-source.json"
     ]
 }
