@@ -1,0 +1,49 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:rest;3",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "REST Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Snapshot",
+            "annotates": "HealthState",
+            "displayName": "Snapshot",
+            "description": "Point-in-time health readings taken at tick time. The REST source is push-only and has no upstream connection or schedule to read at tick time, so this object is empty.",
+            "schema": {
+                "@type": "Object",
+                "fields": []
+            }
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Windowed",
+            "annotates": "HealthState",
+            "displayName": "Windowed",
+            "description": "Windowed health observations accumulated since the last health tick.",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "PostFailureRatio",
+                        "schema": "double",
+                        "displayName": "POST Failure Ratio",
+                        "description": "Share of POST requests received since the last health tick that were not accepted (0.0–1.0): requests rejected as invalid (HTTP 400, e.g. unknown StreamId or MachineID/SensorID, empty value) and requests that could not be queued for the agent (HTTP 500). 0.0 when every request was accepted and also when no request was received at all."
+                    }
+                ]
+            }
+        }
+    ]
+}
