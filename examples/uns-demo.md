@@ -15,26 +15,10 @@ graph TD
   N["🖧 tributech-node-eu<br/><i>node;1</i> · level -1"]
   EG["🏢 nordstern-motors<br/><i>enrollmentgroup;1</i> · level 0"]
   U["📥 unassigned<br/><i>unassignedagentgroup;1</i> · level 1"]
-  S["⚙ settings<br/><i>settings;1</i>"]
 
   N -->|EnrollmentGroups| EG
   EG -->|UnassignedAgentGroup| U
-  EG -->|Settings| S
   U -->|Agents| UA(["agent-af31c9"])
-
-  subgraph LV["agent group levels"]
-    L1["🌍 country · 1"]
-    L2["🏙 site · 2"]
-    L3["🏭 plant · 3"]
-    L4["🔧 area · 4"]
-    L5["🚗 line · 5"]
-  end
-
-  S -->|AgentGroupLevels| L1
-  S -->|AgentGroupLevels| L2
-  S -->|AgentGroupLevels| L3
-  S -->|AgentGroupLevels| L4
-  S -->|AgentGroupLevels| L5
 
   subgraph AT["austria"]
     C1["🌍 austria<br/>level 1"]
@@ -93,18 +77,16 @@ graph TD
 
   classDef agent fill:#e8f0fe,stroke:#4d7cc7,color:#1a2b45
   classDef reserved fill:#fdf0e3,stroke:#c78b3d,color:#452f1a,stroke-dasharray:4 3
-  classDef level fill:#f1ecfb,stroke:#8a63c7,color:#2b1a45
   class A11,A12,A13,A14,A15,A21,A22,A23,A24,A25,A31,A32,A33,A34,A35,UA agent
   class U reserved
-  class L1,L2,L3,L4,L5 level
 ```
 
 Unlabelled edges inside a country branch are `ChildAgentGroups`.
 
 ## Agent group levels
 
-The enrollment group's `Settings` twin names and styles every agent group level of the topology.
-A level twin carries no agent groups — an agent group is placed on a level by its depth, not by an
+Heimdall's tenant settings (`heimdall:ui:tenant:settings;1`) name and style every agent group
+level; they are not twins on the node. An agent group is placed on a level by its depth, not by an
 edge. Level 6 has no definition: it is where agents sit, not agent groups.
 
 | Level | Name | en / de | Icon | Color |
@@ -162,10 +144,8 @@ below the enrollment group. All paths below are prefixed with `nordstern-motors`
 |---|---|
 | Node twins | 1 |
 | Enrollment groups | 1 |
-| Enrollment group settings | 1 |
-| Agent group levels | 5 |
 | Agent groups (incl. the reserved `unassigned`) | 19 |
 | Agents | 16 |
-| **Twins total** | **43** |
-| Relationships | 42 |
-| **Graph elements total** | **85** |
+| **Twins total** | **37** |
+| Relationships | 36 |
+| **Graph elements total** | **73** |

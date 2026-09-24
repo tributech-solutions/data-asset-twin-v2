@@ -1,0 +1,58 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:heimdall:ui:user:settings;1",
+  "@type": "Interface",
+  "displayName": "User Settings",
+  "description": "Personal settings of one user within one tenant, e.g. how the user navigates the agent topology.",
+  "comment": "Stored by Heimdall as one document, not as a twin on the node. The DTMI identifies the shape of the stored document.",
+  "schemas": [
+    {
+      "@id": "dtmi:io:tributech:heimdall:ui:user:favoriteagentgroup;1",
+      "@type": "Object",
+      "displayName": "Favorite Agent Group",
+      "description": "An agent group a user has starred.",
+      "fields": [
+        {
+          "name": "AgentGroupId",
+          "schema": "string",
+          "displayName": "Agent Group Id",
+          "description": "Twin id of the starred agent group."
+        }
+      ]
+    },
+    {
+      "@id": "dtmi:io:tributech:heimdall:ui:user:agentnavigation;1",
+      "@type": "Object",
+      "displayName": "Agent Navigation",
+      "description": "A user's preferences for navigating the agent groups of a tenant.",
+      "fields": [
+        {
+          "name": "StartAgentGroupId",
+          "schema": "string",
+          "displayName": "Start Page",
+          "description": "Twin id of the agent group the agents section opens on. Unset opens the topology root."
+        },
+        {
+          "name": "Favorites",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": "dtmi:io:tributech:heimdall:ui:user:favoriteagentgroup;1"
+          },
+          "displayName": "Favorites",
+          "description": "Agent groups the user has starred, in display order.",
+          "comment": "At most 100 entries, each agent group at most once, enforced by the API."
+        }
+      ]
+    }
+  ],
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "AgentNavigation",
+      "schema": "dtmi:io:tributech:heimdall:ui:user:agentnavigation;1",
+      "writable": true,
+      "displayName": "Agent Navigation",
+      "description": "The user's preferences for navigating agent groups, e.g. favorites and the start page."
+    }
+  ]
+}
