@@ -1,0 +1,128 @@
+{
+    "@context": [
+        "dtmi:dtdl:context;4",
+        "dtmi:dtdl:extension:annotation;2"
+    ],
+    "@id": "dtmi:io:tributech:healthmessage:tcads;3",
+    "@type": "Interface",
+    "extends": [
+        "dtmi:io:tributech:healthmessage:base;1"
+    ],
+    "displayName": "ADS Source Health",
+    "contents": [
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Snapshot",
+            "annotates": "HealthState",
+            "displayName": "Snapshot",
+            "description": "Point-in-time health readings taken at tick time.",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "IsRouterStatusStarted",
+                        "schema": "boolean",
+                        "displayName": "Is Router in Started State",
+                        "description": "True if state of the ADS Router in the source is Started."
+                    },
+                    {
+                        "name": "IsPLCADSStateRun",
+                        "schema": "boolean",
+                        "displayName": "Is PLC ADS in Run State",
+                        "description": "True if PLC ADS communication state is Run."
+                    },
+                    {
+                        "name": "IsADSClientConnectedToRouter",
+                        "schema": "boolean",
+                        "displayName": "Is ADS Client Connected To Router",
+                        "description": "True if ADS client is currently connected to the Router."
+                    },
+                    {
+                        "name": "FaultyStreams",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "streamId",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "symbol",
+                                "schema": "string"
+                            }
+                        },
+                        "displayName": "Faulty Streams",
+                        "description": "Key-value of faulty streams with its symbol. Empty map when all OK."
+                    }
+                ]
+            }
+        },
+        {
+            "@type": [
+                "Telemetry",
+                "ValueAnnotation"
+            ],
+            "name": "Windowed",
+            "annotates": "HealthState",
+            "displayName": "Windowed",
+            "description": "Windowed health observations accumulated since the last health tick.",
+            "schema": {
+                "@type": "Object",
+                "fields": [
+                    {
+                        "name": "PlcUnresponsiveRestartCount",
+                        "schema": "integer",
+                        "displayName": "PLC Unresponsive Restart Count",
+                        "description": "Number of times since the last health tick the source restarted itself because the PLC stopped answering: the cyclic ADS state read (heartbeat) failed on the consecutive-failure threshold and a full source restart was queued - client disconnected, router stopped, connect and subscribe run again. Counted once per queued restart, whether or not the restart had succeeded by tick time, so an outage that healed inside the reporting period is still visible here. Restarts caused by a symbol version change are counted in SymbolVersionChangeRestartCount instead. 0 when none."
+                    },
+                    {
+                        "name": "SymbolVersionChangeRestartCount",
+                        "schema": "integer",
+                        "displayName": "Symbol Version Change Restart Count",
+                        "description": "Number of times since the last health tick the source restarted itself because the PLC reported ADS error 1809 (symbol version invalid) on a read, write or subscription: the PLC program was downloaded or online-changed, so every cached symbol handle became stale and had to be re-created. Counted once per queued restart; a single program change reported on several symbols at once counts once, because parallel restart requests are collapsed. 0 when none."
+                    },
+                    {
+                        "name": "PerStreamReadFailureCount",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "streamId",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "count",
+                                "schema": "integer"
+                            }
+                        },
+                        "displayName": "Per Stream Read Failure Count",
+                        "description": "Key-value of streams with read mode CYCLE and the number of cyclic reads since the last health tick that failed (ADS error response, timeout, no connection). Every failed read counts once, whether or not the stream reached the consecutive-failure threshold that places it in FaultyStreams, so a stream that failed a few times and recovered inside the reporting period is still visible here. A stream already listed in FaultyStreams makes no further read attempts and therefore stops counting. On-change streams are not counted. Only streams with a non-zero count are listed; empty map when none."
+                    },
+                    {
+                        "name": "PerParameterWriteFailureCount",
+                        "schema": {
+                            "@type": "Map",
+                            "mapKey": {
+                                "name": "symbolPath",
+                                "schema": "string"
+                            },
+                            "mapValue": {
+                                "name": "count",
+                                "schema": "integer"
+                            }
+                        },
+                        "displayName": "Per Parameter Write Failure Count",
+                        "description": "Key-value of parameters, identified by their symbol path, and the number of write cycles since the last health tick in which writing the configured value to the PLC failed (ADS error response, timeout, no connection). Every failed cycle counts once, whether the cause is transient (PLC not in Run, connection loss) or persistent (unknown symbol, type mismatch), so a persistently failing parameter shows a count close to the number of write cycles per reporting period. Only parameters with a non-zero count are listed; empty map when none."
+                    },
+                    {
+                        "name": "PlcRunStateLossCount",
+                        "schema": "integer",
+                        "displayName": "PLC Run State Loss Count",
+                        "description": "Number of times since the last health tick the ADS state of the PLC was observed leaving Run (to Stop, Config or any other state) by the cyclic ADS state read. Counted once per episode on the transition out of Run, however long the PLC stayed out of Run and whether or not it was back in Run by tick time, so a PLC stop that ended inside the reporting period is still visible here. Complements the snapshot flag IsPLCADSStateRun. 0 when none."
+                    }
+                ]
+            }
+        }
+    ]
+}
