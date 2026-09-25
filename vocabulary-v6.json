@@ -1,0 +1,11 @@
+{
+    "name": "Tributech Core Vocabulary V6",
+    "tags": ["tributech", "data-asset-twins", "iot", "iiot"],
+    "issuer": "Tributech Solutions GmBH",
+    "issuerURL": "https://tributech.io",
+    "documentationURL": "https://github.com/tributech-solutions/data-asset-twin-v2",
+    "references": [
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V6/base-device.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V6/edge/edge.json"
+    ]
+}
