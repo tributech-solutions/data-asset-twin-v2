@@ -75,7 +75,7 @@
                         "name": "PlcUnresponsiveRestartCount",
                         "schema": "integer",
                         "displayName": "PLC Unresponsive Restart Count",
-                        "description": "Number of times since the last health tick the source restarted itself because the PLC stopped answering: the cyclic ADS state read (heartbeat) failed on the consecutive-failure threshold and a full source restart was queued - client disconnected, router stopped, connect and subscribe run again. Counted once per queued restart, whether or not the restart had succeeded by tick time, so an outage that healed inside the reporting period is still visible here. Restarts caused by a symbol version change are counted in SymbolVersionChangeRestartCount instead. 0 when none."
+                        "description": "Number of times since the last health tick the source restarted itself because the PLC stopped answering: the cyclic ADS heartbeat read hit the consecutive-failure threshold and a full restart was queued (disconnect, stop router, connect and subscribe again). Counted once per queued restart, whether or not it succeeded by tick time, so a healed outage is still visible here. Restarts from a symbol version change are counted in SymbolVersionChangeRestartCount instead. 0 when none."
                     },
                     {
                         "name": "SymbolVersionChangeRestartCount",
@@ -97,7 +97,7 @@
                             }
                         },
                         "displayName": "Per Stream Read Failure Count",
-                        "description": "Key-value of streams with read mode CYCLE and the number of cyclic reads since the last health tick that failed (ADS error response, timeout, no connection). Every failed read counts once, whether or not the stream reached the consecutive-failure threshold that places it in FaultyStreams, so a stream that failed a few times and recovered inside the reporting period is still visible here. A stream already listed in FaultyStreams makes no further read attempts and therefore stops counting. On-change streams are not counted. Only streams with a non-zero count are listed; empty map when none."
+                        "description": "Key-value of streams with read mode CYCLE and the number of cyclic reads since the last health tick that failed (ADS error response, timeout, no connection). Every failed read counts once, whether or not the stream reached the failure threshold placing it in FaultyStreams. A stream already in FaultyStreams stops attempting reads and stops counting. On-change streams are not counted. Only streams with a non-zero count are listed; empty map when none."
                     },
                     {
                         "name": "PerParameterWriteFailureCount",
@@ -113,7 +113,7 @@
                             }
                         },
                         "displayName": "Per Parameter Write Failure Count",
-                        "description": "Key-value of parameters, identified by their symbol path, and the number of write cycles since the last health tick in which writing the configured value to the PLC failed (ADS error response, timeout, no connection). Every failed cycle counts once, whether the cause is transient (PLC not in Run, connection loss) or persistent (unknown symbol, type mismatch), so a persistently failing parameter shows a count close to the number of write cycles per reporting period. Only parameters with a non-zero count are listed; empty map when none."
+                        "description": "Key-value of parameters, identified by their symbol path, and the number of write cycles since the last health tick in which writing the value to the PLC failed (ADS error response, timeout, no connection). Every failed cycle counts once, whether the cause is transient (PLC not in Run, connection loss) or persistent (unknown symbol, type mismatch). A persistently failing parameter's count nears the write cycles per period. Only parameters with a non-zero count are listed; empty map when none."
                     },
                     {
                         "name": "PlcRunStateLossCount",
