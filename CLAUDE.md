@@ -50,6 +50,10 @@ Rules:
 
 **After creating or changing any model, validate it with the Demeter MCP tool `tribute_dtdl_model_validate`.** It resolves references against the live registry; a `TwinModelNotFound` for models that exist only in the working tree (not yet published) is expected and not a structural error — everything else must pass.
 
+## Field length limits
+
+`displayName` (64 characters), `description` (512 characters), and `comment` (512 characters) are all hard DTDL parser limits. A value over the limit is not caught by `tribute_dtdl_model_validate` against the live registry in the same way a broken reference is — it only surfaces when a Demeter node loads the vocabulary manifest containing the file, where it logs `... which is too long -- length limit is 512 characters` and **aborts loading that entire vocabulary manifest**. Check new or edited `displayName`/`description`/`comment` values against these limits always.
+
 ## `@context` conventions
 
 - `DTDL/V1/**` uses DTDL spec v2: `"@context": "dtmi:dtdl:context;2"`.

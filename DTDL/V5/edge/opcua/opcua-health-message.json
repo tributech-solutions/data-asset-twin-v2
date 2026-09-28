@@ -158,7 +158,7 @@
                             }
                         },
                         "displayName": "Per Parameter Transient Failure Count",
-                        "description": "Key-value of parameters, identified by their configured NodeId or browse path (the same identifier FaultyParameters uses), and the number of write cycles since the last health tick in which the pre-read or the write failed with a non-permanent status (e.g. BadNotConnected, timeout, BadUnexpectedError) or an exception. Permanent failures (BadNotWritable, BadNodeIdUnknown, type mismatch, ...) are not counted here - they stay in FaultyParameters. Only parameters with a non-zero count are listed; empty map when none."
+                        "description": "Key-value of parameters, identified by their configured NodeId or browse path, and the number of write cycles since the last health tick where the pre-read or write failed with a non-permanent status (e.g. BadNotConnected, timeout, BadUnexpectedError) or an exception. Permanent failures (BadNotWritable, BadNodeIdUnknown, type mismatch, ...) stay in FaultyParameters, not here. Only parameters with a non-zero count are listed; empty map when none."
                     }
                 ]
             }
