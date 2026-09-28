@@ -63,7 +63,7 @@
                         "name": "IngressBrokerConnectionLossCount",
                         "schema": "integer",
                         "displayName": "Ingress Broker Connection Loss Count",
-                        "description": "Number of times since the last health tick the session with the ingress broker was lost and the client had to reconnect. 0 when none."
+                        "description": "Number of times since the last health tick the session with the ingress broker (or the source broker if there is no additional ingress broker) was lost and the client had to reconnect. 0 when none."
                     }
                 ]
             }
