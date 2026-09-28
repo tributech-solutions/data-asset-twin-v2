@@ -47,18 +47,18 @@ graph LR
     G1["austria"] --> G2["vienna"] --> G3["plant-north"] --> G4["body-shop"] --> G5["assembly-line-1"]
     H1["germany"] --> H2["munich"] --> H3["plant-south"] --> H4["body-shop"]
     K1["switzerland"] --> K2["zurich"]
-    X1(["agent baaa0105"])
-    X2(["agent caaa0204"])
-    X3(["agent daaa0302"])
+    X1(["torque-station-03"])
+    X2(["weld-robot-12"])
+    X3(["site-gateway-03"])
   end
 
   S -.->|aaaa0103| G3
   F1 -.->|aaaa0105| G5
   F2 -.->|aaaa0204| H4
   F3 -.->|aaaa0302| K2
-  FA1 -.->|baaa0105| X1
-  FA2 -.->|caaa0204| X2
-  FA3 -.->|daaa0302| X3
+  FA1 -.->|dddd0105| X1
+  FA2 -.->|dddd0204| X2
+  FA3 -.->|dddd0301| X3
 
   classDef doc fill:#e8f0fe,stroke:#4d7cc7,color:#1a2b45
   classDef group fill:#f3f3f3,stroke:#888,color:#222
