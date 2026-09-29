@@ -26,7 +26,7 @@
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/node/node-enrollmentgroup.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/node/node-enrollmentgroup-agentgroup.json",
         "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/node/node-enrollmentgroup-unassigned-agentgroup.json",
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/node/node-enrollmentgroup-settings.json",
-        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/node/node-enrollmentgroup-agentgroup-level.json"
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/heimdall/ui/heimdall-ui-tenant-settings.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V4/heimdall/ui/heimdall-ui-user-settings.json"
     ]
 } 

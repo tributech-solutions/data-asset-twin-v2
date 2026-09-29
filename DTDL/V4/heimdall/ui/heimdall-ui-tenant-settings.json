@@ -1,0 +1,92 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:heimdall:ui:tenant:settings;1",
+  "@type": "Interface",
+  "displayName": "Tenant Settings",
+  "description": "Settings a tenant owns exactly once. Holds the configuration that applies to the whole tenant rather than to a single agent group or user.",
+  "comment": "Stored by Heimdall as one document, not as a twin on the node. The DTMI identifies the shape of the stored document.",
+  "schemas": [
+    {
+      "@id": "dtmi:io:tributech:heimdall:ui:tenant:agentgrouplevel;1",
+      "@type": "Object",
+      "displayName": "Agent Group Level",
+      "description": "A tier of the tenant's agent topology, e.g. site, area or production line. Names and styles the depth an agent group sits at; it holds no agent groups itself.",
+      "fields": [
+        {
+          "name": "Level",
+          "schema": "unsignedShort",
+          "displayName": "Level",
+          "description": "Depth this level sits at below the tenant, 1 to 5.",
+          "comment": "Explicit rather than the array position. Uniqueness within the tenant is enforced by the API."
+        },
+        {
+          "name": "Name",
+          "schema": "string",
+          "displayName": "Name",
+          "description": "Identifier of this level within the tenant's settings. Unique among its siblings.",
+          "comment": "Never translated - the same reasoning as an agent group's Name: it is the value APIs and configuration refer to. Localized labels belong in DisplayNames."
+        },
+        {
+          "name": "DisplayNames",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "locale",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "text",
+              "schema": "string"
+            }
+          },
+          "displayName": "Display Names",
+          "description": "Labels shown for this level, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
+        },
+        {
+          "name": "Descriptions",
+          "schema": {
+            "@type": "Map",
+            "mapKey": {
+              "name": "locale",
+              "schema": "string"
+            },
+            "mapValue": {
+              "name": "text",
+              "schema": "string"
+            }
+          },
+          "displayName": "Descriptions",
+          "description": "Descriptions of this level, keyed by BCP-47 language tag (e.g. en, de, de-AT)."
+        },
+        {
+          "name": "Icon",
+          "schema": "string",
+          "displayName": "Icon",
+          "description": "Icon of agent groups on this level, as the key of an icon in the client's icon set (e.g. 'layer', 'factory', 'map-pin', 'conveyor-belt').",
+          "comment": "The icon's key: lower-case ASCII letters, digits and hyphens, no path separators, dots or spaces ([a-z0-9-]{1,64}). The icon set itself is a client concern."
+        },
+        {
+          "name": "Color",
+          "schema": "string",
+          "displayName": "Color",
+          "description": "Color of agent groups on this level, as a named color token (e.g. 'blue', 'green', 'orange', 'purple').",
+          "comment": "Named tokens rather than RGB values so the client can map each one to a light and a dark theme variant with guaranteed contrast."
+        }
+      ]
+    }
+  ],
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "AgentGroupLevels",
+      "schema": {
+        "@type": "Array",
+        "elementSchema": "dtmi:io:tributech:heimdall:ui:tenant:agentgrouplevel;1"
+      },
+      "writable": true,
+      "displayName": "Agent Group Levels",
+      "description": "Levels of this tenant's agent topology, outermost first.",
+      "comment": "At most 5 entries, enforced by the API - agent groups occupy levels 1..5, level 6 is where agents sit."
+    }
+  ]
+}

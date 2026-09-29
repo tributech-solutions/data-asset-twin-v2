@@ -1,0 +1,110 @@
+{
+  "@context": "dtmi:dtdl:context;4",
+  "@id": "dtmi:io:tributech:heimdall:ui:user:settings;1",
+  "@type": "Interface",
+  "displayName": "User Settings",
+  "description": "Personal settings of one user within one tenant, e.g. how the user navigates the agent topology.",
+  "comment": "Stored by Heimdall as one document, not as a twin on the node. The DTMI identifies the shape of the stored document.",
+  "schemas": [
+    {
+      "@id": "dtmi:io:tributech:heimdall:ui:user:agentgroupreference;1",
+      "@type": "Object",
+      "displayName": "Agent Group Reference",
+      "description": "A reference to an agent group by its twin id.",
+      "fields": [
+        {
+          "name": "Id",
+          "schema": "string",
+          "displayName": "Id",
+          "description": "Twin id of the referenced agent group."
+        }
+      ]
+    },
+    {
+      "@id": "dtmi:io:tributech:heimdall:ui:user:agentreference;1",
+      "@type": "Object",
+      "displayName": "Agent Reference",
+      "description": "A reference to an agent by its twin id.",
+      "fields": [
+        {
+          "name": "Id",
+          "schema": "string",
+          "displayName": "Id",
+          "description": "Twin id of the referenced agent."
+        }
+      ]
+    },
+    {
+      "@id": "dtmi:io:tributech:heimdall:ui:user:startpage;1",
+      "@type": "Object",
+      "displayName": "Start Page",
+      "description": "Where the agents section opens.",
+      "fields": [
+        {
+          "name": "StartAgentGroupId",
+          "schema": "dtmi:io:tributech:heimdall:ui:user:agentgroupreference;1",
+          "displayName": "Start Agent Group",
+          "description": "The agent group the agents section opens on. Unset opens the topology root."
+        }
+      ]
+    },
+    {
+      "@id": "dtmi:io:tributech:heimdall:ui:user:favorites;1",
+      "@type": "Object",
+      "displayName": "Favorites",
+      "description": "The agent groups and agents a user has starred.",
+      "fields": [
+        {
+          "name": "AgentGroups",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": "dtmi:io:tributech:heimdall:ui:user:agentgroupreference;1"
+          },
+          "displayName": "Favorite Agent Groups",
+          "description": "Agent groups the user has starred, in display order.",
+          "comment": "At most 25 entries, each agent group at most once, enforced by the API."
+        },
+        {
+          "name": "Agents",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": "dtmi:io:tributech:heimdall:ui:user:agentreference;1"
+          },
+          "displayName": "Favorite Agents",
+          "description": "Agents the user has starred, in display order.",
+          "comment": "At most 25 entries, each agent at most once, enforced by the API."
+        }
+      ]
+    },
+    {
+      "@id": "dtmi:io:tributech:heimdall:ui:user:agentnavigation;1",
+      "@type": "Object",
+      "displayName": "Agent Navigation",
+      "description": "A user's preferences for navigating the agent groups of a tenant.",
+      "fields": [
+        {
+          "name": "StartPage",
+          "schema": "dtmi:io:tributech:heimdall:ui:user:startpage;1",
+          "displayName": "Start Page",
+          "description": "Where the agents section opens."
+        },
+        {
+          "name": "Favorites",
+          "schema": "dtmi:io:tributech:heimdall:ui:user:favorites;1",
+          "displayName": "Favorites",
+          "description": "The agent groups and agents the user has starred."
+        }
+      ]
+    }
+  ],
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "AgentNavigation",
+      "schema": "dtmi:io:tributech:heimdall:ui:user:agentnavigation;1",
+      "writable": true,
+      "displayName": "Agent Navigation",
+      "description": "The user's preferences for navigating agent groups, e.g. favorites and the start page."
+    }
+  ]
+}

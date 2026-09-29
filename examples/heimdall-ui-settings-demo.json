@@ -1,0 +1,116 @@
+{
+  "tenantSettings": {
+    "$metadata": {
+      "$model": "dtmi:io:tributech:heimdall:ui:tenant:settings;1"
+    },
+    "AgentGroupLevels": [
+      {
+        "Level": 1,
+        "Name": "country",
+        "DisplayNames": {
+          "en": "Country",
+          "de": "Land"
+        },
+        "Descriptions": {
+          "en": "A country the tenant operates in.",
+          "de": "Ein Land, in dem der Mandant tätig ist."
+        },
+        "Icon": "globe",
+        "Color": "blue"
+      },
+      {
+        "Level": 2,
+        "Name": "site",
+        "DisplayNames": {
+          "en": "Site",
+          "de": "Standort"
+        },
+        "Descriptions": {
+          "en": "A city or campus hosting one or more plants.",
+          "de": "Eine Stadt oder ein Gelände mit einem oder mehreren Werken."
+        },
+        "Icon": "map-pin",
+        "Color": "cyan"
+      },
+      {
+        "Level": 3,
+        "Name": "plant",
+        "DisplayNames": {
+          "en": "Plant",
+          "de": "Werk"
+        },
+        
+        "Descriptions": {
+          "en": "A production plant.",
+          "de": "Ein Produktionswerk."
+        },
+        "Icon": "factory",
+        "Color": "green"
+      },
+      {
+        "Level": 4,
+        "Name": "area",
+        "DisplayNames": {
+          "en": "Area",
+          "de": "Bereich"
+        },
+        "Descriptions": {
+          "en": "A production area within a plant, e.g. the body shop.",
+          "de": "Ein Produktionsbereich innerhalb eines Werks, z. B. der Karosseriebau."
+        },
+        "Icon": "layer",
+        "Color": "orange"
+      },
+      {
+        "Level": 5,
+        "Name": "line",
+        "DisplayNames": {
+          "en": "Line",
+          "de": "Linie"
+        },
+        "Descriptions": {
+          "en": "A production line within an area.",
+          "de": "Eine Produktionslinie innerhalb eines Bereichs."
+        },
+        "Icon": "conveyor-belt",
+        "Color": "purple"
+      }
+    ]
+  },
+  "userSettings": {
+    "$metadata": {
+      "$model": "dtmi:io:tributech:heimdall:ui:user:settings;1"
+    },
+    "AgentNavigation": {
+      "StartPage": {
+        "StartAgentGroupId": {
+          "Id": "aaaa0103-0000-4000-8000-000000000103"
+        }
+      },
+      "Favorites": {
+        "AgentGroups": [
+          {
+            "Id": "aaaa0105-0000-4000-8000-000000000105"
+          },
+          {
+            "Id": "aaaa0204-0000-4000-8000-000000000204"
+          },
+          {
+            "Id": "aaaa0302-0000-4000-8000-000000000302"
+          }
+        ],
+        "Agents": [
+          {
+            "Id": "dddd0105-0000-4000-8000-000000000105"
+          },
+          {
+            "Id": "dddd0204-0000-4000-8000-000000000204"
+          },
+          {
+            "Id": "dddd0301-0000-4000-8000-000000000301"
+          }
+        ]
+      }
+    }
+  }
+}
