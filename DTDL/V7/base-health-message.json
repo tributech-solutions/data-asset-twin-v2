@@ -49,10 +49,10 @@
         "Telemetry",
         "ValueAnnotation"
       ],
-      "name": "HealthStartTimestamp",
+      "name": "WindowStartTime",
       "annotates": "HealthState",
       "schema": "dateTime",
-      "displayName": "Health Start Timestamp",
+      "displayName": "Window Start Time",
       "description": "UTC start of the period this health message reports on."
     },
     {
@@ -87,7 +87,7 @@
       "annotates": "HealthState",
       "writable": true,
       "displayName": "Expected Health Frequency",
-      "description": "Expected health message interval as an XML duration, e.g. 'PT5M'. In a message, the interval in force at HealthStartTimestamp."
+      "description": "Expected health message interval as an XML duration, e.g. 'PT5M'. In a message, the interval in force at WindowStartTime."
     }
   ]
 }
