@@ -1,0 +1,24 @@
+{
+    "name": "Tributech Core Vocabulary V7",
+    "tags": ["tributech", "data-asset-twins", "iot", "iiot"],
+    "issuer": "Tributech Solutions GmBH",
+    "issuerURL": "https://tributech.io",
+    "documentationURL": "https://github.com/tributech-solutions/data-asset-twin-v2",
+    "references": [
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/base-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/edge-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/modbus/modbus-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/mqtt/mqtt-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/opcua/opcua-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/rest/rest-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/simulated/simulated-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/tcads/tcads-health-message.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/modbus/modbus-source.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/mqtt/mqtt-source.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/opcua/opcua-source.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/rest/rest-source.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/simulated/simulated-source.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/tcads/tcads-source.json",
+        "https://raw.githubusercontent.com/tributech-solutions/data-asset-twin-v2/master/DTDL/V7/edge/edge.json"
+    ]
+}

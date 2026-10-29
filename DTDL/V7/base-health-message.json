@@ -1,0 +1,93 @@
+{
+  "@context": [
+    "dtmi:dtdl:context;4",
+    "dtmi:dtdl:extension:annotation;2"
+  ],
+  "@id": "dtmi:io:tributech:healthmessage:base;2",
+  "@type": "Interface",
+  "displayName": "Health Check Message base definition",
+  "contents": [
+    {
+      "@type": "Telemetry",
+      "name": "HealthState",
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "string",
+        "enumValues": [
+          {
+            "name": "Unknown",
+            "enumValue": "Unknown",
+            "displayName": "Unknown"
+          },
+          {
+            "name": "Ok",
+            "enumValue": "Ok",
+            "displayName": "Ok"
+          },
+          {
+            "name": "Degraded",
+            "enumValue": "Degraded",
+            "displayName": "Degraded"
+          },
+          {
+            "name": "Unhealthy",
+            "enumValue": "Unhealthy",
+            "displayName": "Unhealthy"
+          },
+          {
+            "name": "Critical",
+            "enumValue": "Critical",
+            "displayName": "Critical"
+          }
+        ]
+      },
+      "displayName": "Health State",
+      "description": "The current health state of the component."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "WindowStartTime",
+      "annotates": "HealthState",
+      "schema": "dateTime",
+      "displayName": "Window Start Time",
+      "description": "UTC start of the period this health message reports on."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "HealthTimestamp",
+      "annotates": "HealthState",
+      "schema": "dateTime",
+      "displayName": "Health Timestamp",
+      "description": "The timestamp when the health message was generated."
+    },
+    {
+      "@type": [
+        "Telemetry",
+        "ValueAnnotation"
+      ],
+      "name": "HealthMessage",
+      "schema": "string",
+      "annotates": "HealthState",
+      "displayName": "Health Message",
+      "description": "A message describing the current health state."
+    },
+    {
+      "@type": [
+        "Property",
+        "ValueAnnotation"
+      ],
+      "name": "ExpectedHealthFrequency",
+      "schema": "duration",
+      "annotates": "HealthState",
+      "writable": true,
+      "displayName": "Expected Health Frequency",
+      "description": "Expected health message interval as an XML duration, e.g. 'PT5M'. In a message, the interval in force at WindowStartTime."
+    }
+  ]
+}
